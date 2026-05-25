@@ -57,7 +57,7 @@ If you break something:
 <meta name="viewport" content="width=device-width, initial-scale=1">
     
 <!-- Title can be changed to whatever the game needs -->
-<title>The National Ledger</title>
+<title>The Liquidity Grid</title>
    
 <style>
 /* =========================================
@@ -83,9 +83,9 @@ body {
     align-items: center;
 
     overflow-x: hidden;
-    color: #f3ead2;
+    color: #eef8ff;
 
-    background: url('question_background_image.png');
+    background: url('question_background_img.png');
     background-size: cover;
     background-position: center;
 }
@@ -115,10 +115,10 @@ body {
   font-size:64px;
   letter-spacing:4px;
   margin-bottom:10px;
-  color:#f4d58d;
+  color:#f8d981;
   text-align:center;
   text-shadow:
-    0 0 14px rgba(214,177,92,0.85),
+    0 0 14px rgba(56,189,248,0.85),
     0 0 34px rgba(180,83,9,0.55),
     0 3px 8px rgba(0,0,0,0.9);
 }
@@ -128,7 +128,7 @@ body {
   margin-bottom:35px;
   letter-spacing:2px;
   text-align:center;
-  color:#b98746;
+  color:#72d7ff;
   text-shadow:
     0 0 10px rgba(185,135,70,0.45),
     0 2px 6px rgba(0,0,0,0.85);
@@ -139,7 +139,7 @@ body {
   font-style:italic;
   opacity:0.88;
   text-align:center;
-  color:#d8c7a0;
+  color:#c7ecff;
   text-shadow: 0 2px 6px rgba(0,0,0,0.85);
 }
 
@@ -149,22 +149,22 @@ body {
   text-align:center;
   padding:15px;
   border-radius:10px;
-  border:1px solid rgba(214,177,92,0.45);   
-  background: rgba(12,18,18,0.88);          
-  color:#f3ead2;                             
+  border:1px solid rgba(56,189,248,0.45);   
+  background: rgba(3,10,24,0.88);          
+  color:#eef8ff;                             
   font-size:20px;
   margin-bottom:20px;
   outline:none;
   box-shadow:
-    0 0 14px rgba(214,177,92,0.28),
+    0 0 14px rgba(56,189,248,0.28),
     inset 0 0 12px rgba(0,0,0,0.65);  
 }
 
 .name-input:focus{
-  border-color: rgba(240,199,94,0.75);
+  border-color: rgba(248,217,129,0.75);
   box-shadow:
-    0 0 18px rgba(240,199,94,0.45),
-    0 0 32px rgba(100,36,24,0.35),
+    0 0 18px rgba(248,217,129,0.45),
+    0 0 32px rgba(14,116,144,0.35),
     inset 0 0 12px rgba(0,0,0,0.75);
 }
 
@@ -175,9 +175,9 @@ body {
 
 .secondary-start-btn{
   margin-top: 10px;
-  background: linear-gradient(180deg, #2f4f43, #11100d);
-  border-color: rgba(240,199,94,0.62);
-  color: #f4d58d;
+  background: linear-gradient(180deg, #0b3b5a, #04101f);
+  border-color: rgba(248,217,129,0.62);
+  color: #f8d981;
 }
 	
 #emailInput::placeholder,
@@ -202,20 +202,20 @@ body {
     text-align: center;
 
     background: radial-gradient(circle at center,
-        rgba(42,74,64,0.34) 0%,
-        rgba(18,24,24,0.92) 52%,
-        rgba(4,5,5,0.98) 100%);
+        rgba(14,116,144,0.34) 0%,
+        rgba(3,12,28,0.92) 52%,
+        rgba(2,6,23,0.98) 100%);
 
     backdrop-filter: blur(6px);
     border-radius: 14px;
     box-sizing: border-box;
 
     box-shadow:
-        0 0 24px rgba(214,177,92,0.24),
-        0 0 70px rgba(88,28,24,0.28),
+        0 0 24px rgba(56,189,248,0.24),
+        0 0 70px rgba(8,47,73,0.28),
         inset 0 0 38px rgba(0,0,0,0.72);
 
-    border: 1px solid rgba(214,177,92,0.34);
+    border: 1px solid rgba(56,189,248,0.34);
     animation: torchFlicker 6s infinite;
     transition: box-shadow .3s ease, border-color .3s ease;
     position: relative;
@@ -223,10 +223,10 @@ body {
 
 /* Boss state styling — triggered during boss fights (DO NOT REMOVE) */
 #gameBox.boss-mode {
-    border: 2px solid #d6b15c;
+    border: 2px solid #38bdf8;
     box-shadow:
-        0 0 32px rgba(214,177,92,0.58),
-        0 0 64px rgba(100,36,24,0.48),
+        0 0 32px rgba(56,189,248,0.58),
+        0 0 64px rgba(14,116,144,0.48),
         inset 0 0 42px rgba(0,0,0,0.78);
 }
 
@@ -237,33 +237,33 @@ body {
     pointer-events: none;
 }
 
-/* Tier 1 — Registrar of False Measures */
+/* Tier 1 — Reserve Custodian */
 .boss10 .boss-icon{
     filter:
-        drop-shadow(0 0 6px rgba(214,177,92,0.85))
-        drop-shadow(0 0 12px rgba(65,95,78,0.55));
+        drop-shadow(0 0 6px rgba(56,189,248,0.85))
+        drop-shadow(0 0 12px rgba(37,99,235,0.55));
 }
 
-/* Tier 2 — Warden of Labor Flows */
+/* Tier 2 — Vault Warden */
 .boss20 .boss-icon{
     filter:
-        drop-shadow(0 0 8px rgba(196,106,58,0.9))
+        drop-shadow(0 0 8px rgba(96,165,250,0.9))
         drop-shadow(0 0 16px rgba(99,35,24,0.65));
 }
 
-/* Tier 3 — Comptroller of Equilibrium */
+/* Tier 3 — Inflation Wraith */
 .boss30 .boss-icon{
     filter:
-        drop-shadow(0 0 10px rgba(240,199,94,1))
-        drop-shadow(0 0 24px rgba(127,29,29,0.85));
+        drop-shadow(0 0 10px rgba(248,217,129,1))
+        drop-shadow(0 0 24px rgba(14,165,233,0.85));
 }
 
 /* Damage effect when boss/player is hit (visual feedback) */
 .hit {
     box-shadow:
-        0 0 60px rgba(127,29,29,0.95),
-        0 0 28px rgba(240,199,94,0.35),
-        inset 0 0 42px rgba(88,28,24,0.85) !important;
+        0 0 60px rgba(14,165,233,0.95),
+        0 0 28px rgba(248,217,129,0.35),
+        inset 0 0 42px rgba(8,47,73,0.85) !important;
     animation: hitshake 0.4s ease;
 }
 
@@ -275,8 +275,8 @@ body {
     font-size: 11px;
     opacity: 0.48;
     font-style: italic;
-    color: #d8c7a0;
-    text-shadow: 0 0 6px rgba(214,177,92,0.35);
+    color: #c7ecff;
+    text-shadow: 0 0 6px rgba(56,189,248,0.35);
 }
 
 /* Adds a graph box for questions with graphs */
@@ -291,9 +291,9 @@ body {
   width: 420px;
   height: auto;
   border-radius: 10px;
-  border: 1px solid rgba(214,177,92,0.22);
+  border: 1px solid rgba(56,189,248,0.22);
   box-shadow:
-    0 0 14px rgba(214,177,92,0.16),
+    0 0 14px rgba(56,189,248,0.16),
     0 0 28px rgba(0,0,0,0.65);
 }
 
@@ -304,7 +304,7 @@ body {
 h2 {
     text-shadow:
         0 0 10px rgba(244,213,141,0.24),
-        0 0 20px rgba(214,177,92,0.22),
+        0 0 20px rgba(56,189,248,0.22),
         0 2px 6px rgba(0,0,0,0.85);
     margin-bottom: 5px;
 }
@@ -315,10 +315,10 @@ h2 {
     line-height: 1.4;
     font-weight: 600;
     margin: 14px 0;
-    color: #f3ead2;
+    color: #eef8ff;
     text-shadow:
         0 2px 5px rgba(0,0,0,0.85),
-        0 0 8px rgba(214,177,92,0.12);
+        0 0 8px rgba(56,189,248,0.12);
 }
 
 /* Boss/summary title — high emphasis text */
@@ -327,10 +327,10 @@ h2 {
     font-weight: bold;
     margin-bottom: 15px;
     display: block;
-    color: #f4d58d;
+    color: #f8d981;
     text-shadow:
-        0 0 10px rgba(240,199,94,0.62),
-        0 0 26px rgba(127,29,29,0.42),
+        0 0 10px rgba(248,217,129,0.62),
+        0 0 26px rgba(14,165,233,0.42),
         0 3px 8px rgba(0,0,0,0.9);
 }
 
@@ -342,7 +342,7 @@ h2 {
     text-transform: uppercase;
     margin-bottom: 15px;
     text-shadow:
-        0 0 8px rgba(214,177,92,0.18),
+        0 0 8px rgba(56,189,248,0.18),
         0 2px 5px rgba(0,0,0,0.85);
 }
 
@@ -351,51 +351,51 @@ h2 {
     font-style: normal;
     line-height: 1.5;
     font-size: 24px;
-    border-left: 3px solid #8a3a24;
+    border-left: 3px solid #0ea5e9;
     padding-left: 15px;
     margin: 20px 0;
     text-align: left;
-    color: #f3ead2;
-    box-shadow: -4px 0 12px rgba(127,29,29,0.34);
+    color: #eef8ff;
+    box-shadow: -4px 0 12px rgba(14,165,233,0.34);
     text-shadow: 0 2px 5px rgba(0,0,0,0.8);
 }
 
 /* Optional hint display (calculation or guidance) */
 .hint-box {
     font-size: 13px;
-    color: #d6b15c;
+    color: #38bdf8;
     margin-top: 15px;
     opacity: 0.82;
     height: 18px;
-    text-shadow: 0 0 6px rgba(214,177,92,0.25);
+    text-shadow: 0 0 6px rgba(56,189,248,0.25);
 }
     
 /* Temporary feedback text (auto fades out) */
 .fade-out-text {
     animation: fadeOut 5s forwards;
     font-weight: bold;
-    color: #f0c75e;
+    color: #f8d981;
     text-shadow:
-        0 0 8px rgba(240,199,94,0.55),
+        0 0 8px rgba(248,217,129,0.55),
         0 2px 5px rgba(0,0,0,0.85);
 }
 
-/* Add styling to Auditor text */
+/* Add styling to Reserve Banker text */
 #message {
     margin-top: 10px;
     font-style: italic;
     letter-spacing: 0.5px;
     text-align: center;
-    color: #d8c7a0;
+    color: #c7ecff;
     opacity: 0.9;
     text-shadow:
-        0 0 7px rgba(214,177,92,0.18),
+        0 0 7px rgba(56,189,248,0.18),
         0 2px 5px rgba(0,0,0,0.85);
 }
 
-/* National Ledger override */
-.national-ledger #message {
-    color: #d6b15c;
+/* Liquidity Grid override */
+.liquidity-grid #message {
+    color: #38bdf8;
     font-size: 17px;
     font-style: italic;
     margin-top: 12px;
@@ -403,8 +403,8 @@ h2 {
     font-weight: 600;
     letter-spacing: 1px;
     text-shadow:
-        0 0 8px rgba(214,177,92,0.42),
-        0 0 18px rgba(100,36,24,0.25),
+        0 0 8px rgba(56,189,248,0.42),
+        0 0 18px rgba(14,116,144,0.25),
         0 2px 6px rgba(0,0,0,0.85);
 }
    
@@ -419,15 +419,15 @@ button {
     font-size: 16px;
     cursor: pointer;
 
-    background: linear-gradient(180deg, #5b3a1f, #1b1711);
-    color: #f3ead2;
+    background: linear-gradient(180deg, #12304f, #04101f);
+    color: #eef8ff;
 
-    border: 1px solid rgba(214,177,92,0.42);
+    border: 1px solid rgba(56,189,248,0.42);
     border-radius: 8px;
 
     box-shadow:
-       0 0 12px rgba(214,177,92,0.24),
-       0 0 24px rgba(88,28,24,0.18),
+       0 0 12px rgba(56,189,248,0.24),
+       0 0 24px rgba(8,47,73,0.18),
        inset 0 0 10px rgba(0,0,0,0.62);
 
     transition: all 0.15s ease;
@@ -435,12 +435,12 @@ button {
 
 /* Hover feedback — improves interactivity */
 button:hover {
-    background: linear-gradient(180deg, #7a4a25, #2a1b12);
-    border-color: rgba(240,199,94,0.7);
+    background: linear-gradient(180deg, #1d4d73, #0b2238);
+    border-color: rgba(248,217,129,0.7);
 
     box-shadow:
-        0 0 18px rgba(240,199,94,0.48),
-        0 0 34px rgba(127,29,29,0.28),
+        0 0 18px rgba(248,217,129,0.48),
+        0 0 34px rgba(14,165,233,0.28),
         inset 0 0 12px rgba(0,0,0,0.68);
 
     transform: translateY(-2px) scale(1.02);
@@ -470,28 +470,28 @@ button:active {
     margin: 0;
 
     background: linear-gradient(180deg,
-        rgba(55,70,58,0.96),
-        rgba(12,18,18,0.98));
+        rgba(11,34,56,0.96),
+        rgba(3,10,24,0.98));
 
-    color: #f3ead2;
-    border: 1px solid rgba(214,177,92,0.34);
+    color: #eef8ff;
+    border: 1px solid rgba(56,189,248,0.34);
 
     box-shadow:
-        0 0 10px rgba(214,177,92,0.16),
+        0 0 10px rgba(56,189,248,0.16),
         inset 0 0 14px rgba(0,0,0,0.7);
 }
 
 /* Answer hover — a little brighter than base */
 .answers button:hover {
     background: linear-gradient(180deg,
-        rgba(73,92,72,0.98),
-        rgba(31,40,34,0.98));
+        rgba(19,57,86,0.98),
+        rgba(8,24,42,0.98));
 
-    border-color: rgba(240,199,94,0.68);
+    border-color: rgba(248,217,129,0.68);
 
     box-shadow:
-        0 0 18px rgba(214,177,92,0.38),
-        0 0 32px rgba(65,95,78,0.22),
+        0 0 18px rgba(56,189,248,0.38),
+        0 0 32px rgba(37,99,235,0.22),
         inset 0 0 14px rgba(0,0,0,0.68);
 }
 
@@ -506,62 +506,62 @@ button:active {
     letter-spacing: 1px;
     text-transform: uppercase;
 
-    color: #f3ead2;
-    background: linear-gradient(180deg, #4a3320, #11100d);
+    color: #eef8ff;
+    background: linear-gradient(180deg, #12304f, #04101f);
 
-    border: 1px solid rgba(214,177,92,0.34);
+    border: 1px solid rgba(56,189,248,0.34);
     border-radius: 6px;
     cursor: pointer;
 
     box-shadow:
-        0 0 10px rgba(214,177,92,0.22),
+        0 0 10px rgba(56,189,248,0.22),
         inset 0 0 7px rgba(0,0,0,0.72);
 
     transition: all 0.15s ease;
 }
 
 .fullscreenBtn:hover {
-    background: linear-gradient(180deg, #6a4726, #1c1510);
-    border-color: rgba(240,199,94,0.62);
+    background: linear-gradient(180deg, #1d4d73, #0b2238);
+    border-color: rgba(248,217,129,0.62);
 
     box-shadow:
-        0 0 16px rgba(214,177,92,0.42),
+        0 0 16px rgba(56,189,248,0.42),
         inset 0 0 8px rgba(0,0,0,0.72);
 }
 
 .fullscreenBtn:active {
     transform: scale(0.95);
     box-shadow:
-        0 0 8px rgba(214,177,92,0.28),
+        0 0 8px rgba(56,189,248,0.28),
         inset 0 0 10px rgba(0,0,0,0.85);
 }
 
 .continue-btn {
-    background: linear-gradient(180deg, #8a4f25, #3a1f14);
-    color: #f3ead2;
+    background: linear-gradient(180deg, #1d4d73, #04101f);
+    color: #eef8ff;
     font-weight: bold;
 
     padding: 14px 40px;
     font-size: 18px;
     border-radius: 8px;
 
-    border: 1px solid rgba(240,199,94,0.52);
+    border: 1px solid rgba(248,217,129,0.52);
     cursor: pointer;
 
     box-shadow:
-        0 0 16px rgba(214,177,92,0.38),
-        0 0 34px rgba(127,29,29,0.28),
+        0 0 16px rgba(56,189,248,0.38),
+        0 0 34px rgba(14,165,233,0.28),
         inset 0 0 12px rgba(0,0,0,0.65);
 
     transition: all 0.15s ease;
 }
 
 .continue-btn:hover {
-    background: linear-gradient(180deg, #a7632c, #5b2a19);
+    background: linear-gradient(180deg, #24628f, #0b2238);
 
     box-shadow:
-        0 0 24px rgba(240,199,94,0.58),
-        0 0 42px rgba(127,29,29,0.36),
+        0 0 24px rgba(248,217,129,0.58),
+        0 0 42px rgba(14,165,233,0.36),
         inset 0 0 12px rgba(0,0,0,0.65);
 
     transform: scale(1.03);
@@ -570,7 +570,7 @@ button:active {
 #continueBtn:active {
     transform: scale(0.97);
     box-shadow:
-        0 0 10px rgba(214,177,92,0.28),
+        0 0 10px rgba(56,189,248,0.28),
         inset 0 0 10px rgba(0,0,0,0.75);
 }
 
@@ -584,18 +584,18 @@ button:active {
     height: 22px;
 
     background: linear-gradient(180deg,
-        rgba(12,18,18,0.95),
-        rgba(4,5,5,0.98));
+        rgba(3,10,24,0.95),
+        rgba(2,6,23,0.98));
 
     border-radius: 12px;
     margin-bottom: 20px;
     overflow: hidden;
 
-    border: 1px solid rgba(214,177,92,0.22);
+    border: 1px solid rgba(56,189,248,0.22);
 
     box-shadow:
         inset 0 0 12px rgba(0,0,0,0.82),
-        0 0 10px rgba(214,177,92,0.12);
+        0 0 10px rgba(56,189,248,0.12);
 }
     
 /* Progress fill — width controlled by JS */
@@ -604,13 +604,13 @@ button:active {
     width: 0%;
 
     background: linear-gradient(90deg,
-        #2f4f43,
-        #d6b15c,
-        #8a3a24);
+        #0b3b5a,
+        #38bdf8,
+        #0ea5e9);
 
     box-shadow:
-        0 0 12px rgba(214,177,92,0.45),
-        0 0 22px rgba(127,29,29,0.25);
+        0 0 12px rgba(56,189,248,0.45),
+        0 0 22px rgba(14,165,233,0.25);
 
     transition: width 0.4s ease;
 }
@@ -637,14 +637,14 @@ button:active {
     border-radius: 6px;
 
     background: linear-gradient(180deg,
-        rgba(22,30,28,0.72),
-        rgba(7,9,9,0.86));
+        rgba(11,34,56,0.72),
+        rgba(2,6,23,0.86));
 
-    border: 1px solid rgba(214,177,92,0.18);
+    border: 1px solid rgba(56,189,248,0.18);
 
     box-shadow:
         inset 0 0 10px rgba(0,0,0,0.72),
-        0 0 5px rgba(214,177,92,0.08);
+        0 0 5px rgba(56,189,248,0.08);
 
     transition: all 0.3s ease;
 }
@@ -652,15 +652,15 @@ button:active {
 /* Current room highlight — animated pulse */
 .maze-box.active {
     background: radial-gradient(circle,
-        rgba(214,177,92,0.48),
-        rgba(65,95,78,0.36),
-        rgba(12,18,18,0.92));
+        rgba(56,189,248,0.48),
+        rgba(37,99,235,0.36),
+        rgba(3,10,24,0.92));
 
-    border: 2px solid #f0c75e;
+    border: 2px solid #f8d981;
 
     box-shadow:
-        0 0 12px rgba(240,199,94,0.78),
-        0 0 24px rgba(214,177,92,0.48),
+        0 0 12px rgba(248,217,129,0.78),
+        0 0 24px rgba(56,189,248,0.48),
         inset 0 0 12px rgba(0,0,0,0.62);
 
     z-index: 10;
@@ -670,37 +670,37 @@ button:active {
 /* Completed tile */
 .maze-box.completed {
     background: linear-gradient(180deg,
-        rgba(65,95,78,0.62),
-        rgba(20,31,28,0.88));
+        rgba(37,99,235,0.62),
+        rgba(3,10,24,0.88));
 
-    border-color: rgba(214,177,92,0.38);
+    border-color: rgba(56,189,248,0.38);
 
     box-shadow:
-        0 0 8px rgba(214,177,92,0.28),
+        0 0 8px rgba(56,189,248,0.28),
         inset 0 0 10px rgba(0,0,0,0.7);
 }
 
 /* Boss room highlights (10, 20, 30) — visual only */
 .maze-box:nth-child(10) {
     text-shadow:
-        0 0 8px #d6b15c,
-        0 0 18px rgba(65,95,78,0.8);
+        0 0 8px #38bdf8,
+        0 0 18px rgba(37,99,235,0.8);
 }
 
 .maze-box:nth-child(20) {
     text-shadow:
-        0 0 8px #c46a3a,
-        0 0 18px rgba(127,29,29,0.75);
+        0 0 8px #60a5fa,
+        0 0 18px rgba(14,165,233,0.75);
 }
 
 .maze-box:nth-child(30) {
     text-shadow:
-        0 0 10px #f0c75e,
-        0 0 24px rgba(127,29,29,0.95),
-        0 0 34px rgba(214,177,92,0.42);
+        0 0 10px #f8d981,
+        0 0 24px rgba(14,165,233,0.95),
+        0 0 34px rgba(56,189,248,0.42);
 }
 
-/* Streak styling — National Ledger */
+/* Streak styling — Liquidity Grid */
 .streak {
     display:inline-flex;
     align-items:center;
@@ -709,7 +709,7 @@ button:active {
     letter-spacing:0.5px;
     color: rgba(243,234,210,0.94);
     text-shadow:
-        0 0 7px rgba(214,177,92,0.32),
+        0 0 7px rgba(56,189,248,0.32),
         0 2px 5px rgba(0,0,0,0.85);
 }
 
@@ -720,12 +720,12 @@ button:active {
     border-radius:50%;
 
     filter:
-        drop-shadow(0 0 8px rgba(214,177,92,0.75))
-        drop-shadow(0 0 15px rgba(100,36,24,0.52));
+        drop-shadow(0 0 8px rgba(56,189,248,0.75))
+        drop-shadow(0 0 15px rgba(14,116,144,0.52));
 
     background: radial-gradient(circle,
-        rgba(240,199,94,0.46) 0%,
-        rgba(65,95,78,0.34) 45%,
+        rgba(248,217,129,0.46) 0%,
+        rgba(37,99,235,0.34) 45%,
         transparent 72%);
 
     animation: pulseControl 2.2s ease-in-out infinite;
@@ -741,16 +741,16 @@ button:active {
     padding: 14px;
 
     background: radial-gradient(circle at center,
-        rgba(65,95,78,0.34),
-        rgba(12,18,18,0.96) 62%,
-        rgba(4,5,5,0.98));
+        rgba(37,99,235,0.34),
+        rgba(3,10,24,0.96) 62%,
+        rgba(2,6,23,0.98));
 
     border-radius: 10px;
-    border: 1px solid rgba(214,177,92,0.34);
+    border: 1px solid rgba(56,189,248,0.34);
 
     box-shadow:
-        0 0 22px rgba(214,177,92,0.28),
-        0 0 42px rgba(127,29,29,0.22),
+        0 0 22px rgba(56,189,248,0.28),
+        0 0 42px rgba(14,165,233,0.22),
         inset 0 0 28px rgba(0,0,0,0.76);
 
     text-align: center;
@@ -764,8 +764,8 @@ button:active {
 
 #artifactDrop img {
     filter:
-        drop-shadow(0 0 14px rgba(240,199,94,0.82))
-        drop-shadow(0 0 26px rgba(127,29,29,0.42));
+        drop-shadow(0 0 14px rgba(248,217,129,0.82))
+        drop-shadow(0 0 26px rgba(14,165,233,0.42));
 }
 
 /* Persistent artifact collection display (top panel) */
@@ -776,24 +776,24 @@ button:active {
     border-radius: 12px;
 
     background: radial-gradient(circle at top,
-        rgba(65,95,78,0.42),
-        rgba(12,18,18,0.96) 58%,
-        rgba(4,5,5,0.98));
+        rgba(37,99,235,0.42),
+        rgba(3,10,24,0.96) 58%,
+        rgba(2,6,23,0.98));
 
-    border: 1px solid rgba(214,177,92,0.3);
+    border: 1px solid rgba(56,189,248,0.3);
 
     box-shadow:
-        0 0 20px rgba(214,177,92,0.22),
-        0 0 38px rgba(88,28,24,0.20),
+        0 0 20px rgba(56,189,248,0.22),
+        0 0 38px rgba(8,47,73,0.20),
         inset 0 0 30px rgba(0,0,0,0.76);
 
     text-align: center;
 }
 
 #artifactVault h3 {
-    color: #f4d58d;
+    color: #f8d981;
     text-shadow:
-        0 0 10px rgba(214,177,92,0.52),
+        0 0 10px rgba(56,189,248,0.52),
         0 2px 6px rgba(0,0,0,0.85);
 }
 
@@ -850,9 +850,9 @@ button:active {
 
 .artifactSlot.unlocked img {
     filter:
-        drop-shadow(0 0 14px rgba(240,199,94,0.86))
-        drop-shadow(0 0 26px rgba(214,177,92,0.46))
-        drop-shadow(0 0 34px rgba(127,29,29,0.24));
+        drop-shadow(0 0 14px rgba(248,217,129,0.86))
+        drop-shadow(0 0 26px rgba(56,189,248,0.46))
+        drop-shadow(0 0 34px rgba(14,165,233,0.24));
 
     animation: relicPulse 2.5s ease-in-out infinite;
     backface-visibility: hidden;
@@ -860,10 +860,10 @@ button:active {
 }
 
 .artifactSlot.unlocked span {
-    color: #f3ead2;
+    color: #eef8ff;
     font-weight: 600;
     text-shadow:
-        0 0 7px rgba(214,177,92,0.38),
+        0 0 7px rgba(56,189,248,0.38),
         0 2px 5px rgba(0,0,0,0.85);
 }
 
@@ -886,25 +886,25 @@ button:active {
 }
 
 /* Boss-specific glow effects */
-.registrarGlow {
+.custodianGlow {
     filter:
-        drop-shadow(0 0 12px rgba(214,177,92,0.82))
-        drop-shadow(0 0 24px rgba(65,95,78,0.50))
+        drop-shadow(0 0 12px rgba(56,189,248,0.82))
+        drop-shadow(0 0 24px rgba(37,99,235,0.50))
         drop-shadow(0 0 34px rgba(0,0,0,0.75));
 }
 
 .wardenGlow {
     filter:
-        drop-shadow(0 0 14px rgba(196,106,58,0.88))
-        drop-shadow(0 0 28px rgba(127,29,29,0.58))
+        drop-shadow(0 0 14px rgba(96,165,250,0.88))
+        drop-shadow(0 0 28px rgba(14,165,233,0.58))
         drop-shadow(0 0 38px rgba(0,0,0,0.78));
 }
 
-.comptrollerGlow {
+.wraithGlow {
     filter:
-        drop-shadow(0 0 16px rgba(240,199,94,0.96))
-        drop-shadow(0 0 34px rgba(127,29,29,0.74))
-        drop-shadow(0 0 46px rgba(214,177,92,0.34))
+        drop-shadow(0 0 16px rgba(248,217,129,0.96))
+        drop-shadow(0 0 34px rgba(14,165,233,0.74))
+        drop-shadow(0 0 46px rgba(56,189,248,0.34))
         drop-shadow(0 0 52px rgba(0,0,0,0.82));
 }
 
@@ -919,8 +919,8 @@ button:active {
     opacity: .92;
 
     filter:
-        drop-shadow(0 0 12px rgba(240,199,94,0.68))
-        drop-shadow(0 0 24px rgba(127,29,29,0.26));
+        drop-shadow(0 0 12px rgba(248,217,129,0.68))
+        drop-shadow(0 0 24px rgba(14,165,233,0.26));
 
     display:none;
 }
@@ -946,10 +946,10 @@ button:active {
 
   background-image:
     linear-gradient(
-        rgba(4,5,5,0.22),
-        rgba(4,5,5,0.46)
+        rgba(2,6,23,0.22),
+        rgba(2,6,23,0.46)
     ),
-    url('question_background_image.png');
+    url('start screen image.png');
 
   background-size: cover;
   background-position: center;
@@ -978,8 +978,8 @@ button:active {
 
   background:
     linear-gradient(
-        rgba(4,5,5,0.64),
-        rgba(4,5,5,0.74)
+        rgba(2,6,23,0.64),
+        rgba(2,6,23,0.74)
     ),
     url('hallway1.png');
 
@@ -991,7 +991,7 @@ button:active {
   align-items: center;
   text-align: center;
 
-  color: #f3ead2;
+  color: #eef8ff;
   font-size: 26px;
 
   z-index: 200;
@@ -1012,24 +1012,24 @@ button:active {
   max-width: 600px;
 
   background: radial-gradient(circle at center,
-      rgba(65,95,78,0.30),
-      rgba(12,18,18,0.82) 58%,
-      rgba(4,5,5,0.92));
+      rgba(37,99,235,0.30),
+      rgba(3,10,24,0.82) 58%,
+      rgba(2,6,23,0.92));
 
   padding: 30px;
   border-radius: 10px;
 
-  border: 1px solid rgba(214,177,92,0.28);
+  border: 1px solid rgba(56,189,248,0.28);
 
   box-shadow:
       0 0 24px rgba(0,0,0,0.82),
-      0 0 28px rgba(214,177,92,0.18),
+      0 0 28px rgba(56,189,248,0.18),
       inset 0 0 26px rgba(0,0,0,0.72);
 
-  color: #f3ead2;
+  color: #eef8ff;
 
   text-shadow:
-      0 0 8px rgba(214,177,92,0.26),
+      0 0 8px rgba(56,189,248,0.26),
       0 2px 6px rgba(0,0,0,0.9);
 }
 
@@ -1093,32 +1093,32 @@ button:active {
   0% {
     transform: scale(1.06);
     box-shadow:
-      0 0 8px rgba(214,177,92,0.68),
+      0 0 8px rgba(56,189,248,0.68),
       inset 0 0 10px rgba(0,0,0,0.6);
   }
 
   45% {
     transform: scale(1.13);
     box-shadow:
-      0 0 18px rgba(240,199,94,0.92),
-      0 0 32px rgba(214,177,92,0.48),
-      0 0 42px rgba(65,95,78,0.24),
+      0 0 18px rgba(248,217,129,0.92),
+      0 0 32px rgba(56,189,248,0.48),
+      0 0 42px rgba(37,99,235,0.24),
       inset 0 0 12px rgba(0,0,0,0.64);
   }
 
   70% {
     transform: scale(1.09);
     box-shadow:
-      0 0 12px rgba(214,177,92,0.78),
-      0 0 24px rgba(127,29,29,0.24),
+      0 0 12px rgba(56,189,248,0.78),
+      0 0 24px rgba(14,165,233,0.24),
       inset 0 0 11px rgba(0,0,0,0.64);
   }
 
   100% {
     transform: scale(1.11);
     box-shadow:
-      0 0 15px rgba(240,199,94,0.72),
-      0 0 30px rgba(214,177,92,0.36),
+      0 0 15px rgba(248,217,129,0.72),
+      0 0 30px rgba(56,189,248,0.36),
       inset 0 0 12px rgba(0,0,0,0.68);
   }
 }
@@ -1128,16 +1128,16 @@ button:active {
   0%, 100% {
     transform: scale(1);
     text-shadow:
-      0 0 10px rgba(240,199,94,0.72),
+      0 0 10px rgba(248,217,129,0.72),
       0 2px 6px rgba(0,0,0,0.9);
   }
 
   50% {
     transform: scale(1.08);
     text-shadow:
-      0 0 24px rgba(240,199,94,0.95),
-      0 0 42px rgba(214,177,92,0.62),
-      0 0 52px rgba(127,29,29,0.36),
+      0 0 24px rgba(248,217,129,0.95),
+      0 0 42px rgba(56,189,248,0.62),
+      0 0 52px rgba(14,165,233,0.36),
       0 3px 8px rgba(0,0,0,0.9);
   }
 }
@@ -1193,17 +1193,17 @@ button:active {
   0%,100% {
     transform: scale(1.05);
     filter:
-      drop-shadow(0 0 8px rgba(214,177,92,0.66))
-      drop-shadow(0 0 18px rgba(65,95,78,0.34))
+      drop-shadow(0 0 8px rgba(56,189,248,0.66))
+      drop-shadow(0 0 18px rgba(37,99,235,0.34))
       drop-shadow(0 0 24px rgba(0,0,0,0.55));
   }
 
   50% {
     transform: scale(1.1);
     filter:
-      drop-shadow(0 0 16px rgba(240,199,94,0.92))
-      drop-shadow(0 0 30px rgba(214,177,92,0.55))
-      drop-shadow(0 0 38px rgba(127,29,29,0.24));
+      drop-shadow(0 0 16px rgba(248,217,129,0.92))
+      drop-shadow(0 0 30px rgba(56,189,248,0.55))
+      drop-shadow(0 0 38px rgba(14,165,233,0.24));
   }
 }
 
@@ -1240,11 +1240,11 @@ button:active {
 .top-title{
     font-size:22px;
     font-weight:bold;
-    color:#f4d58d;
+    color:#f8d981;
     text-align:center;
     margin-bottom:6px;
     text-shadow:
-        0 0 10px rgba(214,177,92,0.45),
+        0 0 10px rgba(56,189,248,0.45),
         0 2px 6px rgba(0,0,0,0.9);
 }
    
@@ -1281,24 +1281,24 @@ button:active {
 
     background: linear-gradient(
         180deg,
-        rgba(18,24,24,0.96),
-        rgba(4,5,5,0.98)
+        rgba(3,12,28,0.96),
+        rgba(2,6,23,0.98)
     );
 
     padding:20px;
     border-radius:16px;
 
-    border:1px solid rgba(214,177,92,0.28);
+    border:1px solid rgba(56,189,248,0.28);
 
     box-shadow:
        0 0 30px rgba(0,0,0,0.92),
-       0 0 58px rgba(214,177,92,0.16),
-       0 0 76px rgba(88,28,24,0.16),
+       0 0 58px rgba(56,189,248,0.16),
+       0 0 76px rgba(8,47,73,0.16),
        inset 0 0 42px rgba(0,0,0,0.74);
 }
    
 /* Wizard Box */
-/* Auditor display panel — fixed width, do not remove flex settings */
+/* Reserve Banker display panel — fixed width, do not remove flex settings */
 #wizardBox{
     width:160px;
     min-width:160px;
@@ -1306,7 +1306,7 @@ button:active {
 
     background: linear-gradient(
         180deg,
-        rgba(42,55,49,0.94),
+        rgba(11,34,56,0.94),
         rgba(8,10,10,0.98)
     );
 
@@ -1319,11 +1319,11 @@ button:active {
     align-items:center;    
     gap:6px;
 
-    border:1px solid rgba(214,177,92,0.26);
+    border:1px solid rgba(56,189,248,0.26);
 
     box-shadow:
         inset 0 0 26px rgba(0,0,0,0.78),
-        0 0 18px rgba(214,177,92,0.12);
+        0 0 18px rgba(56,189,248,0.12);
 }
 
 /* Wizard Name */
@@ -1331,30 +1331,30 @@ button:active {
     font-size: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #d6b15c; 
+    color: #38bdf8; 
     margin-top: 4px;
     margin-bottom: 6px;
     opacity: 0.9;
     text-align: center;
     font-weight: 600;
 
-    border-bottom: 1px solid rgba(214,177,92,0.34);
+    border-bottom: 1px solid rgba(56,189,248,0.34);
     padding-bottom: 2px;
 
     text-shadow:
-        0 0 6px rgba(214,177,92,0.48),
+        0 0 6px rgba(56,189,248,0.48),
         0 2px 5px rgba(0,0,0,0.85);
 }
 
 /* Wizard Image */
-/* Auditor visual + floating animation */
+/* Reserve Banker visual + floating animation */
 #wizardImage{
     width:100%;
     max-width:180px;
 
     filter:
-        drop-shadow(0 0 12px rgba(214,177,92,0.62))
-        drop-shadow(0 0 24px rgba(65,95,78,0.28))
+        drop-shadow(0 0 12px rgba(56,189,248,0.62))
+        drop-shadow(0 0 24px rgba(37,99,235,0.28))
         drop-shadow(0 0 30px rgba(0,0,0,0.82));
 
     animation: wizardFloat 4s ease-in-out infinite, torchFlicker 5s infinite;
@@ -1375,11 +1375,11 @@ button:active {
     width:90%;
     margin:0 auto;
 
-    border-color: rgba(240,199,94,0.72);
+    border-color: rgba(248,217,129,0.72);
 
     box-shadow:
-        0 0 34px rgba(240,199,94,0.42),
-        0 0 72px rgba(127,29,29,0.42),
+        0 0 34px rgba(248,217,129,0.42),
+        0 0 72px rgba(14,165,233,0.42),
         inset 0 0 46px rgba(0,0,0,0.82);
 }
 
@@ -1395,12 +1395,12 @@ button:active {
 .boss-mode #gameShell{
     justify-content:center;
 
-    border-color: rgba(240,199,94,0.42);
+    border-color: rgba(248,217,129,0.42);
 
     box-shadow:
        0 0 36px rgba(0,0,0,0.94),
-       0 0 64px rgba(214,177,92,0.24),
-       0 0 90px rgba(127,29,29,0.26),
+       0 0 64px rgba(56,189,248,0.24),
+       0 0 90px rgba(14,165,233,0.26),
        inset 0 0 48px rgba(0,0,0,0.78);
 }
 
@@ -1796,24 +1796,24 @@ TIP:
 
 /* =========================================
    UPGRADE: MODE SELECT, TIMED TRIAL, MODALS
-   National Ledger version
+   Liquidity Grid version
 ========================================= */
-.return-menu-btn{position:absolute;top:12px;right:12px;padding:6px 12px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#f3ead2;background:linear-gradient(180deg,#4a3320,#11100d);border:1px solid rgba(214,177,92,.34);border-radius:6px;cursor:pointer;box-shadow:0 0 10px rgba(214,177,92,.22), inset 0 0 7px rgba(0,0,0,.72);transition:all .15s ease;}
-.return-menu-btn:hover{color:#f4d58d;border-color:rgba(240,199,94,.62);transform:translateY(-1px);}
-.mode-select-screen{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;padding:30px;background:linear-gradient(rgba(4,5,5,.32),rgba(4,5,5,.78)),url('question_background_image.png');background-size:cover;background-position:center;}
-.mode-select-panel{width:min(1120px,100%);padding:28px;border-radius:20px;background:rgba(12,18,18,.88);border:1px solid rgba(214,177,92,.38);box-shadow:0 0 36px rgba(0,0,0,.82),0 0 44px rgba(214,177,92,.18),inset 0 0 36px rgba(0,0,0,.62);text-align:center;}
-.mode-title{margin:0;font-size:clamp(38px,5vw,68px);letter-spacing:4px;color:#f4d58d;text-shadow:0 0 14px rgba(214,177,92,.68),0 3px 8px rgba(0,0,0,.9);}
-.mode-subtitle{margin:8px auto 26px;color:#d8c7a0;font-size:20px;}
+.return-menu-btn{position:absolute;top:12px;right:12px;padding:6px 12px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#eef8ff;background:linear-gradient(180deg,#12304f,#04101f);border:1px solid rgba(56,189,248,.34);border-radius:6px;cursor:pointer;box-shadow:0 0 10px rgba(56,189,248,.22), inset 0 0 7px rgba(0,0,0,.72);transition:all .15s ease;}
+.return-menu-btn:hover{color:#f8d981;border-color:rgba(248,217,129,.62);transform:translateY(-1px);}
+.mode-select-screen{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;padding:30px;background:linear-gradient(rgba(2,6,23,.32),rgba(2,6,23,.78)),url('question_background_img.png');background-size:cover;background-position:center;}
+.mode-select-panel{width:min(1120px,100%);padding:28px;border-radius:20px;background:rgba(3,10,24,.88);border:1px solid rgba(56,189,248,.38);box-shadow:0 0 36px rgba(0,0,0,.82),0 0 44px rgba(56,189,248,.18),inset 0 0 36px rgba(0,0,0,.62);text-align:center;}
+.mode-title{margin:0;font-size:clamp(38px,5vw,68px);letter-spacing:4px;color:#f8d981;text-shadow:0 0 14px rgba(56,189,248,.68),0 3px 8px rgba(0,0,0,.9);}
+.mode-subtitle{margin:8px auto 26px;color:#c7ecff;font-size:20px;}
 .mode-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
-.mode-card{min-height:330px;padding:0;overflow:hidden;border-radius:18px;border:1px solid rgba(214,177,92,.30);background:rgba(12,18,18,.94);color:#f3ead2;cursor:pointer;display:flex;flex-direction:column;text-align:left;box-shadow:0 0 22px rgba(0,0,0,.68),inset 0 0 18px rgba(0,0,0,.58);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
-.mode-card:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(240,199,94,.78);box-shadow:0 0 28px rgba(214,177,92,.32),inset 0 0 18px rgba(0,0,0,.62);}
-.mode-card img{width:100%;height:220px;object-fit:cover;border-bottom:1px solid rgba(240,199,94,.22);background:linear-gradient(180deg,rgba(65,95,78,.4),rgba(4,5,5,.98));}
-.mode-card-title{display:block;padding:16px 16px 8px;font-size:21px;font-weight:700;letter-spacing:1px;color:#f4d58d;text-align:center;}
+.mode-card{min-height:330px;padding:0;overflow:hidden;border-radius:18px;border:1px solid rgba(56,189,248,.30);background:rgba(3,10,24,.94);color:#eef8ff;cursor:pointer;display:flex;flex-direction:column;text-align:left;box-shadow:0 0 22px rgba(0,0,0,.68),inset 0 0 18px rgba(0,0,0,.58);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+.mode-card:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(248,217,129,.78);box-shadow:0 0 28px rgba(56,189,248,.32),inset 0 0 18px rgba(0,0,0,.62);}
+.mode-card img{width:100%;height:220px;object-fit:cover;border-bottom:1px solid rgba(248,217,129,.22);background:linear-gradient(180deg,rgba(37,99,235,.4),rgba(2,6,23,.98));}
+.mode-card-title{display:block;padding:16px 16px 8px;font-size:21px;font-weight:700;letter-spacing:1px;color:#f8d981;text-align:center;}
 .mode-card-text{display:block;padding:6px 20px 22px;font-size:15px;line-height:1.35;color:rgba(243,234,210,.86);text-align:left;}
 .mode-back-btn{margin-top:18px;min-width:140px;}
-.timed-mode-hud{margin:8px auto 12px;padding:8px 14px;width:fit-content;border-radius:999px;align-items:center;gap:12px;background:linear-gradient(180deg,rgba(42,74,64,.75),rgba(4,5,5,.96));border:1px solid rgba(240,199,94,.48);box-shadow:0 0 16px rgba(214,177,92,.24),inset 0 0 12px rgba(0,0,0,.72);}
-.timer-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#d8c7a0;}.timer-display{font-size:22px;font-weight:700;letter-spacing:1px;color:#f4d58d;text-shadow:0 0 10px rgba(214,177,92,.62);}.timer-warning{animation:timerWarningPulse .75s ease-in-out infinite alternate;}@keyframes timerWarningPulse{from{transform:scale(1);}to{transform:scale(1.08);text-shadow:0 0 14px rgba(248,113,113,.9),0 0 24px rgba(240,199,94,.42);}}
-.game-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(4,5,5,.72);backdrop-filter:blur(6px);}.game-modal-card{width:min(540px,100%);padding:28px;border-radius:18px;background:radial-gradient(circle at top,rgba(214,177,92,.18),rgba(42,74,64,.72) 45%,rgba(4,5,5,.98));border:1px solid rgba(240,199,94,.42);box-shadow:0 0 34px rgba(0,0,0,.88),0 0 38px rgba(214,177,92,.22),inset 0 0 30px rgba(0,0,0,.72);text-align:center;}.game-modal-card h2{margin:0 0 12px;color:#f4d58d;font-size:30px;letter-spacing:2px;text-transform:uppercase;}.game-modal-card p{margin:0 0 24px;color:#f3ead2;font-size:18px;line-height:1.45;}.game-modal-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}.secondary-modal-btn{color:#f3ead2;border-color:rgba(214,177,92,.42);}
+.timed-mode-hud{margin:8px auto 12px;padding:8px 14px;width:fit-content;border-radius:999px;align-items:center;gap:12px;background:linear-gradient(180deg,rgba(14,116,144,.75),rgba(2,6,23,.96));border:1px solid rgba(248,217,129,.48);box-shadow:0 0 16px rgba(56,189,248,.24),inset 0 0 12px rgba(0,0,0,.72);}
+.timer-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#c7ecff;}.timer-display{font-size:22px;font-weight:700;letter-spacing:1px;color:#f8d981;text-shadow:0 0 10px rgba(56,189,248,.62);}.timer-warning{animation:timerWarningPulse .75s ease-in-out infinite alternate;}@keyframes timerWarningPulse{from{transform:scale(1);}to{transform:scale(1.08);text-shadow:0 0 14px rgba(248,113,113,.9),0 0 24px rgba(248,217,129,.42);}}
+.game-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(2,6,23,.72);backdrop-filter:blur(6px);}.game-modal-card{width:min(540px,100%);padding:28px;border-radius:18px;background:radial-gradient(circle at top,rgba(56,189,248,.18),rgba(14,116,144,.72) 45%,rgba(2,6,23,.98));border:1px solid rgba(248,217,129,.42);box-shadow:0 0 34px rgba(0,0,0,.88),0 0 38px rgba(56,189,248,.22),inset 0 0 30px rgba(0,0,0,.72);text-align:center;}.game-modal-card h2{margin:0 0 12px;color:#f8d981;font-size:30px;letter-spacing:2px;text-transform:uppercase;}.game-modal-card p{margin:0 0 24px;color:#eef8ff;font-size:18px;line-height:1.45;}.game-modal-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}.secondary-modal-btn{color:#eef8ff;border-color:rgba(56,189,248,.42);}
 @media(max-width:900px){.mode-grid{grid-template-columns:1fr 1fr;}}@media(max-width:560px){.mode-select-screen{padding:14px;align-items:flex-start;overflow-y:auto;}.mode-grid{grid-template-columns:1fr;}.mode-card{min-height:250px;}.mode-card img{height:145px;}}@media(max-width:768px){.fullscreenBtn,.return-menu-btn{display:none!important;}.answers{display:grid;grid-template-columns:1fr 1fr;gap:6px;}.answers button{font-size:13px;min-height:52px;padding:10px;}}
 
 </style>
@@ -1871,7 +1871,7 @@ Edit appearance freely.
 Respect structure strictly.
 
 ========================================= -->
-<body class="national-ledger">
+<body class="liquidity-grid">
 <!-- Screen reader announcements (accessibility — do not remove) -->    
   <div id="srAnnouncements"
      aria-live="assertive"
@@ -1900,12 +1900,12 @@ Respect structure strictly.
 <div id="modeSelectScreen" class="mode-select-screen" style="display:none;">
   <div class="mode-select-panel">
     <h1 class="mode-title">CHOOSE YOUR LEDGER RUN</h1>
-    <p class="mode-subtitle">Select how you want to enter The National Ledger.</p>
+    <p class="mode-subtitle">Select how you want to enter The Liquidity Grid.</p>
     <div class="mode-grid">
       <button class="mode-card" onclick="startSelectedMode('standard')"><img src="mode_standard.png" alt="" aria-hidden="true"><span class="mode-card-title">Standard Campaign</span><span class="mode-card-text">Full 30-room run with bosses, artifacts, setbacks, save status, and Realm progress.</span></button>
       <button class="mode-card" onclick="startSelectedMode('timed')"><img src="mode_timed.png" alt="" aria-hidden="true"><span class="mode-card-title">Timed Trial</span><span class="mode-card-text">Ten minutes. Correct answers advance. Misses push you back. Advance as far as you can.</span></button>
       <button class="mode-card" onclick="startSelectedMode('exam')"><img src="mode_exam.png" alt="" aria-hidden="true"><span class="mode-card-title">Exam Drill</span><span class="mode-card-text">No bosses. No artifacts. No Realm progress. Just adaptive practice.</span></button>
-      <button class="mode-card" onclick="startSelectedMode('legendary')"><img src="mode_legendary.png" alt="" aria-hidden="true"><span class="mode-card-title">Legendary Mode</span><span class="mode-card-text">Full campaign. Legendary questions. The Ledger will test you.</span></button>
+      <button class="mode-card" onclick="startSelectedMode('legendary')"><img src="mode_legendary.png" alt="" aria-hidden="true"><span class="mode-card-title">Legendary Mode</span><span class="mode-card-text">Full campaign. Legendary questions. The Grid will test you.</span></button>
     </div>
     <button class="mode-back-btn" onclick="returnToTitleScreen()">BACK</button>
   </div>
@@ -1941,7 +1941,7 @@ or simplify this section.
 
     <!-- Top panel: progress track + artifact vault -->
     <div class="top-panel">
-       <div class="top-title">The National Ledger</div>
+       <div class="top-title">The Liquidity Grid</div>
         <div id="mazeTrackContainer">
             <div id="mazeTrack"></div>
         </div>
@@ -1950,17 +1950,17 @@ or simplify this section.
         <div id="artifactVault">
             <h3>Acquired Artifacts</h3>
             <div class="vaultRow">
-                <div id="vaultSeal" class="artifactSlot">
-                    <img src="seal.png" alt="Registrar’s Seal">
-                    <span>Registrar’s Seal</span>
+                <div id="vaultReserveKey" class="artifactSlot">
+                    <img src="reserve_key.png" alt="Reserve Key">
+                    <span>Reserve Key</span>
                 </div>
-                <div id="vaultPrism" class="artifactSlot">
-                    <img src="prism.png" alt="Warden’s Prism">
-                    <span>Warden’s Prism</span>
+                <div id="vaultValuePrism" class="artifactSlot">
+                    <img src="value_prism.png" alt="Vault Prism">
+                    <span>Vault Prism</span>
                 </div>
-                <div id="vaultCrown" class="artifactSlot">
-                    <img src="crown.png" alt="Comptroller’s Crown">
-                    <span>Comptroller’s Crown</span>
+                <div id="vaultPolicyScepter" class="artifactSlot">
+                    <img src="policy_scepter.png" alt="Policy Scepter">
+                    <span>Policy Scepter</span>
                 </div>
             </div>
         </div>
@@ -1971,8 +1971,8 @@ or simplify this section.
     <div class="main-panel">
         <div id="gameShell">
             <div id="wizardBox">
-                <div id="wizardName">The Auditor</div>
-                <img src="auditor.png" id="wizardImage">
+                <div id="wizardName">The Reserve Banker</div>
+                <img src="banker.png" id="wizardImage">
             </div>
 
             <!-- GAME -->
@@ -2014,7 +2014,7 @@ or simplify this section.
 
 
 <div id="gameModal" class="game-modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="gameModalTitle">
-  <div class="game-modal-card"><h2 id="gameModalTitle">Ledger Warning</h2><p id="gameModalText"></p><div class="game-modal-actions"><button id="gameModalConfirm" class="continue-btn">Continue</button><button id="gameModalCancel" class="continue-btn secondary-modal-btn" style="display:none;">Cancel</button></div></div>
+  <div class="game-modal-card"><h2 id="gameModalTitle">Grid Warning</h2><p id="gameModalText"></p><div class="game-modal-actions"><button id="gameModalConfirm" class="continue-btn">Continue</button><button id="gameModalCancel" class="continue-btn secondary-modal-btn" style="display:none;">Cancel</button></div></div>
 </div>
 
 <!-- =========================================
@@ -2202,12 +2202,12 @@ let questionHistory = {
     legendaryBoss: [],
 };
 
-const SAVE_KEY = "nationalLedgerSave_v1";
-const REALM_MISSION_KEY = "nationalLedger";
-const REALM_STARTED_KEY = "economicRealm_nationalLedger_started";
-const REALM_COMPLETE_KEY = "economicRealm_nationalLedger_complete";
-const REALM_STATUS_KEY = "economicRealm_nationalLedger_status";
-const REALM_ROOM_KEY = "economicRealm_nationalLedger_room";
+const SAVE_KEY = "liquidityGridSave_v1";
+const REALM_MISSION_KEY = "liquidityGrid";
+const REALM_STARTED_KEY = "economicRealm_liquidityGrid_started";
+const REALM_COMPLETE_KEY = "economicRealm_liquidityGrid_complete";
+const REALM_STATUS_KEY = "economicRealm_liquidityGrid_status";
+const REALM_ROOM_KEY = "economicRealm_liquidityGrid_room";
 
 let gameMode = "standard";
 let timedModeDurationMs = 10 * 60 * 1000;
@@ -2251,9 +2251,9 @@ function saveGameState(){
         savedAt: Date.now(),
 
         artifacts: {
-            vaultSeal: localStorage.getItem("vaultSeal") === "true",
-            vaultPrism: localStorage.getItem("vaultPrism") === "true",
-            vaultCrown: localStorage.getItem("vaultCrown") === "true"
+            vaultReserveKey: localStorage.getItem("vaultReserveKey") === "true",
+            vaultValuePrism: localStorage.getItem("vaultValuePrism") === "true",
+            vaultPolicyScepter: localStorage.getItem("vaultPolicyScepter") === "true"
         }
     };
 
@@ -2304,9 +2304,9 @@ function loadSavedGame(){
         rapidGuessWarnings = Number(saveData.rapidGuessWarnings || 0);
         rapidGuessLocked = !!saveData.rapidGuessLocked;
 
-        if(saveData.artifacts?.vaultSeal) localStorage.setItem("vaultSeal", "true");
-        if(saveData.artifacts?.vaultPrism) localStorage.setItem("vaultPrism", "true");
-        if(saveData.artifacts?.vaultCrown) localStorage.setItem("vaultCrown", "true");
+        if(saveData.artifacts?.vaultReserveKey) localStorage.setItem("vaultReserveKey", "true");
+        if(saveData.artifacts?.vaultValuePrism) localStorage.setItem("vaultValuePrism", "true");
+        if(saveData.artifacts?.vaultPolicyScepter) localStorage.setItem("vaultPolicyScepter", "true");
 
         return true;
     } catch(error){
@@ -2320,21 +2320,21 @@ function clearSavedGame(){
     localStorage.removeItem(getSaveKey());
     if(modeAllowsSave()){
         localStorage.removeItem("gauntletRoom");
-        localStorage.removeItem("vaultSeal");
-        localStorage.removeItem("vaultPrism");
-        localStorage.removeItem("vaultCrown");
+        localStorage.removeItem("vaultReserveKey");
+        localStorage.removeItem("vaultValuePrism");
+        localStorage.removeItem("vaultPolicyScepter");
     }
 }
 
 function generatePseudonymFromEmail(email) {
     const titles = [
-        "Axiom", "Ledger", "Vector", "Meridian", "Signal", "Cipher",
+        "Axiom", "Grid", "Vector", "Meridian", "Signal", "Cipher",
         "Frontier", "Equity", "Oracle", "Index", "Summit", "Nexus",
         "Vault", "Prism", "Civic", "Astral", "Beacon", "Horizon"
     ];
 
     const roles = [
-        "Appraiser", "Cartographer", "Arbiter", "Custodian", "Warden", "Registrar",
+        "Appraiser", "Cartographer", "Arbiter", "Custodian", "Warden", "Reserve Custodian",
         "Archivist", "Surveyor", "Magistrate", "Keeper", "Analyst", "Mediator",
         "Steward", "Scribe", "Sentinel", "Marshal", "Seeker", "Auditor"
     ];
@@ -3422,64 +3422,64 @@ const TIMING = {
 // Do NOT remove bossHealth logic.
      
 const artifacts = {
-seal:{
-    img:"seal.png",
-    title:"Registrar’s Seal",
-    text:"The first records reconcile. GDP, income, expenditure, CPI, inflation, and real values can now be separated from false measures."
+reserveKey:{
+    img:"reserve_key.png",
+    title:"Reserve Key",
+    text:"The reserve mechanism is secured. Money, deposits, reserves, lending, and the multiplier can now be traced through the banking system."
 },
-prism:{
-    img:"prism.png",
-    title:"The Warden’s Prism",
-    text:"Growth now splits into its true sources. Productivity, capital, human capital, natural resources, technology, and policy can be read without distortion."
+valuePrism:{
+    img:"value_prism.png",
+    title:"The Vault Prism",
+    text:"Nominal signals bend into real value. Inflation, purchasing power, quantity theory, real wages, and interest-rate effects can now be separated from money illusion."
 },
-crown:{
-    img:"crown.png",
-    title:"The Comptroller’s Crown",
-    text:"The labor record is restored. Employment, unemployment, participation, job search, mismatch, policy effects, and the natural rate now balance in the ledger."
+policyScepter:{
+    img:"policy_scepter.png",
+    title:"The Policy Scepter",
+    text:"Policy transmission is restored. Money supply, liquidity preference, interest rates, aggregate demand, crowding out, and stabilization choices now move through one system."
 }
 };
 
 
 function getRecoveryLine(stage){
   if(stage === "repair"){
-    return "Recovery ledger opened. The Auditor is isolating the bad entry.";
+    return "Liquidity repair opened. The Reserve Banker is isolating the broken signal.";
   }
 
   if(stage === "bridge"){
-    return "Bridge audit active. Apply the measure before the Ledger lets you advance.";
+    return "Bridge circuit active. Apply the monetary logic before the Grid lets you advance.";
   }
 
   if(stage === "retest"){
-    return "Retest entry reopened. Same weakness. Cleaner accounting required.";
+    return "Retest node reopened. Same weakness. Cleaner monetary reasoning required.";
   }
 
   if(stage === "miss"){
-    return "The record is still unstable. Repair the weakness before advancing.";
+    return "The liquidity signal is still unstable. Repair the weakness before advancing.";
   }
 
-  return "Recovery confirmed. Return to the Ledger.";
+  return "Liquidity repair confirmed. Return to the Grid.";
 }
 
-function getNationalLedgerBossName(){
-  if(room === 10) return "Registrar of False Measures";
-  if(room === 20) return "Warden of Growth";
-  if(room === 30) return "Comptroller of Labor Records";
-  return "The National Ledger";
+function getLiquidityGridBossName(){
+  if(room === 10) return "Reserve Custodian";
+  if(room === 20) return "Vault Warden";
+  if(room === 30) return "Inflation Wraith";
+  return "The Liquidity Grid";
 }
 
-function getNationalLedgerBossLine({ isCorrect, tag, type, objective, streak, bossHealth, responseTime }){
-  const bossName = getNationalLedgerBossName();
+function getLiquidityGridBossLine({ isCorrect, tag, type, objective, streak, bossHealth, responseTime }){
+  const bossName = getLiquidityGridBossName();
 
   if(isCorrect && streak >= 5){
-    return `${bossName}: The pattern is holding. Now prove it was not luck.`;
+    return `${bossName}: The signal is holding. Now prove it was not luck.`;
   }
 
   if(isCorrect && bossHealth <= 2){
-    return `${bossName}: Clean entry. The account is cracking.`;
+    return `${bossName}: Clean signal. The node is cracking.`;
   }
 
   if(!isCorrect && responseTime < 5000){
-    return `${bossName}: Fast accounting. Bad accounting. Classic disaster.`;
+    return `${bossName}: Fast click. Bad signal. Classic disaster.`;
   }
 
 if(!isCorrect && [
@@ -3505,18 +3505,18 @@ if(!isCorrect && [
   "labor_market_policy",
   "natural_unemployment"
 ].includes(tag)){
-    return `${bossName}: The category matters. Measure it wrong and the whole ledger lies.`;
+    return `${bossName}: The monetary channel matters. Read it wrong and the whole grid lies.`;
 }
 
   if(!isCorrect && tag){
-    return `${bossName}: Weakness logged: ${tag}. The Ledger will circle back.`;
+    return `${bossName}: Weak signal logged: ${tag}. The Grid will circle back.`;
   }
 
   if(isCorrect){
-    return `${bossName}: Correct. One clean entry does not close the books.`;
+    return `${bossName}: Correct. One clean signal does not stabilize the Grid.`;
   }
 
-  return `${bossName}: The checkpoint holds. Try again.`;
+  return `${bossName}: The checkpoint holds. Hit it again.`;
 }
   
 // =============================================
@@ -3541,7 +3541,7 @@ if (savedEmail && emailInput) emailInput.value = savedEmail;
 function hasSavedGame(mode = "standard"){ return !!localStorage.getItem(`${SAVE_KEY}_${mode}`); }
 function validateAndStoreEmailForModeSelect(){
     let inputEmail = document.getElementById("emailInput").value.trim().toLowerCase();
-    if (!inputEmail) { alert("An email is required to enter the Ledger."); return false; }
+    if (!inputEmail) { alert("An email is required to enter the Grid."); return false; }
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(inputEmail)) { alert("Enter a valid email address."); return false; }
     studentEmail = inputEmail; username = generatePseudonymFromEmail(studentEmail);
@@ -3549,13 +3549,13 @@ function validateAndStoreEmailForModeSelect(){
 }
 function showModeSelect(){ if(!validateAndStoreEmailForModeSelect()) return; document.getElementById("startScreen").style.display = "none"; const modeScreen = document.getElementById("modeSelectScreen"); if(modeScreen) modeScreen.style.display = "flex"; }
 function returnToTitleScreen(){ const modeScreen = document.getElementById("modeSelectScreen"); if(modeScreen) modeScreen.style.display = "none"; document.getElementById("startScreen").style.display = "flex"; showContinueButtonIfSaved(); }
-function startSelectedMode(mode){ gameMode = mode || "standard"; localStorage.setItem("nationalLedgerCurrentMode", gameMode); const modeScreen = document.getElementById("modeSelectScreen"); if(modeScreen) modeScreen.style.display = "none"; if(gameMode === "standard"){ startGame(false); return; } resetRunStateForNewMode(); startGame(false); }
+function startSelectedMode(mode){ gameMode = mode || "standard"; localStorage.setItem("liquidityGridCurrentMode", gameMode); const modeScreen = document.getElementById("modeSelectScreen"); if(modeScreen) modeScreen.style.display = "none"; if(gameMode === "standard"){ startGame(false); return; } resetRunStateForNewMode(); startGame(false); }
 function returnToModeSelectFromRun(){ stopTimedModeClock(); document.getElementById("gameBox").style.display = "none"; document.getElementById("artifactVault").style.display = "none"; document.querySelector(".top-panel").style.display = "none"; document.getElementById("gameShell").style.display = "none"; const modeScreen = document.getElementById("modeSelectScreen"); if(modeScreen) modeScreen.style.display = "flex"; }
 function confirmReturnToModeMenu(){ showGameModal({ title:"Return to Battle Menu?", text:"Standard Campaign progress will be saved. Timed Trial and Exam Drill attempts will end.", confirmText:"Return", cancelText:"Stay", onConfirm:function(){ if(gameMode === "standard" || gameMode === "legendary") saveGameState(); if(gameMode === "timed"){ endTimedAttemptEarly(); return; } returnToModeSelectFromRun(); }}); }
 let activeModalConfirmAction = null; let activeModalCancelAction = null;
-function showGameModal({title="Ledger Warning",text="",confirmText="Continue",cancelText="",onConfirm=null,onCancel=null}={}){ const modal=document.getElementById("gameModal"),titleEl=document.getElementById("gameModalTitle"),textEl=document.getElementById("gameModalText"),confirmBtn=document.getElementById("gameModalConfirm"),cancelBtn=document.getElementById("gameModalCancel"); if(!modal||!titleEl||!textEl||!confirmBtn||!cancelBtn) return; activeModalConfirmAction=onConfirm; activeModalCancelAction=onCancel; titleEl.innerText=title; textEl.innerText=text; confirmBtn.innerText=confirmText; if(cancelText){cancelBtn.innerText=cancelText; cancelBtn.style.display="inline-block";} else cancelBtn.style.display="none"; modal.style.display="flex"; confirmBtn.onclick=function(){const action=activeModalConfirmAction; closeGameModal(); if(typeof action==="function") action();}; cancelBtn.onclick=function(){const action=activeModalCancelAction; closeGameModal(); if(typeof action==="function") action();}; }
+function showGameModal({title="Grid Warning",text="",confirmText="Continue",cancelText="",onConfirm=null,onCancel=null}={}){ const modal=document.getElementById("gameModal"),titleEl=document.getElementById("gameModalTitle"),textEl=document.getElementById("gameModalText"),confirmBtn=document.getElementById("gameModalConfirm"),cancelBtn=document.getElementById("gameModalCancel"); if(!modal||!titleEl||!textEl||!confirmBtn||!cancelBtn) return; activeModalConfirmAction=onConfirm; activeModalCancelAction=onCancel; titleEl.innerText=title; textEl.innerText=text; confirmBtn.innerText=confirmText; if(cancelText){cancelBtn.innerText=cancelText; cancelBtn.style.display="inline-block";} else cancelBtn.style.display="none"; modal.style.display="flex"; confirmBtn.onclick=function(){const action=activeModalConfirmAction; closeGameModal(); if(typeof action==="function") action();}; cancelBtn.onclick=function(){const action=activeModalCancelAction; closeGameModal(); if(typeof action==="function") action();}; }
 function closeGameModal(){ const modal=document.getElementById("gameModal"); if(modal) modal.style.display="none"; activeModalConfirmAction=null; activeModalCancelAction=null; }
-function endTimedAttemptEarly(){ stopTimedModeClock(); const accuracy=totalAttempts>0?Math.round((correctAnswers/totalAttempts)*100):0; localStorage.setItem("nationalLedgerTimedLastRoom",String(room)); localStorage.setItem("nationalLedgerTimedLastAccuracy",String(accuracy)); localStorage.setItem("nationalLedgerTimedLastAttempts",String(totalAttempts)); localStorage.setItem("nationalLedgerTimedLastStreak",String(maxStreak)); const bestRoom=Number(localStorage.getItem("nationalLedgerTimedBestRoom")||0); if(room>bestRoom) localStorage.setItem("nationalLedgerTimedBestRoom",String(room)); returnToModeSelectFromRun(); }
+function endTimedAttemptEarly(){ stopTimedModeClock(); const accuracy=totalAttempts>0?Math.round((correctAnswers/totalAttempts)*100):0; localStorage.setItem("liquidityGridTimedLastRoom",String(room)); localStorage.setItem("liquidityGridTimedLastAccuracy",String(accuracy)); localStorage.setItem("liquidityGridTimedLastAttempts",String(totalAttempts)); localStorage.setItem("liquidityGridTimedLastStreak",String(maxStreak)); const bestRoom=Number(localStorage.getItem("liquidityGridTimedBestRoom")||0); if(room>bestRoom) localStorage.setItem("liquidityGridTimedBestRoom",String(room)); returnToModeSelectFromRun(); }
 function showContinueButtonIfSaved(){ const btn=document.getElementById("continueRunBtn"); if(!btn) return; btn.style.display=hasSavedGame("standard")?"block":"none"; }
 function startNewRun(){ gameMode="standard"; clearSavedGame(); startGame(false); }
 function continueSavedRun(){ gameMode="standard"; startGame(true); }
@@ -3592,7 +3592,7 @@ function startGame(shouldResume = false) {
     let inputEmail = document.getElementById("emailInput").value.trim().toLowerCase();
 
     if (!inputEmail) {
-        alert("An email is required to enter the Ledger.");
+        alert("An email is required to enter the Grid.");
         return;
     }
 
@@ -3616,7 +3616,7 @@ function startGame(shouldResume = false) {
     localStorage.setItem("gauntletEmail", studentEmail);
     localStorage.setItem("gauntletUser", username);
     localStorage.setItem("gauntletRunID", runID);
-    localStorage.setItem("nationalLedgerCurrentMode", gameMode);
+    localStorage.setItem("liquidityGridCurrentMode", gameMode);
     if(modeAllowsRealmProgress()){
         localStorage.setItem(REALM_STARTED_KEY, "true");
         localStorage.setItem(REALM_STATUS_KEY, "contested");
@@ -3625,7 +3625,7 @@ function startGame(shouldResume = false) {
 
     sendGameData({
         runID: runID,
-        game: "The National Ledger",
+        game: "The Liquidity Grid",
         event: hasSavedRun ? "resume" : "start",
         user: username,
         email: studentEmail,
@@ -3657,10 +3657,10 @@ function startGame(shouldResume = false) {
 
         localStorage.removeItem("gauntletRoom");
 
-        // National Ledger artifact keys — keep these matched to your actual National Ledger IDs.
-        localStorage.removeItem("vaultSeal");
-        localStorage.removeItem("vaultPrism");
-        localStorage.removeItem("vaultCrown");
+        // Liquidity Grid artifact keys — keep these matched to your actual Liquidity Grid IDs.
+        localStorage.removeItem("vaultReserveKey");
+        localStorage.removeItem("vaultValuePrism");
+        localStorage.removeItem("vaultPolicyScepter");
         localStorage.removeItem(REALM_COMPLETE_KEY);
         localStorage.setItem(REALM_STATUS_KEY, "contested");
         localStorage.setItem(REALM_ROOM_KEY, "1");
@@ -3698,16 +3698,16 @@ function startGame(shouldResume = false) {
    // IMPORTANT:
    // localStorage keys must match the HTML element ids.
    // =============================================    
-    if(localStorage.getItem("vaultSeal")){
-        document.getElementById("vaultSeal").classList.add("unlocked");
+    if(localStorage.getItem("vaultReserveKey")){
+        document.getElementById("vaultReserveKey").classList.add("unlocked");
     }
 
-    if(localStorage.getItem("vaultPrism")){
-        document.getElementById("vaultPrism").classList.add("unlocked");
+    if(localStorage.getItem("vaultValuePrism")){
+        document.getElementById("vaultValuePrism").classList.add("unlocked");
     }    
 
-    if(localStorage.getItem("vaultCrown")){
-        document.getElementById("vaultCrown").classList.add("unlocked");
+    if(localStorage.getItem("vaultPolicyScepter")){
+        document.getElementById("vaultPolicyScepter").classList.add("unlocked");
     }
   
 // Start game loop: music + timer + first question
@@ -3721,7 +3721,7 @@ function resetRunStateForNewMode(){
     room=1; bossHealth=3; bossPool=[]; bossCheckpoint=1; correctAnswers=0; totalAttempts=0; maxStreak=0; streak=0; conceptMemory={}; masteryState={byTag:{},byObjective:{},bySkill:{},recent:[]}; adaptiveMode="support"; tagHistory=[]; lastTypes=[]; rapidGuessHistory=[]; rapidGuessWarnings=0; rapidGuessLocked=false; timedHighestRoom=1; timedSetbacks=0; resetRemediationState();
     questionHistory={easy:[],medium:[],hard:[],elite:[],legendary:[],calculation:[],easyBoss:[],mediumBoss:[],finalBoss:[],legendaryBoss:[]};
     usedQuestions={easy:[],medium:[],hard:[],elite:[],legendary:[],easyBoss:[],mediumBoss:[],finalBoss:[],legendaryBoss:[]};
-    if(gameMode!=="standard"){localStorage.removeItem("gauntletRoom");localStorage.removeItem("vaultSeal");localStorage.removeItem("vaultPrism");localStorage.removeItem("vaultCrown");}
+    if(gameMode!=="standard"){localStorage.removeItem("gauntletRoom");localStorage.removeItem("vaultReserveKey");localStorage.removeItem("vaultValuePrism");localStorage.removeItem("vaultPolicyScepter");}
 }
 function startTimedModeClock(){
     timedModeEndTime = Date.now() + timedModeDurationMs;
@@ -3783,21 +3783,21 @@ function endTimedModeRun(){
         ? Math.round((correctAnswers / totalAttempts) * 100)
         : 0;
 
-    const bestRoom = Number(localStorage.getItem("nationalLedgerTimedBestRoom") || 0);
+    const bestRoom = Number(localStorage.getItem("liquidityGridTimedBestRoom") || 0);
     if(timedHighestRoom > bestRoom){
-        localStorage.setItem("nationalLedgerTimedBestRoom", String(timedHighestRoom));
+        localStorage.setItem("liquidityGridTimedBestRoom", String(timedHighestRoom));
     }
 
-    localStorage.setItem("nationalLedgerTimedLastRoom", String(room));
-    localStorage.setItem("nationalLedgerTimedLastHighestRoom", String(timedHighestRoom));
-    localStorage.setItem("nationalLedgerTimedLastAccuracy", String(accuracy));
-    localStorage.setItem("nationalLedgerTimedLastAttempts", String(totalAttempts));
-    localStorage.setItem("nationalLedgerTimedLastStreak", String(maxStreak));
-    localStorage.setItem("nationalLedgerTimedLastSetbacks", String(timedSetbacks));
+    localStorage.setItem("liquidityGridTimedLastRoom", String(room));
+    localStorage.setItem("liquidityGridTimedLastHighestRoom", String(timedHighestRoom));
+    localStorage.setItem("liquidityGridTimedLastAccuracy", String(accuracy));
+    localStorage.setItem("liquidityGridTimedLastAttempts", String(totalAttempts));
+    localStorage.setItem("liquidityGridTimedLastStreak", String(maxStreak));
+    localStorage.setItem("liquidityGridTimedLastSetbacks", String(timedSetbacks));
 
     sendGameData({
         runID: runID,
-        game: "The National Ledger",
+        game: "The Liquidity Grid",
         event: "timed_complete",
         user: username,
         email: studentEmail,
@@ -3837,10 +3837,10 @@ function endTimedModeRun(){
 
     document.getElementById("answers").innerHTML = `
         <button class="continue-btn" onclick="restartTimedMode()">Retry Timed Trial</button>
-        <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Ledger Run</button>
+        <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Grid Run</button>
     `;
 
-    document.getElementById("message").innerText = "The trial ends. The Ledger records the result.";
+    document.getElementById("message").innerText = "The trial ends. The Grid records the result.";
 }
 
 function restartTimedMode(){
@@ -3886,13 +3886,13 @@ document.getElementById("emailInput").addEventListener("keypress", function(even
 // This affects UI only, not game logic.
 // =============================================
 function getAreaName(r) {
-    if (r <= 9) return "The Chamber of Measures";
-    if (r === 10) return "The Registrar’s Gate";
-    if (r <= 19) return "The Labor Works";
-    if (r === 20) return "The Warden’s Station";
-    if (r <= 25) return "The Equilibrium Floor";
-    if (r <= 29) return "The Adjustment Corridor";
-    return "The Comptroller’s Tribunal";
+    if (r <= 9) return "Reserve Vault Approach";
+    if (r === 10) return "The Reserve Custodian’s Gate";
+    if (r <= 19) return "Money Creation Grid";
+    if (r === 20) return "The Vault Warden’s Station";
+    if (r <= 25) return "Inflation Signal Corridor";
+    if (r <= 29) return "Policy Transmission Floor";
+    return "The Inflation Wraith’s Tribunal";
 }
 
 // =============================================
@@ -3917,14 +3917,14 @@ function getAreaName(r) {
 // =============================================
 const wizardFeedback = {
     correct: [
-        "The ledger accepts this entry.",
+        "The grid accepts this entry.",
         "Reconciled.",
         "The account holds.",
         "Your reasoning survives inspection.",
         "Approved. Proceed."
     ],
     wrong: [
-        "The ledger rejects this entry.",
+        "The grid rejects this entry.",
         "Discrepancy detected.",
         "Your calculation fails inspection.",
         "The books do not balance.",
@@ -3950,7 +3950,7 @@ const wizardLines = {
         "Most entries fail here.",
         "The wording is not your ally.",
         "Audit the assumption.",
-        "Look again before the ledger closes."
+        "Look again before the grid closes."
     ],
     calculation: [
         "Calculate before you answer.",
@@ -4109,7 +4109,7 @@ legendary: [
 ],
 legendaryBoss: [
 { id:9100, difficulty:"legendaryBoss", conceptCluster:"gdp_components", primarySkill:"imports_exports_nx", secondarySkills:["gdp_components_identity"], repairSkill:"imports_exports_nx", commonError:"Adding imports instead of subtracting them through net exports.", q:"Boss Audit: C = $12T, I = $3T, G = $4T, exports = $2T, imports = $3T. Households then buy $1T more imported goods and no domestic production changes. What is final GDP?", options:["$18T","$19T","$17T","$20T"], a:0, tag:"gdp_components", type:"multi-step", objective:"LO24.3", feedback:"Initial GDP = 12 + 3 + 4 + (2 - 3) = 18. Imported consumption raises C and lowers NX equally, so GDP stays 18." },
-{ id:9101, difficulty:"legendaryBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"Boss Audit: A firm produces $400M, sells $340M, and adds $60M to inventory. Income paid to workers, lenders, landlords, and owners totals $400M. Which answer survives the ledger?", options:["GDP is $400M by both expenditure and income logic","GDP is $340M because only sold goods count","GDP is $460M because inventory adds to sales twice","GDP is $60M because only unsold goods are investment"], a:0, tag:"gdp_income_expenditure", type:"multi-step", objective:"LO24.1", feedback:"Inventory investment counts, so expenditure GDP is $400M. Income generated is also $400M." },
+{ id:9101, difficulty:"legendaryBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"Boss Audit: A firm produces $400M, sells $340M, and adds $60M to inventory. Income paid to workers, lenders, landlords, and owners totals $400M. Which answer survives the grid?", options:["GDP is $400M by both expenditure and income logic","GDP is $340M because only sold goods count","GDP is $460M because inventory adds to sales twice","GDP is $60M because only unsold goods are investment"], a:0, tag:"gdp_income_expenditure", type:"multi-step", objective:"LO24.1", feedback:"Inventory investment counts, so expenditure GDP is $400M. Income generated is also $400M." },
 { id:9102, difficulty:"legendaryBoss", conceptCluster:"gdp_measurement", primarySkill:"gdp_counting_rules", secondarySkills:["intermediate_vs_final_goods"], repairSkill:"gdp_counting_rules", commonError:"Counting transactions that are not current domestic production, such as used goods, financial assets, or foreign production.", q:"Boss Audit: A U.S. company produces $700M abroad, while a foreign company produces $600M inside the U.S. What is counted in U.S. GDP?", options:["$600M","$700M","$1.3B","$100M"], a:0, tag:"gdp_definition", type:"trap", objective:"LO24.2", feedback:"U.S. GDP counts production inside U.S. borders, regardless of ownership." },
 { id:9103, difficulty:"legendaryBoss", conceptCluster:"real_nominal_gdp", primarySkill:"gdp_deflator", secondarySkills:["nominal_vs_real_gdp"], repairSkill:"gdp_deflator", commonError:"Forgetting that the GDP deflator compares nominal GDP to real GDP.", q:"Boss Audit: Nominal GDP rises from $40T to $48T, and the GDP deflator rises from 125 to 150. What happens to real GDP?", options:["It is unchanged at $32T","It rises from $32T to $48T","It rises from $40T to $48T","It falls from $32T to $30T"], a:0, tag:"real_nominal_gdp", type:"calculation", objective:"LO24.4", feedback:"Initial real GDP = 40/1.25 = 32. New real GDP = 48/1.50 = 32." },
 { id:9104, difficulty:"legendaryBoss", conceptCluster:"real_nominal_gdp", primarySkill:"gdp_deflator", secondarySkills:["nominal_vs_real_gdp"], repairSkill:"gdp_deflator", commonError:"Forgetting that the GDP deflator compares nominal GDP to real GDP.", q:"Boss Audit: In year 1, an economy produces 10 units at $50. In year 2, it produces 12 units at $70. Using year 1 as base, what are year 2 nominal GDP, real GDP, and deflator?", options:["$840, $600, 140","$600, $840, 71.4","$840, $840, 100","$500, $600, 120"], a:0, tag:"real_nominal_gdp", type:"multi-step", objective:"LO24.4", feedback:"Nominal = 12 x 70 = 840. Real = 12 x 50 = 600. Deflator = 840/600 x 100 = 140." },
@@ -4140,69 +4140,69 @@ legendaryBoss: [
 { id:9129, difficulty:"legendaryBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"Boss Audit: Unemployment insurance rises in generosity while job-search assistance also improves. What is the best prediction?", options:["The net effect on frictional unemployment is ambiguous because incentives and matching efficiency move in opposite directions","Frictional unemployment must rise","Frictional unemployment must fall","Only cyclical unemployment changes"], a:0, tag:"labor_market_policy", type:"integration", objective:"LO29.4", feedback:"More generous benefits may lengthen search, while better matching may shorten it." },
 { id:9130, difficulty:"legendaryBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"Boss Audit: Actual unemployment is 7.8%, natural unemployment is 4.6%. What is cyclical unemployment?", options:["3.2 percentage points","4.6 percentage points","7.8 percentage points","12.4 percentage points"], a:0, tag:"natural_unemployment", type:"calculation", objective:"LO29.5", feedback:"Cyclical unemployment = actual unemployment - natural unemployment = 7.8 - 4.6 = 3.2 percentage points." },
 { id:9131, difficulty:"legendaryBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"Boss Audit: The economy is expanding, but unemployment remains because workers are switching jobs and some skills no longer match available openings. What explains this?", options:["The natural rate remains due to frictional and structural unemployment","Cyclical unemployment must be rising","The unemployment rate must be zero in expansions","Discouraged workers are always employed"], a:0, tag:"natural_unemployment", type:"interpretation", objective:"LO29.5", feedback:"Even in expansions, search and mismatch keep the natural rate positive." },
-{ id:9132, difficulty:"legendaryBoss", conceptCluster:"macro_integration", primarySkill:"integrated_macro_review", secondarySkills:["inflation_adjustment", "labor_force_calculation", "nominal_vs_real_gdp"], repairSkill:"integrated_macro_review", commonError:"Failing to connect inflation, real values, GDP measurement, and labor-market classification at the same time.", q:"Final Ledger Boss: Nominal wages rise 6%, CPI rises 8%, unemployment falls because many jobless workers stop searching, and real GDP rises slower than nominal GDP. Which combined interpretation is strongest?", options:["Real wages fell, unemployment data may overstate improvement, and some nominal GDP growth reflects inflation","Real wages rose, unemployment definitely improved, and all GDP growth was real","CPI is irrelevant to wages, and unemployment falling always means more jobs","Nominal GDP below real GDP means deflation"], a:0, tag:"macro_integration", type:"integration", objective:"integrated_macro_review", feedback:"This combines inflation adjustment, labor-force classification, and nominal versus real GDP interpretation. Brutal, but fair." }
+{ id:9132, difficulty:"legendaryBoss", conceptCluster:"macro_integration", primarySkill:"integrated_macro_review", secondarySkills:["inflation_adjustment", "labor_force_calculation", "nominal_vs_real_gdp"], repairSkill:"integrated_macro_review", commonError:"Failing to connect inflation, real values, GDP measurement, and labor-market classification at the same time.", q:"Final Grid Boss: Nominal wages rise 6%, CPI rises 8%, unemployment falls because many jobless workers stop searching, and real GDP rises slower than nominal GDP. Which combined interpretation is strongest?", options:["Real wages fell, unemployment data may overstate improvement, and some nominal GDP growth reflects inflation","Real wages rose, unemployment definitely improved, and all GDP growth was real","CPI is irrelevant to wages, and unemployment falling always means more jobs","Nominal GDP below real GDP means deflation"], a:0, tag:"macro_integration", type:"integration", objective:"integrated_macro_review", feedback:"This combines inflation adjustment, labor-force classification, and nominal versus real GDP interpretation. Brutal, but fair." }
 ],
 
 easyBoss: [
 // Set 1: GDP as income and expenditure
-{ id:2000, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"The Registrar opens the ledger and asks: why can GDP be measured as both total income and total expenditure?", options:["Because every dollar spent by a buyer becomes income for a seller","Because income is always higher than spending","Because exports are never counted","Because prices do not affect GDP"], a:0, tag:"gdp_income_expenditure", type:"definition", objective:"LO24.1", boss:"Registrar", feedback:"GDP can be measured either way because one person's spending becomes another person's income." },
-{ id:2001, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"A household spends $500 at a local repair shop. In the income-expenditure flow, what happens to the repair shop?", options:["It receives $500 in income","It loses $500 in income","Its income is unchanged","Only government income changes"], a:0, tag:"gdp_income_expenditure", type:"interpretation", objective:"LO24.1", boss:"Registrar", feedback:"The household's expenditure becomes income for the repair shop." },
-{ id:2002, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"If total expenditure on final goods and services is $18 trillion, what should total income equal in the basic GDP identity?", options:["$18 trillion","$9 trillion","$36 trillion","It cannot be compared"], a:0, tag:"gdp_income_expenditure", type:"calculation", objective:"LO24.1", boss:"Registrar", feedback:"Total income equals total expenditure, so both are $18 trillion." },
+{ id:2000, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"The Reserve Custodian opens the grid and asks: why can GDP be measured as both total income and total expenditure?", options:["Because every dollar spent by a buyer becomes income for a seller","Because income is always higher than spending","Because exports are never counted","Because prices do not affect GDP"], a:0, tag:"gdp_income_expenditure", type:"definition", objective:"LO24.1", boss:"Reserve Custodian", feedback:"GDP can be measured either way because one person's spending becomes another person's income." },
+{ id:2001, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"A household spends $500 at a local repair shop. In the income-expenditure flow, what happens to the repair shop?", options:["It receives $500 in income","It loses $500 in income","Its income is unchanged","Only government income changes"], a:0, tag:"gdp_income_expenditure", type:"interpretation", objective:"LO24.1", boss:"Reserve Custodian", feedback:"The household's expenditure becomes income for the repair shop." },
+{ id:2002, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"income_expenditure_identity", secondarySkills:["gdp_counting_rules"], repairSkill:"income_expenditure_identity", commonError:"Treating spending and income as unrelated totals instead of two sides of the same transaction.", q:"If total expenditure on final goods and services is $18 trillion, what should total income equal in the basic GDP identity?", options:["$18 trillion","$9 trillion","$36 trillion","It cannot be compared"], a:0, tag:"gdp_income_expenditure", type:"calculation", objective:"LO24.1", boss:"Reserve Custodian", feedback:"Total income equals total expenditure, so both are $18 trillion." },
 
 // Set 2: What counts in GDP
-{ id:2003, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"gdp_counting_rules", secondarySkills:["intermediate_vs_final_goods"], repairSkill:"gdp_counting_rules", commonError:"Counting transactions that are not current domestic production, such as used goods, financial assets, or foreign production.", q:"The Registrar asks which item belongs in GDP. Which one counts?", options:["A newly produced washing machine sold to a household","A used washing machine resold online","A stock purchase","A gift from one household to another"], a:0, tag:"gdp_definition", type:"definition", objective:"LO24.2", boss:"Registrar", feedback:"GDP counts newly produced final goods and services." },
-{ id:2004, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"gdp_counting_rules", secondarySkills:["intermediate_vs_final_goods"], repairSkill:"gdp_counting_rules", commonError:"Counting transactions that are not current domestic production, such as used goods, financial assets, or foreign production.", q:"Why is a used car sale usually not counted in current GDP?", options:["The car was counted when it was first produced","Cars are never counted in GDP","Only government purchases count","Used goods are counted twice"], a:0, tag:"gdp_definition", type:"interpretation", objective:"LO24.2", boss:"Registrar", feedback:"Used goods are not current production, so they are not counted again." },
-{ id:2005, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"intermediate_vs_final_goods", secondarySkills:["gdp_counting_rules"], repairSkill:"intermediate_vs_final_goods", commonError:"Double-counting intermediate goods instead of counting final value or value added.", q:"A bakery buys flour for $40 and sells bread to consumers for $100. How much is counted in GDP from the final bread sale?", options:["$100","$40","$140","$60"], a:0, tag:"gdp_definition", type:"calculation", objective:"LO24.2", boss:"Registrar", feedback:"GDP counts the value of the final good, which is the $100 bread sale." },
+{ id:2003, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"gdp_counting_rules", secondarySkills:["intermediate_vs_final_goods"], repairSkill:"gdp_counting_rules", commonError:"Counting transactions that are not current domestic production, such as used goods, financial assets, or foreign production.", q:"The Reserve Custodian asks which item belongs in GDP. Which one counts?", options:["A newly produced washing machine sold to a household","A used washing machine resold online","A stock purchase","A gift from one household to another"], a:0, tag:"gdp_definition", type:"definition", objective:"LO24.2", boss:"Reserve Custodian", feedback:"GDP counts newly produced final goods and services." },
+{ id:2004, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"gdp_counting_rules", secondarySkills:["intermediate_vs_final_goods"], repairSkill:"gdp_counting_rules", commonError:"Counting transactions that are not current domestic production, such as used goods, financial assets, or foreign production.", q:"Why is a used car sale usually not counted in current GDP?", options:["The car was counted when it was first produced","Cars are never counted in GDP","Only government purchases count","Used goods are counted twice"], a:0, tag:"gdp_definition", type:"interpretation", objective:"LO24.2", boss:"Reserve Custodian", feedback:"Used goods are not current production, so they are not counted again." },
+{ id:2005, difficulty:"easyBoss", conceptCluster:"gdp_measurement", primarySkill:"intermediate_vs_final_goods", secondarySkills:["gdp_counting_rules"], repairSkill:"intermediate_vs_final_goods", commonError:"Double-counting intermediate goods instead of counting final value or value added.", q:"A bakery buys flour for $40 and sells bread to consumers for $100. How much is counted in GDP from the final bread sale?", options:["$100","$40","$140","$60"], a:0, tag:"gdp_definition", type:"calculation", objective:"LO24.2", boss:"Reserve Custodian", feedback:"GDP counts the value of the final good, which is the $100 bread sale." },
 
 // Set 3: GDP components
-{ id:2006, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"gdp_components_identity", secondarySkills:["imports_exports_nx", "inventory_investment"], repairSkill:"gdp_components_identity", commonError:"Mixing up the GDP expenditure components or forgetting the C + I + G + NX identity.", q:"The Registrar points to the spending ledger. Which formula correctly gives GDP?", options:["Y = C + I + G + NX","Y = C - I + G - NX","Y = wages + CPI + imports","Y = inflation + unemployment"], a:0, tag:"gdp_components", type:"definition", objective:"LO24.3", boss:"Registrar", feedback:"GDP expenditure equals consumption plus investment plus government purchases plus net exports." },
-{ id:2007, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"gdp_components_identity", secondarySkills:["imports_exports_nx", "inventory_investment"], repairSkill:"gdp_components_identity", commonError:"Mixing up the GDP expenditure components or forgetting the C + I + G + NX identity.", q:"A firm buys a new machine to produce more goods. Which GDP component does this enter?", options:["Investment","Consumption","Government purchases","Net exports"], a:0, tag:"gdp_components", type:"interpretation", objective:"LO24.3", boss:"Registrar", feedback:"Business purchases of new capital goods are investment." },
-{ id:2008, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"gdp_components_identity", secondarySkills:["imports_exports_nx", "inventory_investment"], repairSkill:"gdp_components_identity", commonError:"Mixing up the GDP expenditure components or forgetting the C + I + G + NX identity.", q:"If C = 8, I = 2, G = 3, and NX = -1, what is GDP?", options:["12","14","10","8"], a:0, tag:"gdp_components", type:"calculation", objective:"LO24.3", boss:"Registrar", feedback:"GDP = 8 + 2 + 3 - 1 = 12." },
+{ id:2006, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"gdp_components_identity", secondarySkills:["imports_exports_nx", "inventory_investment"], repairSkill:"gdp_components_identity", commonError:"Mixing up the GDP expenditure components or forgetting the C + I + G + NX identity.", q:"The Reserve Custodian points to the spending grid. Which formula correctly gives GDP?", options:["Y = C + I + G + NX","Y = C - I + G - NX","Y = wages + CPI + imports","Y = inflation + unemployment"], a:0, tag:"gdp_components", type:"definition", objective:"LO24.3", boss:"Reserve Custodian", feedback:"GDP expenditure equals consumption plus investment plus government purchases plus net exports." },
+{ id:2007, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"gdp_components_identity", secondarySkills:["imports_exports_nx", "inventory_investment"], repairSkill:"gdp_components_identity", commonError:"Mixing up the GDP expenditure components or forgetting the C + I + G + NX identity.", q:"A firm buys a new machine to produce more goods. Which GDP component does this enter?", options:["Investment","Consumption","Government purchases","Net exports"], a:0, tag:"gdp_components", type:"interpretation", objective:"LO24.3", boss:"Reserve Custodian", feedback:"Business purchases of new capital goods are investment." },
+{ id:2008, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"gdp_components_identity", secondarySkills:["imports_exports_nx", "inventory_investment"], repairSkill:"gdp_components_identity", commonError:"Mixing up the GDP expenditure components or forgetting the C + I + G + NX identity.", q:"If C = 8, I = 2, G = 3, and NX = -1, what is GDP?", options:["12","14","10","8"], a:0, tag:"gdp_components", type:"calculation", objective:"LO24.3", boss:"Reserve Custodian", feedback:"GDP = 8 + 2 + 3 - 1 = 12." },
 
 // Set 4: Imports, exports, and net exports
-{ id:2009, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"imports_exports_nx", secondarySkills:["gdp_components_identity"], repairSkill:"imports_exports_nx", commonError:"Adding imports instead of subtracting them through net exports.", q:"The Registrar asks how net exports are calculated:", options:["Exports minus imports","Imports minus exports","Consumption minus imports","Investment plus exports"], a:0, tag:"gdp_components", type:"definition", objective:"LO24.3", boss:"Registrar", feedback:"Net exports equal exports minus imports." },
-{ id:2010, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"imports_exports_nx", secondarySkills:["gdp_components_identity"], repairSkill:"imports_exports_nx", commonError:"Adding imports instead of subtracting them through net exports.", q:"A U.S. household buys an imported phone. What happens inside the GDP formula?", options:["Consumption rises and net exports fall","Investment rises and consumption falls","Government purchases rise","GDP automatically rises by the phone price"], a:0, tag:"gdp_components", type:"interpretation", objective:"LO24.3", boss:"Registrar", feedback:"Imported consumer goods raise consumption but lower net exports, so domestic GDP does not rise from foreign production." },
-{ id:2011, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"imports_exports_nx", secondarySkills:["gdp_components_identity"], repairSkill:"imports_exports_nx", commonError:"Adding imports instead of subtracting them through net exports.", q:"If exports are $600 billion and imports are $750 billion, what are net exports?", options:["-$150 billion","$150 billion","$1.35 trillion","-$1.35 trillion"], a:0, tag:"gdp_components", type:"calculation", objective:"LO24.3", boss:"Registrar", feedback:"Net exports = 600 - 750 = -150 billion." },
+{ id:2009, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"imports_exports_nx", secondarySkills:["gdp_components_identity"], repairSkill:"imports_exports_nx", commonError:"Adding imports instead of subtracting them through net exports.", q:"The Reserve Custodian asks how net exports are calculated:", options:["Exports minus imports","Imports minus exports","Consumption minus imports","Investment plus exports"], a:0, tag:"gdp_components", type:"definition", objective:"LO24.3", boss:"Reserve Custodian", feedback:"Net exports equal exports minus imports." },
+{ id:2010, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"imports_exports_nx", secondarySkills:["gdp_components_identity"], repairSkill:"imports_exports_nx", commonError:"Adding imports instead of subtracting them through net exports.", q:"A U.S. household buys an imported phone. What happens inside the GDP formula?", options:["Consumption rises and net exports fall","Investment rises and consumption falls","Government purchases rise","GDP automatically rises by the phone price"], a:0, tag:"gdp_components", type:"interpretation", objective:"LO24.3", boss:"Reserve Custodian", feedback:"Imported consumer goods raise consumption but lower net exports, so domestic GDP does not rise from foreign production." },
+{ id:2011, difficulty:"easyBoss", conceptCluster:"gdp_components", primarySkill:"imports_exports_nx", secondarySkills:["gdp_components_identity"], repairSkill:"imports_exports_nx", commonError:"Adding imports instead of subtracting them through net exports.", q:"If exports are $600 billion and imports are $750 billion, what are net exports?", options:["-$150 billion","$150 billion","$1.35 trillion","-$1.35 trillion"], a:0, tag:"gdp_components", type:"calculation", objective:"LO24.3", boss:"Reserve Custodian", feedback:"Net exports = 600 - 750 = -150 billion." },
 
 // Set 5: Nominal GDP, real GDP, and the GDP deflator
-{ id:2012, difficulty:"easyBoss", conceptCluster:"real_nominal_gdp", primarySkill:"nominal_vs_real_gdp", secondarySkills:["gdp_deflator"], repairSkill:"nominal_vs_real_gdp", commonError:"Confusing price changes with real output changes.", q:"The Registrar asks nominal GDP uses which prices?", options:["Current-year prices","Base-year prices","Only import prices","Only wage prices"], a:0, tag:"real_nominal_gdp", type:"definition", objective:"LO24.4", boss:"Registrar", feedback:"Nominal GDP values output using current-year prices." },
-{ id:2013, difficulty:"easyBoss", conceptCluster:"real_nominal_gdp", primarySkill:"nominal_vs_real_gdp", secondarySkills:["gdp_deflator"], repairSkill:"nominal_vs_real_gdp", commonError:"Confusing price changes with real output changes.", q:"Real GDP is useful because it:", options:["Removes the effect of price changes by using base-year prices","Counts used goods twice","Ignores output changes","Measures only imports"], a:0, tag:"real_nominal_gdp", type:"interpretation", objective:"LO24.4", boss:"Registrar", feedback:"Real GDP helps isolate changes in actual production." },
-{ id:2014, difficulty:"easyBoss", conceptCluster:"real_nominal_gdp", primarySkill:"nominal_vs_real_gdp", secondarySkills:["gdp_deflator"], repairSkill:"nominal_vs_real_gdp", commonError:"Confusing price changes with real output changes.", q:"An economy produces 10 units. The base-year price is $5 and the current price is $8. What is real GDP using base-year prices?", options:["$50","$80","$13","$30"], a:0, tag:"real_nominal_gdp", type:"calculation", objective:"LO24.4", boss:"Registrar", feedback:"Real GDP = 10 x $5 = $50." },
+{ id:2012, difficulty:"easyBoss", conceptCluster:"real_nominal_gdp", primarySkill:"nominal_vs_real_gdp", secondarySkills:["gdp_deflator"], repairSkill:"nominal_vs_real_gdp", commonError:"Confusing price changes with real output changes.", q:"The Reserve Custodian asks nominal GDP uses which prices?", options:["Current-year prices","Base-year prices","Only import prices","Only wage prices"], a:0, tag:"real_nominal_gdp", type:"definition", objective:"LO24.4", boss:"Reserve Custodian", feedback:"Nominal GDP values output using current-year prices." },
+{ id:2013, difficulty:"easyBoss", conceptCluster:"real_nominal_gdp", primarySkill:"nominal_vs_real_gdp", secondarySkills:["gdp_deflator"], repairSkill:"nominal_vs_real_gdp", commonError:"Confusing price changes with real output changes.", q:"Real GDP is useful because it:", options:["Removes the effect of price changes by using base-year prices","Counts used goods twice","Ignores output changes","Measures only imports"], a:0, tag:"real_nominal_gdp", type:"interpretation", objective:"LO24.4", boss:"Reserve Custodian", feedback:"Real GDP helps isolate changes in actual production." },
+{ id:2014, difficulty:"easyBoss", conceptCluster:"real_nominal_gdp", primarySkill:"nominal_vs_real_gdp", secondarySkills:["gdp_deflator"], repairSkill:"nominal_vs_real_gdp", commonError:"Confusing price changes with real output changes.", q:"An economy produces 10 units. The base-year price is $5 and the current price is $8. What is real GDP using base-year prices?", options:["$50","$80","$13","$30"], a:0, tag:"real_nominal_gdp", type:"calculation", objective:"LO24.4", boss:"Reserve Custodian", feedback:"Real GDP = 10 x $5 = $50." },
 
 // Set 6: GDP and well-being
-{ id:2015, difficulty:"easyBoss", conceptCluster:"gdp_wellbeing", primarySkill:"gdp_wellbeing_limits", secondarySkills:["gdp_counting_rules"], repairSkill:"gdp_wellbeing_limits", commonError:"Assuming higher GDP automatically means higher overall well-being.", q:"The Registrar posits that GDP is useful as a measure of well-being mainly because:", options:["People generally prefer higher income and more goods and services","It perfectly measures happiness","It counts leisure directly","It measures pollution directly"], a:0, tag:"gdp_wellbeing", type:"definition", objective:"LO24.5", boss:"Registrar", feedback:"GDP is useful because income and production matter, but it is not perfect." },
-{ id:2016, difficulty:"easyBoss", conceptCluster:"gdp_wellbeing", primarySkill:"gdp_wellbeing_limits", secondarySkills:["gdp_counting_rules"], repairSkill:"gdp_wellbeing_limits", commonError:"Assuming higher GDP automatically means higher overall well-being.", q:"Why might GDP rise while well-being does not clearly improve?", options:["GDP can miss pollution, leisure, inequality, or other quality-of-life factors","GDP never counts production","GDP excludes all services","GDP only counts imports"], a:0, tag:"gdp_wellbeing", type:"interpretation", objective:"LO24.5", boss:"Registrar", feedback:"GDP misses some important parts of well-being." },
-{ id:2017, difficulty:"easyBoss", conceptCluster:"gdp_wellbeing", primarySkill:"gdp_wellbeing_limits", secondarySkills:["gdp_counting_rules"], repairSkill:"gdp_wellbeing_limits", commonError:"Assuming higher GDP automatically means higher overall well-being.", q:"A country produces more output by making people work longer hours with less leisure. What limitation of GDP does this show?", options:["GDP does not fully account for lost leisure","GDP cannot count goods","GDP only counts leisure","GDP ignores all income"], a:0, tag:"gdp_wellbeing", type:"interpretation", objective:"LO24.5", boss:"Registrar", feedback:"GDP counts the extra production but does not fully subtract the loss of leisure." },
+{ id:2015, difficulty:"easyBoss", conceptCluster:"gdp_wellbeing", primarySkill:"gdp_wellbeing_limits", secondarySkills:["gdp_counting_rules"], repairSkill:"gdp_wellbeing_limits", commonError:"Assuming higher GDP automatically means higher overall well-being.", q:"The Reserve Custodian posits that GDP is useful as a measure of well-being mainly because:", options:["People generally prefer higher income and more goods and services","It perfectly measures happiness","It counts leisure directly","It measures pollution directly"], a:0, tag:"gdp_wellbeing", type:"definition", objective:"LO24.5", boss:"Reserve Custodian", feedback:"GDP is useful because income and production matter, but it is not perfect." },
+{ id:2016, difficulty:"easyBoss", conceptCluster:"gdp_wellbeing", primarySkill:"gdp_wellbeing_limits", secondarySkills:["gdp_counting_rules"], repairSkill:"gdp_wellbeing_limits", commonError:"Assuming higher GDP automatically means higher overall well-being.", q:"Why might GDP rise while well-being does not clearly improve?", options:["GDP can miss pollution, leisure, inequality, or other quality-of-life factors","GDP never counts production","GDP excludes all services","GDP only counts imports"], a:0, tag:"gdp_wellbeing", type:"interpretation", objective:"LO24.5", boss:"Reserve Custodian", feedback:"GDP misses some important parts of well-being." },
+{ id:2017, difficulty:"easyBoss", conceptCluster:"gdp_wellbeing", primarySkill:"gdp_wellbeing_limits", secondarySkills:["gdp_counting_rules"], repairSkill:"gdp_wellbeing_limits", commonError:"Assuming higher GDP automatically means higher overall well-being.", q:"A country produces more output by making people work longer hours with less leisure. What limitation of GDP does this show?", options:["GDP does not fully account for lost leisure","GDP cannot count goods","GDP only counts leisure","GDP ignores all income"], a:0, tag:"gdp_wellbeing", type:"interpretation", objective:"LO24.5", boss:"Reserve Custodian", feedback:"GDP counts the extra production but does not fully subtract the loss of leisure." },
 
 // Set 7: CPI basics and inflation
-{ id:2018, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"The Registrar turns to the price ledger. What does the CPI measure?", options:["The cost of a fixed basket of consumer goods and services over time","The number of people unemployed","The value of exports","The amount of government debt"], a:0, tag:"cpi_inflation", type:"definition", objective:"LO25.1", boss:"Registrar", feedback:"The CPI measures the cost of a fixed basket of consumer goods and services." },
-{ id:2019, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"If the CPI rises, what does that usually indicate?", options:["Consumer prices have increased on average","Real GDP must have increased","Unemployment must have fallen","Imports must equal exports"], a:0, tag:"cpi_inflation", type:"interpretation", objective:"LO25.1", boss:"Registrar", feedback:"A rising CPI means the average cost of the consumer basket has increased." },
-{ id:2020, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_rate", secondarySkills:["cpi_calculation"], repairSkill:"inflation_rate", commonError:"Using the CPI point change instead of the percentage change.", q:"If the CPI rises from 100 to 112, what is the inflation rate?", options:["12%","8%","112%","1.12%"], a:0, tag:"cpi_inflation", type:"calculation", objective:"LO25.1", boss:"Registrar", feedback:"Inflation = (112 - 100)/100 x 100 = 12%." },
+{ id:2018, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"The Reserve Custodian turns to the price grid. What does the CPI measure?", options:["The cost of a fixed basket of consumer goods and services over time","The number of people unemployed","The value of exports","The amount of government debt"], a:0, tag:"cpi_inflation", type:"definition", objective:"LO25.1", boss:"Reserve Custodian", feedback:"The CPI measures the cost of a fixed basket of consumer goods and services." },
+{ id:2019, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"If the CPI rises, what does that usually indicate?", options:["Consumer prices have increased on average","Real GDP must have increased","Unemployment must have fallen","Imports must equal exports"], a:0, tag:"cpi_inflation", type:"interpretation", objective:"LO25.1", boss:"Reserve Custodian", feedback:"A rising CPI means the average cost of the consumer basket has increased." },
+{ id:2020, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_rate", secondarySkills:["cpi_calculation"], repairSkill:"inflation_rate", commonError:"Using the CPI point change instead of the percentage change.", q:"If the CPI rises from 100 to 112, what is the inflation rate?", options:["12%","8%","112%","1.12%"], a:0, tag:"cpi_inflation", type:"calculation", objective:"LO25.1", boss:"Reserve Custodian", feedback:"Inflation = (112 - 100)/100 x 100 = 12%." },
 
 // Set 8: Calculating CPI from a basket
-{ id:2021, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"Answer the Registrar's query: To calculate CPI, economists compare:", options:["The current cost of a fixed basket to its base-year cost","The labor force to adult population","Exports to imports only","Nominal interest to real interest only"], a:0, tag:"cpi_inflation", type:"definition", objective:"LO25.1", boss:"Registrar", feedback:"CPI compares the current basket cost to the base-year basket cost." },
-{ id:2022, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"A basket costs $200 in the base year and $250 today. What does that tell us before calculating the CPI?", options:["The basket is more expensive today","The basket is cheaper today","Real GDP fell","Unemployment rose"], a:0, tag:"cpi_inflation", type:"interpretation", objective:"LO25.1", boss:"Registrar", feedback:"The fixed basket costs more today than in the base year." },
-{ id:2023, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"A basket costs $200 in the base year and $250 today. What is the CPI today?", options:["125","80","250","50"], a:0, tag:"cpi_inflation", type:"calculation", objective:"LO25.1", boss:"Registrar", feedback:"CPI = 100 x 250/200 = 125." },
+{ id:2021, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"Answer the Reserve Custodian's query: To calculate CPI, economists compare:", options:["The current cost of a fixed basket to its base-year cost","The labor force to adult population","Exports to imports only","Nominal interest to real interest only"], a:0, tag:"cpi_inflation", type:"definition", objective:"LO25.1", boss:"Reserve Custodian", feedback:"CPI compares the current basket cost to the base-year basket cost." },
+{ id:2022, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"A basket costs $200 in the base year and $250 today. What does that tell us before calculating the CPI?", options:["The basket is more expensive today","The basket is cheaper today","Real GDP fell","Unemployment rose"], a:0, tag:"cpi_inflation", type:"interpretation", objective:"LO25.1", boss:"Reserve Custodian", feedback:"The fixed basket costs more today than in the base year." },
+{ id:2023, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_calculation", secondarySkills:["inflation_rate"], repairSkill:"cpi_calculation", commonError:"Using the wrong basket cost or forgetting to multiply by 100.", q:"A basket costs $200 in the base year and $250 today. What is the CPI today?", options:["125","80","250","50"], a:0, tag:"cpi_inflation", type:"calculation", objective:"LO25.1", boss:"Reserve Custodian", feedback:"CPI = 100 x 250/200 = 125." },
 
 // Set 9: CPI bias and cost of living
-{ id:2024, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"quality_new_goods_bias", secondarySkills:["substitution_bias"], repairSkill:"quality_new_goods_bias", commonError:"Treating all price increases as inflation even when quality or product variety improves.", q:"The Registrar begins, one reason CPI can overstate the cost of living is:", options:["It may miss substitution toward cheaper goods","It ignores all consumer prices","It counts only exports","It measures unemployment instead of prices"], a:0, tag:"cpi_bias", type:"definition", objective:"LO25.2", boss:"Registrar", feedback:"The fixed basket can miss how consumers substitute toward relatively cheaper goods." },
-{ id:2025, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"substitution_bias", secondarySkills:["quality_new_goods_bias"], repairSkill:"substitution_bias", commonError:"Ignoring that consumers switch toward relatively cheaper goods.", q:"Beef becomes expensive, so households buy more chicken instead. Which CPI problem does this illustrate?", options:["Substitution bias","Cyclical unemployment","Net export bias","GDP double counting"], a:0, tag:"cpi_bias", type:"interpretation", objective:"LO25.2", boss:"Registrar", feedback:"Substitution bias occurs when consumers switch toward relatively cheaper goods." },
-{ id:2026, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"quality_new_goods_bias", secondarySkills:["substitution_bias"], repairSkill:"quality_new_goods_bias", commonError:"Treating all price increases as inflation even when quality or product variety improves.", q:"A product becomes more expensive but also much higher quality. Why can that make CPI inflation misleading?", options:["Some of the price increase reflects quality improvement, not just inflation","Quality changes are always counted perfectly","The product becomes an import automatically","The CPI stops measuring it"], a:0, tag:"cpi_bias", type:"interpretation", objective:"LO25.2", boss:"Registrar", feedback:"If quality improves, a higher price may overstate the true rise in cost of living." },
+{ id:2024, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"quality_new_goods_bias", secondarySkills:["substitution_bias"], repairSkill:"quality_new_goods_bias", commonError:"Treating all price increases as inflation even when quality or product variety improves.", q:"The Reserve Custodian begins, one reason CPI can overstate the cost of living is:", options:["It may miss substitution toward cheaper goods","It ignores all consumer prices","It counts only exports","It measures unemployment instead of prices"], a:0, tag:"cpi_bias", type:"definition", objective:"LO25.2", boss:"Reserve Custodian", feedback:"The fixed basket can miss how consumers substitute toward relatively cheaper goods." },
+{ id:2025, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"substitution_bias", secondarySkills:["quality_new_goods_bias"], repairSkill:"substitution_bias", commonError:"Ignoring that consumers switch toward relatively cheaper goods.", q:"Beef becomes expensive, so households buy more chicken instead. Which CPI problem does this illustrate?", options:["Substitution bias","Cyclical unemployment","Net export bias","GDP double counting"], a:0, tag:"cpi_bias", type:"interpretation", objective:"LO25.2", boss:"Reserve Custodian", feedback:"Substitution bias occurs when consumers switch toward relatively cheaper goods." },
+{ id:2026, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"quality_new_goods_bias", secondarySkills:["substitution_bias"], repairSkill:"quality_new_goods_bias", commonError:"Treating all price increases as inflation even when quality or product variety improves.", q:"A product becomes more expensive but also much higher quality. Why can that make CPI inflation misleading?", options:["Some of the price increase reflects quality improvement, not just inflation","Quality changes are always counted perfectly","The product becomes an import automatically","The CPI stops measuring it"], a:0, tag:"cpi_bias", type:"interpretation", objective:"LO25.2", boss:"Reserve Custodian", feedback:"If quality improves, a higher price may overstate the true rise in cost of living." },
 
 // Set 10: CPI versus GDP deflator
-{ id:2027, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_vs_gdp_deflator", secondarySkills:["cpi_calculation"], repairSkill:"cpi_vs_gdp_deflator", commonError:"Confusing a fixed consumer basket with current domestic production prices.", q:"The Registrar asks, which price index uses a fixed basket of consumer goods and services?", options:["CPI","GDP deflator","Unemployment rate","Labor force participation rate"], a:0, tag:"cpi_vs_deflator", type:"definition", objective:"LO25.3", boss:"Registrar", feedback:"The CPI uses a fixed basket of consumer goods and services." },
-{ id:2028, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_vs_gdp_deflator", secondarySkills:["cpi_calculation"], repairSkill:"cpi_vs_gdp_deflator", commonError:"Confusing a fixed consumer basket with current domestic production prices.", q:"An imported coffee price rises. Which index is affected more directly?", options:["CPI","GDP deflator","Unemployment rate","Real GDP per worker"], a:0, tag:"cpi_vs_deflator", type:"interpretation", objective:"LO25.3", boss:"Registrar", feedback:"Imported consumer goods affect the CPI but are excluded from the GDP deflator." },
-{ id:2029, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_vs_gdp_deflator", secondarySkills:["cpi_calculation"], repairSkill:"cpi_vs_gdp_deflator", commonError:"Confusing a fixed consumer basket with current domestic production prices.", q:"Which statement correctly compares CPI and the GDP deflator?", options:["CPI tracks a fixed consumer basket; the GDP deflator tracks prices of current domestic production","CPI tracks only exports; the GDP deflator tracks only imports","They are exactly identical","The GDP deflator measures unemployment"], a:0, tag:"cpi_vs_deflator", type:"interpretation", objective:"LO25.3", boss:"Registrar", feedback:"The CPI and GDP deflator both measure prices, but they use different baskets." },
+{ id:2027, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_vs_gdp_deflator", secondarySkills:["cpi_calculation"], repairSkill:"cpi_vs_gdp_deflator", commonError:"Confusing a fixed consumer basket with current domestic production prices.", q:"The Reserve Custodian asks, which price index uses a fixed basket of consumer goods and services?", options:["CPI","GDP deflator","Unemployment rate","Labor force participation rate"], a:0, tag:"cpi_vs_deflator", type:"definition", objective:"LO25.3", boss:"Reserve Custodian", feedback:"The CPI uses a fixed basket of consumer goods and services." },
+{ id:2028, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_vs_gdp_deflator", secondarySkills:["cpi_calculation"], repairSkill:"cpi_vs_gdp_deflator", commonError:"Confusing a fixed consumer basket with current domestic production prices.", q:"An imported coffee price rises. Which index is affected more directly?", options:["CPI","GDP deflator","Unemployment rate","Real GDP per worker"], a:0, tag:"cpi_vs_deflator", type:"interpretation", objective:"LO25.3", boss:"Reserve Custodian", feedback:"Imported consumer goods affect the CPI but are excluded from the GDP deflator." },
+{ id:2029, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"cpi_vs_gdp_deflator", secondarySkills:["cpi_calculation"], repairSkill:"cpi_vs_gdp_deflator", commonError:"Confusing a fixed consumer basket with current domestic production prices.", q:"Which statement correctly compares CPI and the GDP deflator?", options:["CPI tracks a fixed consumer basket; the GDP deflator tracks prices of current domestic production","CPI tracks only exports; the GDP deflator tracks only imports","They are exactly identical","The GDP deflator measures unemployment"], a:0, tag:"cpi_vs_deflator", type:"interpretation", objective:"LO25.3", boss:"Reserve Custodian", feedback:"The CPI and GDP deflator both measure prices, but they use different baskets." },
 
 // Set 11: Inflation adjustment across time
-{ id:2030, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_adjustment", secondarySkills:["cpi_calculation"], repairSkill:"inflation_adjustment", commonError:"Comparing nominal dollar amounts across years without adjusting for the price level.", q:"The Registrar asks, why should dollar amounts from different years be adjusted for inflation?", options:["Because the purchasing power of money changes over time","Because GDP ignores dollars","Because prices never change","Because imports are always negative"], a:0, tag:"inflation_adjustment", type:"definition", objective:"LO25.4", boss:"Registrar", feedback:"Inflation changes what a dollar can buy, so dollar amounts across time need adjustment." },
-{ id:2031, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_adjustment", secondarySkills:["cpi_calculation"], repairSkill:"inflation_adjustment", commonError:"Comparing nominal dollar amounts across years without adjusting for the price level.", q:"A wage of $10 in the past may not be comparable to $10 today because:", options:["The price level may have changed","Nominal wages are always real wages","GDP excludes wages","The CPI cannot measure prices"], a:0, tag:"inflation_adjustment", type:"interpretation", objective:"LO25.4", boss:"Registrar", feedback:"The same dollar wage can have different purchasing power in different years." },
-{ id:2032, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_adjustment", secondarySkills:["cpi_calculation"], repairSkill:"inflation_adjustment", commonError:"Comparing nominal dollar amounts across years without adjusting for the price level.", q:"A wage was $20 when the CPI was 100. The CPI is now 150. What is that wage in today's dollars?", options:["$30","$20","$13.33","$150"], a:0, tag:"inflation_adjustment", type:"calculation", objective:"LO25.4", boss:"Registrar", feedback:"Today's dollars = 20 x 150/100 = $30." },
+{ id:2030, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_adjustment", secondarySkills:["cpi_calculation"], repairSkill:"inflation_adjustment", commonError:"Comparing nominal dollar amounts across years without adjusting for the price level.", q:"The Reserve Custodian asks, why should dollar amounts from different years be adjusted for inflation?", options:["Because the purchasing power of money changes over time","Because GDP ignores dollars","Because prices never change","Because imports are always negative"], a:0, tag:"inflation_adjustment", type:"definition", objective:"LO25.4", boss:"Reserve Custodian", feedback:"Inflation changes what a dollar can buy, so dollar amounts across time need adjustment." },
+{ id:2031, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_adjustment", secondarySkills:["cpi_calculation"], repairSkill:"inflation_adjustment", commonError:"Comparing nominal dollar amounts across years without adjusting for the price level.", q:"A wage of $10 in the past may not be comparable to $10 today because:", options:["The price level may have changed","Nominal wages are always real wages","GDP excludes wages","The CPI cannot measure prices"], a:0, tag:"inflation_adjustment", type:"interpretation", objective:"LO25.4", boss:"Reserve Custodian", feedback:"The same dollar wage can have different purchasing power in different years." },
+{ id:2032, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"inflation_adjustment", secondarySkills:["cpi_calculation"], repairSkill:"inflation_adjustment", commonError:"Comparing nominal dollar amounts across years without adjusting for the price level.", q:"A wage was $20 when the CPI was 100. The CPI is now 150. What is that wage in today's dollars?", options:["$30","$20","$13.33","$150"], a:0, tag:"inflation_adjustment", type:"calculation", objective:"LO25.4", boss:"Reserve Custodian", feedback:"Today's dollars = 20 x 150/100 = $30." },
 
 // Set 12: Nominal interest, inflation, and real interest
-{ id:2033, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"real_interest_rate", secondarySkills:["inflation_rate"], repairSkill:"real_interest_rate", commonError:"Forgetting to subtract inflation from the nominal interest rate.", q:"Answer the Registrar: The real interest rate is approximately:", options:["Nominal interest rate minus inflation rate","Nominal interest rate plus inflation rate","Inflation rate minus GDP","CPI divided by unemployment"], a:0, tag:"interest_inflation", type:"definition", objective:"LO25.5", boss:"Registrar", feedback:"The real interest rate adjusts the nominal rate for inflation." },
-{ id:2034, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"real_interest_rate", secondarySkills:["inflation_rate"], repairSkill:"real_interest_rate", commonError:"Forgetting to subtract inflation from the nominal interest rate.", q:"If inflation rises while the nominal interest rate stays fixed, what happens to the real interest rate?", options:["It falls","It rises","It stays the same","It becomes the CPI"], a:0, tag:"interest_inflation", type:"interpretation", objective:"LO25.5", boss:"Registrar", feedback:"Higher inflation reduces the real interest rate when nominal interest does not change." },
-{ id:2035, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"real_interest_rate", secondarySkills:["inflation_rate"], repairSkill:"real_interest_rate", commonError:"Forgetting to subtract inflation from the nominal interest rate.", q:"If the nominal interest rate is 7% and inflation is 4%, what is the real interest rate?", options:["3%","11%","7%","4%"], a:0, tag:"interest_inflation", type:"calculation", objective:"LO25.5", boss:"Registrar", feedback:"Real interest rate = 7% - 4% = 3%." }
+{ id:2033, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"real_interest_rate", secondarySkills:["inflation_rate"], repairSkill:"real_interest_rate", commonError:"Forgetting to subtract inflation from the nominal interest rate.", q:"Answer the Reserve Custodian: The real interest rate is approximately:", options:["Nominal interest rate minus inflation rate","Nominal interest rate plus inflation rate","Inflation rate minus GDP","CPI divided by unemployment"], a:0, tag:"interest_inflation", type:"definition", objective:"LO25.5", boss:"Reserve Custodian", feedback:"The real interest rate adjusts the nominal rate for inflation." },
+{ id:2034, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"real_interest_rate", secondarySkills:["inflation_rate"], repairSkill:"real_interest_rate", commonError:"Forgetting to subtract inflation from the nominal interest rate.", q:"If inflation rises while the nominal interest rate stays fixed, what happens to the real interest rate?", options:["It falls","It rises","It stays the same","It becomes the CPI"], a:0, tag:"interest_inflation", type:"interpretation", objective:"LO25.5", boss:"Reserve Custodian", feedback:"Higher inflation reduces the real interest rate when nominal interest does not change." },
+{ id:2035, difficulty:"easyBoss", conceptCluster:"prices_inflation", primarySkill:"real_interest_rate", secondarySkills:["inflation_rate"], repairSkill:"real_interest_rate", commonError:"Forgetting to subtract inflation from the nominal interest rate.", q:"If the nominal interest rate is 7% and inflation is 4%, what is the real interest rate?", options:["3%","11%","7%","4%"], a:0, tag:"interest_inflation", type:"calculation", objective:"LO25.5", boss:"Reserve Custodian", feedback:"Real interest rate = 7% - 4% = 3%." }
 ],
    
 mediumBoss: [
@@ -4269,72 +4269,72 @@ mediumBoss: [
    
 finalBoss: [
 // Set 1: Labor force classification and unemployment rate traps
-{ id:4000, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"employment_classification", secondarySkills:["discouraged_workers"], repairSkill:"employment_classification", commonError:"Classifying people by desire for work instead of paid work and active search status.", q:"The Comptroller asks: an adult has no job, wants work, and applied for jobs last week. How is this person classified?", options:["Unemployed","Employed","Not in the labor force","Discouraged worker only"], a:0, tag:"employment_categories", type:"definition", objective:"LO29.2", boss:"FinalBoss", feedback:"A jobless person who is actively searching is counted as unemployed." },
+{ id:4000, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"employment_classification", secondarySkills:["discouraged_workers"], repairSkill:"employment_classification", commonError:"Classifying people by desire for work instead of paid work and active search status.", q:"The Inflation Wraith asks: an adult has no job, wants work, and applied for jobs last week. How is this person classified?", options:["Unemployed","Employed","Not in the labor force","Discouraged worker only"], a:0, tag:"employment_categories", type:"definition", objective:"LO29.2", boss:"FinalBoss", feedback:"A jobless person who is actively searching is counted as unemployed." },
 { id:4001, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"discouraged_workers", secondarySkills:["employment_classification"], repairSkill:"discouraged_workers", commonError:"Counting discouraged workers as unemployed even after they stop actively searching.", q:"A jobless worker wants work but stopped searching because they think no jobs are available. What happens to official unemployment statistics?", options:["The worker is not counted as unemployed because active search stopped","The worker is counted as employed","The worker raises employment and unemployment","The worker is counted as unemployed forever"], a:0, tag:"employment_categories", type:"interpretation", objective:"LO29.2", boss:"FinalBoss", feedback:"Discouraged workers are not counted as unemployed once they stop actively searching." },
 { id:4002, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unemployment_rate", secondarySkills:["labor_force_calculation", "labor_force_participation"], repairSkill:"unemployment_rate", commonError:"Dividing unemployed workers by the whole population instead of the labor force.", q:"An economy has 100 employed, 10 unemployed, and 40 not in the labor force. If 5 unemployed workers become discouraged, what is the new unemployment rate?", options:["5.3%","10%","6.7%","3.3%"], a:0, tag:"labor_force_stats", type:"calculation", objective:"LO29.1", boss:"FinalBoss", feedback:"Unemployed falls to 5 and labor force falls to 105, so unemployment is 5/105 = 4.76%. None are exact; closest is 5.3%, but this reveals why precise calculation matters." },
 
 // Set 2: Labor force participation and hidden weakness
-{ id:4003, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"labor_force_participation", secondarySkills:["labor_force_calculation"], repairSkill:"labor_force_participation", commonError:"Using unemployed workers instead of the labor force in the participation formula.", q:"The Comptroller queries the participation rolls: labor force participation is calculated as:", options:["Labor force divided by adult population times 100","Unemployed divided by labor force times 100","Employed divided by unemployed times 100","Not in labor force divided by unemployed times 100"], a:0, tag:"labor_force_stats", type:"definition", objective:"LO29.1", boss:"FinalBoss", feedback:"Labor force participation measures the share of adults in the labor force." },
+{ id:4003, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"labor_force_participation", secondarySkills:["labor_force_calculation"], repairSkill:"labor_force_participation", commonError:"Using unemployed workers instead of the labor force in the participation formula.", q:"The Inflation Wraith queries the participation rolls: labor force participation is calculated as:", options:["Labor force divided by adult population times 100","Unemployed divided by labor force times 100","Employed divided by unemployed times 100","Not in labor force divided by unemployed times 100"], a:0, tag:"labor_force_stats", type:"definition", objective:"LO29.1", boss:"FinalBoss", feedback:"Labor force participation measures the share of adults in the labor force." },
 { id:4004, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"labor_force_participation", secondarySkills:["labor_force_calculation"], repairSkill:"labor_force_participation", commonError:"Using unemployed workers instead of the labor force in the participation formula.", q:"The unemployment rate falls, but labor force participation also falls sharply. What is the best interpretation?", options:["The labor market may not have improved because some workers may have stopped searching","The labor market definitely improved","Employment must have risen","Cyclical unemployment must be zero"], a:0, tag:"labor_force_stats", type:"interpretation", objective:"LO29.1", boss:"FinalBoss", feedback:"A falling unemployment rate can be misleading if workers leave the labor force." },
 { id:4005, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"labor_force_participation", secondarySkills:["labor_force_calculation"], repairSkill:"labor_force_participation", commonError:"Using unemployed workers instead of the labor force in the participation formula.", q:"Adult population is 250 million. Employed workers are 150 million and unemployed workers are 10 million. What is the labor force participation rate?", options:["64%","60%","6.25%","40%"], a:0, tag:"labor_force_stats", type:"calculation", objective:"LO29.1", boss:"FinalBoss", feedback:"Labor force = 150 + 10 = 160 million. Participation = 160/250 x 100 = 64%." },
 
 // Set 3: Multi-step employment-status changes
-{ id:4006, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"employment_classification", secondarySkills:["discouraged_workers"], repairSkill:"employment_classification", commonError:"Classifying people by desire for work instead of paid work and active search status.", q:"The Comptroller begins with a classification trap: a worker with a part-time paid job wants full-time work. How is that worker classified in the headline unemployment rate?", options:["Employed","Unemployed","Not in the labor force","Discouraged"], a:0, tag:"employment_categories", type:"trap", objective:"LO29.2", boss:"FinalBoss", feedback:"Any paid work generally means the person is counted as employed, even if underemployed." },
+{ id:4006, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"employment_classification", secondarySkills:["discouraged_workers"], repairSkill:"employment_classification", commonError:"Classifying people by desire for work instead of paid work and active search status.", q:"The Inflation Wraith begins with a classification trap: a worker with a part-time paid job wants full-time work. How is that worker classified in the headline unemployment rate?", options:["Employed","Unemployed","Not in the labor force","Discouraged"], a:0, tag:"employment_categories", type:"trap", objective:"LO29.2", boss:"FinalBoss", feedback:"Any paid work generally means the person is counted as employed, even if underemployed." },
 { id:4007, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"employment_classification", secondarySkills:["discouraged_workers"], repairSkill:"employment_classification", commonError:"Classifying people by desire for work instead of paid work and active search status.", q:"Why can involuntary part-time work make the unemployment rate look better than the labor market feels?", options:["Part-time workers are counted as employed even if they want more hours","Part-time workers are counted as unemployed twice","Part-time work is excluded from the labor force","Part-time workers are counted as discouraged"], a:0, tag:"employment_categories", type:"interpretation", objective:"LO29.2", boss:"FinalBoss", feedback:"The headline unemployment rate does not fully capture underemployment." },
 { id:4008, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unemployment_rate", secondarySkills:["labor_force_calculation", "labor_force_participation"], repairSkill:"unemployment_rate", commonError:"Dividing unemployed workers by the whole population instead of the labor force.", q:"An economy has 120 employed, 12 unemployed, and 68 not in the labor force. Four unemployed workers find jobs, and four employed workers move to part-time work but keep paid jobs. What is the new unemployment rate?", options:["6.1%","9.1%","8.0%","12.0%"], a:0, tag:"labor_force_stats", type:"calculation", objective:"LO29.1", boss:"FinalBoss", feedback:"New employed = 124, unemployed = 8, labor force = 132. Unemployment = 8/132 = 6.1%. Part-time workers remain employed." },
 
 // Set 4: Frictional unemployment
-{ id:4009, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"The Comptroller asks about job search: frictional unemployment is mainly caused by:", options:["The time required for workers and firms to find good matches","A permanent mismatch between skills and jobs","A recession reducing total spending","A binding minimum wage only"], a:0, tag:"unemployment_types", type:"definition", objective:"LO29.3", boss:"FinalBoss", feedback:"Frictional unemployment comes from normal job search and matching." },
+{ id:4009, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"The Inflation Wraith asks about job search: frictional unemployment is mainly caused by:", options:["The time required for workers and firms to find good matches","A permanent mismatch between skills and jobs","A recession reducing total spending","A binding minimum wage only"], a:0, tag:"unemployment_types", type:"definition", objective:"LO29.3", boss:"FinalBoss", feedback:"Frictional unemployment comes from normal job search and matching." },
 { id:4010, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"A software developer quits one job and spends three weeks comparing offers from similar firms. What type of unemployment is this?", options:["Frictional","Structural","Cyclical","Discouraged"], a:0, tag:"unemployment_types", type:"interpretation", objective:"LO29.3", boss:"FinalBoss", feedback:"Short-term search between suitable jobs is frictional unemployment." },
 { id:4011, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"A new job-matching platform helps workers find suitable openings faster. Which unemployment type should fall most directly?", options:["Frictional unemployment","Structural unemployment","Cyclical unemployment","Natural resources unemployment"], a:0, tag:"unemployment_types", type:"interpretation", objective:"LO29.3", boss:"FinalBoss", feedback:"Better matching reduces search time, which lowers frictional unemployment." },
 
 // Set 5: Structural unemployment
-{ id:4012, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"The Comptroller turns to mismatch: structural unemployment occurs when:", options:["Worker skills or locations do not match available jobs","Workers briefly search between similar jobs","A recession temporarily reduces spending","A worker takes paid part-time work"], a:0, tag:"unemployment_types", type:"definition", objective:"LO29.3", boss:"FinalBoss", feedback:"Structural unemployment reflects a mismatch between workers and available jobs." },
+{ id:4012, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"The Inflation Wraith turns to mismatch: structural unemployment occurs when:", options:["Worker skills or locations do not match available jobs","Workers briefly search between similar jobs","A recession temporarily reduces spending","A worker takes paid part-time work"], a:0, tag:"unemployment_types", type:"definition", objective:"LO29.3", boss:"FinalBoss", feedback:"Structural unemployment reflects a mismatch between workers and available jobs." },
 { id:4013, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"A factory permanently closes because production technology changes, and former workers lack the skills needed in growing industries. What type of unemployment is this?", options:["Structural","Frictional","Cyclical","Seasonal only"], a:0, tag:"unemployment_types", type:"interpretation", objective:"LO29.3", boss:"FinalBoss", feedback:"Permanent industry change and skill mismatch create structural unemployment." },
 { id:4014, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"Which policy best targets structural unemployment?", options:["Retraining workers for expanding industries","Extending vacations","Changing the CPI base year","Counting imports differently"], a:0, tag:"labor_market_policy", type:"interpretation", objective:"LO29.4", boss:"FinalBoss", feedback:"Retraining can reduce mismatch between worker skills and available jobs." },
 
 // Set 6: Cyclical unemployment
-{ id:4015, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"cyclical_unemployment", secondarySkills:["natural_rate"], repairSkill:"cyclical_unemployment", commonError:"Confusing recession-driven unemployment with natural unemployment.", q:"The Comptroller points to the business cycle: cyclical unemployment is unemployment caused by:", options:["Downturns in the business cycle and weak aggregate demand","Normal job search","A permanent skills mismatch only","Workers retiring voluntarily"], a:0, tag:"unemployment_types", type:"definition", objective:"LO29.3", boss:"FinalBoss", feedback:"Cyclical unemployment rises during recessions or weak economic periods." },
+{ id:4015, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"cyclical_unemployment", secondarySkills:["natural_rate"], repairSkill:"cyclical_unemployment", commonError:"Confusing recession-driven unemployment with natural unemployment.", q:"The Inflation Wraith points to the business cycle: cyclical unemployment is unemployment caused by:", options:["Downturns in the business cycle and weak aggregate demand","Normal job search","A permanent skills mismatch only","Workers retiring voluntarily"], a:0, tag:"unemployment_types", type:"definition", objective:"LO29.3", boss:"FinalBoss", feedback:"Cyclical unemployment rises during recessions or weak economic periods." },
 { id:4016, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"cyclical_unemployment", secondarySkills:["natural_rate"], repairSkill:"cyclical_unemployment", commonError:"Confusing recession-driven unemployment with natural unemployment.", q:"A hotel lays off workers because a recession reduces travel demand. What type of unemployment is this?", options:["Cyclical","Frictional","Structural","Not in the labor force"], a:0, tag:"unemployment_types", type:"interpretation", objective:"LO29.3", boss:"FinalBoss", feedback:"Layoffs from weak demand during a recession are cyclical unemployment." },
 { id:4017, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"Actual unemployment is 8% and the natural rate is 5%. What is cyclical unemployment?", options:["3 percentage points","5 percentage points","8 percentage points","13 percentage points"], a:0, tag:"natural_unemployment", type:"calculation", objective:"LO29.5", boss:"FinalBoss", feedback:"Cyclical unemployment = actual unemployment - natural unemployment = 8 - 5 = 3 percentage points." },
 
 // Set 7: Mixed unemployment classification
-{ id:4018, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"The Comptroller presents three workers: a nurse moves cities and searches for a new hospital job. A cashier loses work because checkout automation permanently reduces demand. A waiter is laid off during a recession. What is the correct order?", options:["Frictional, structural, cyclical","Structural, frictional, cyclical","Cyclical, structural, frictional","Frictional, cyclical, structural"], a:0, tag:"unemployment_types", type:"multi-step", objective:"LO29.3", boss:"FinalBoss", feedback:"Search is frictional, permanent automation mismatch is structural, and recession layoff is cyclical." },
+{ id:4018, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"The Inflation Wraith presents three workers: a nurse moves cities and searches for a new hospital job. A cashier loses work because checkout automation permanently reduces demand. A waiter is laid off during a recession. What is the correct order?", options:["Frictional, structural, cyclical","Structural, frictional, cyclical","Cyclical, structural, frictional","Frictional, cyclical, structural"], a:0, tag:"unemployment_types", type:"multi-step", objective:"LO29.3", boss:"FinalBoss", feedback:"Search is frictional, permanent automation mismatch is structural, and recession layoff is cyclical." },
 { id:4019, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"A worker first loses a job because of a recession, then the industry permanently changes and the old job does not return. What is the best classification over time?", options:["Initially cyclical, then possibly structural","Always frictional","Always not in the labor force","Never unemployed"], a:0, tag:"unemployment_types", type:"integration", objective:"LO29.3", boss:"FinalBoss", feedback:"The cause can shift from weak demand to long-term mismatch." },
 { id:4020, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"cyclical_unemployment", secondarySkills:["natural_rate"], repairSkill:"cyclical_unemployment", commonError:"Confusing recession-driven unemployment with natural unemployment.", q:"Which unemployment type is most directly reduced by economic recovery from recession?", options:["Cyclical unemployment","Structural unemployment","Frictional unemployment","Natural unemployment"], a:0, tag:"unemployment_types", type:"interpretation", objective:"LO29.3", boss:"FinalBoss", feedback:"Recovery mainly reduces recession-driven cyclical unemployment." },
 
 // Set 8: Unemployment insurance tradeoffs
-{ id:4021, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"The Comptroller asks about worker protection: unemployment insurance is designed mainly to:", options:["Protect workers' income while they search for jobs","Eliminate all unemployment","Raise CPI inflation","Count discouraged workers as employed"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"Unemployment insurance gives income support to workers who lose jobs." },
+{ id:4021, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"The Inflation Wraith asks about worker protection: unemployment insurance is designed mainly to:", options:["Protect workers' income while they search for jobs","Eliminate all unemployment","Raise CPI inflation","Count discouraged workers as employed"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"Unemployment insurance gives income support to workers who lose jobs." },
 { id:4022, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"Why can unemployment insurance increase frictional unemployment?", options:["It can reduce the urgency to accept a job quickly and lengthen search","It permanently destroys worker skills","It directly causes recessions","It counts retirees as unemployed"], a:0, tag:"labor_market_policy", type:"interpretation", objective:"LO29.4", boss:"FinalBoss", feedback:"Benefits can make longer job search less costly, increasing frictional unemployment." },
 { id:4023, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"frictional_unemployment", secondarySkills:["natural_rate"], repairSkill:"frictional_unemployment", commonError:"Confusing normal job search with skill mismatch or recession layoffs.", q:"A state increases unemployment benefits but also improves job-placement services. What is the most careful prediction?", options:["The net effect on frictional unemployment is ambiguous because benefits may lengthen search while matching services may shorten it","Frictional unemployment must rise","Frictional unemployment must fall","Only structural unemployment can change"], a:0, tag:"labor_market_policy", type:"integration", objective:"LO29.4", boss:"FinalBoss", feedback:"Two forces move in opposite directions, so the net effect is not automatic." },
 
 // Set 9: Minimum wage and labor surplus
-{ id:4024, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"minimum_wage_surplus", secondarySkills:["unions_efficiency_wages"], repairSkill:"minimum_wage_surplus", commonError:"Forgetting that a binding wage floor creates a surplus when labor supplied exceeds labor demanded.", q:"The Comptroller sets a wage floor: a binding minimum wage is a wage set:", options:["Above the equilibrium wage","Below the equilibrium wage","Equal to the CPI","Below zero"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"A binding minimum wage is above equilibrium and prevents the wage from falling to market-clearing level." },
+{ id:4024, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"minimum_wage_surplus", secondarySkills:["unions_efficiency_wages"], repairSkill:"minimum_wage_surplus", commonError:"Forgetting that a binding wage floor creates a surplus when labor supplied exceeds labor demanded.", q:"The Inflation Wraith sets a wage floor: a binding minimum wage is a wage set:", options:["Above the equilibrium wage","Below the equilibrium wage","Equal to the CPI","Below zero"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"A binding minimum wage is above equilibrium and prevents the wage from falling to market-clearing level." },
 { id:4025, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"minimum_wage_surplus", secondarySkills:["unions_efficiency_wages"], repairSkill:"minimum_wage_surplus", commonError:"Forgetting that a binding wage floor creates a surplus when labor supplied exceeds labor demanded.", q:"At a minimum wage of $15, 140 workers want jobs and firms demand 100 workers. What is the labor surplus?", options:["40 workers","100 workers","140 workers","240 workers"], a:0, tag:"labor_market_policy", type:"calculation", objective:"LO29.4", boss:"FinalBoss", feedback:"Labor surplus = quantity supplied - quantity demanded = 140 - 100 = 40 workers." },
 { id:4026, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"minimum_wage_surplus", secondarySkills:["unions_efficiency_wages"], repairSkill:"minimum_wage_surplus", commonError:"Forgetting that a binding wage floor creates a surplus when labor supplied exceeds labor demanded.", q:"What is the key tradeoff of a binding minimum wage?", options:["Some workers earn more, but others may lose jobs or fail to find work","All workers are guaranteed jobs","Firms hire more workers at higher wages","Unemployment must fall to zero"], a:0, tag:"labor_market_policy", type:"interpretation", objective:"LO29.4", boss:"FinalBoss", feedback:"A binding wage floor can raise wages for some while reducing employment opportunities for others." },
 
 // Set 10: Unions and insider-outsider effects
-{ id:4027, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"The Comptroller examines bargaining power: unions can contribute to unemployment when they:", options:["Push wages above equilibrium in unionized labor markets","Lower wages below equilibrium","Make all labor markets perfectly competitive","Eliminate bargaining"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"Union wage bargaining can raise wages above equilibrium and reduce labor demanded." },
+{ id:4027, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"The Inflation Wraith examines bargaining power: unions can contribute to unemployment when they:", options:["Push wages above equilibrium in unionized labor markets","Lower wages below equilibrium","Make all labor markets perfectly competitive","Eliminate bargaining"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"Union wage bargaining can raise wages above equilibrium and reduce labor demanded." },
 { id:4028, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"A union contract raises wages for current workers, but firms reduce hiring. Who may be hurt?", options:["Workers who would have been hired at the lower wage but are now priced out","All workers who keep their jobs","Only retired workers","Only foreign consumers"], a:0, tag:"labor_market_policy", type:"interpretation", objective:"LO29.4", boss:"FinalBoss", feedback:"The insider-outsider issue is that current workers may benefit while job seekers lose opportunities." },
 { id:4029, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"A union wage creates labor supply of 500 and labor demand of 420. What does the gap represent?", options:["80 workers who want jobs at that wage but are not hired","420 unemployed workers","500 employed workers","920 total unemployed workers"], a:0, tag:"labor_market_policy", type:"calculation", objective:"LO29.4", boss:"FinalBoss", feedback:"The labor surplus is 500 - 420 = 80 workers." },
 
 // Set 11: Efficiency wages
-{ id:4030, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"The Comptroller raises the wage ledger: efficiency wage theory says firms may pay above-equilibrium wages because:", options:["Higher wages can improve effort, reduce turnover, attract better workers, or improve morale","Higher wages always reduce productivity","Firms are legally required to overpay all workers","Above-equilibrium wages eliminate unemployment"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"Efficiency wages can be profitable if they improve worker productivity or reduce costly turnover." },
+{ id:4030, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"The Inflation Wraith raises the wage grid: efficiency wage theory says firms may pay above-equilibrium wages because:", options:["Higher wages can improve effort, reduce turnover, attract better workers, or improve morale","Higher wages always reduce productivity","Firms are legally required to overpay all workers","Above-equilibrium wages eliminate unemployment"], a:0, tag:"labor_market_policy", type:"definition", objective:"LO29.4", boss:"FinalBoss", feedback:"Efficiency wages can be profitable if they improve worker productivity or reduce costly turnover." },
 { id:4031, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"A firm pays higher wages and finds workers quit less often and work harder. Which theory explains this?", options:["Efficiency wage theory","CPI bias","Net export theory","GDP deflator theory"], a:0, tag:"labor_market_policy", type:"interpretation", objective:"LO29.4", boss:"FinalBoss", feedback:"Efficiency wages can reduce turnover and increase effort." },
 { id:4032, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"unions_efficiency_wages", secondarySkills:["minimum_wage_surplus"], repairSkill:"unions_efficiency_wages", commonError:"Missing how above-equilibrium wages can create unemployment even when they have benefits.", q:"Why can efficiency wages contribute to unemployment?", options:["If wages stay above equilibrium, more workers may want jobs than firms are willing to hire","Efficiency wages make workers leave the labor force","Efficiency wages force all firms to hire more workers","Efficiency wages eliminate structural mismatch"], a:0, tag:"labor_market_policy", type:"interpretation", objective:"LO29.4", boss:"FinalBoss", feedback:"Above-equilibrium wages can create a labor surplus even if firms have a reason to pay them." },
 
 // Set 12: Natural rate of unemployment
-{ id:4033, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"The Comptroller asks for the normal baseline: the natural rate of unemployment includes mainly:", options:["Frictional and structural unemployment","Only cyclical unemployment","Only discouraged workers","Only retired workers"], a:0, tag:"natural_unemployment", type:"definition", objective:"LO29.5", boss:"FinalBoss", feedback:"The natural rate includes unemployment from normal search and structural mismatch." },
+{ id:4033, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"The Inflation Wraith asks for the normal baseline: the natural rate of unemployment includes mainly:", options:["Frictional and structural unemployment","Only cyclical unemployment","Only discouraged workers","Only retired workers"], a:0, tag:"natural_unemployment", type:"definition", objective:"LO29.5", boss:"FinalBoss", feedback:"The natural rate includes unemployment from normal search and structural mismatch." },
 { id:4034, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"Why does unemployment remain positive even in a healthy economy?", options:["Workers are still searching for jobs and some skills or locations do not match available jobs","Every economy is always in recession","All workers are discouraged","GDP cannot measure employment"], a:0, tag:"natural_unemployment", type:"interpretation", objective:"LO29.5", boss:"FinalBoss", feedback:"Frictional and structural unemployment remain even when the economy is healthy." },
 { id:4035, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"Actual unemployment is 4.2% and the natural rate is 5.0%. What does this suggest?", options:["The labor market may be unusually tight, with unemployment below its normal sustainable level","Cyclical unemployment is strongly positive","The economy must be in a deep recession","Structural unemployment is zero"], a:0, tag:"natural_unemployment", type:"interpretation", objective:"LO29.5", boss:"FinalBoss", feedback:"Actual unemployment below the natural rate can indicate unusually tight labor markets." },
 
 // Set 13: Full labor-market diagnostic
-{ id:4036, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"The Comptroller reviews the recovery file: a recession ends, but many former workers cannot find jobs because their old industry has permanently shrunk. What should policymakers diagnose?", options:["Cyclical unemployment has fallen, but structural unemployment remains","Only frictional unemployment remains","Unemployment is impossible if recession ended","Discouraged workers are all employed"], a:0, tag:"unemployment_types", type:"integration", objective:"LO29.3", boss:"FinalBoss", feedback:"Recovery can reduce cyclical unemployment while structural mismatch remains." },
+{ id:4036, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"The Inflation Wraith reviews the recovery file: a recession ends, but many former workers cannot find jobs because their old industry has permanently shrunk. What should policymakers diagnose?", options:["Cyclical unemployment has fallen, but structural unemployment remains","Only frictional unemployment remains","Unemployment is impossible if recession ended","Discouraged workers are all employed"], a:0, tag:"unemployment_types", type:"integration", objective:"LO29.3", boss:"FinalBoss", feedback:"Recovery can reduce cyclical unemployment while structural mismatch remains." },
 { id:4037, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"Suppose actual unemployment is 7%, natural unemployment is 4.5%, and labor force participation is falling. What is the strongest interpretation?", options:["There is likely cyclical unemployment, but falling participation means the headline rate may still understate weakness","The labor market is definitely fully healthy","Cyclical unemployment is negative 2.5 points","Participation falling proves structural unemployment is zero"], a:0, tag:"natural_unemployment", type:"integration", objective:"LO29.5", boss:"FinalBoss", feedback:"Actual unemployment exceeds natural unemployment by 2.5 points, and falling participation can hide additional weakness." },
 { id:4038, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"labor_force_participation", secondarySkills:["labor_force_calculation"], repairSkill:"labor_force_participation", commonError:"Using unemployed workers instead of the labor force in the participation formula.", q:"An economy has 200 adults, 120 employed, 10 unemployed, and 70 not in the labor force. Then 10 unemployed workers become discouraged. What are the new unemployment rate and participation rate?", options:["0% unemployment and 60% participation","5% unemployment and 65% participation","0% unemployment and 65% participation","10% unemployment and 60% participation"], a:0, tag:"labor_force_stats", type:"multi-step", objective:"LO29.1", boss:"FinalBoss", feedback:"Unemployed becomes 0 and labor force becomes 120. Unemployment = 0%; participation = 120/200 = 60%." },
 
 // Set 14: Final boss synthesis
-{ id:4039, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"The Comptroller delivers the final audit: a worker is counted as employed even though they want full-time work, another worker is not counted as unemployed because they stopped searching, and actual unemployment is above the natural rate. What is the combined lesson?", options:["The headline unemployment rate can miss underemployment and discouraged workers, while elevated actual unemployment may signal cyclical weakness","The headline unemployment rate captures all labor pain perfectly","Actual unemployment above natural unemployment means no recessionary pressure","Discouraged workers raise the unemployment rate"], a:0, tag:"labor_market_synthesis", type:"integration", objective:"LO29.1_LO29.2_LO29.5", boss:"FinalBoss", feedback:"This pulls together underemployment, discouraged workers, and cyclical unemployment. Welcome to the final boss." },
+{ id:4039, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"natural_rate", secondarySkills:["frictional_unemployment", "structural_unemployment"], repairSkill:"natural_rate", commonError:"Assuming healthy economies should have zero unemployment.", q:"The Inflation Wraith delivers the final audit: a worker is counted as employed even though they want full-time work, another worker is not counted as unemployed because they stopped searching, and actual unemployment is above the natural rate. What is the combined lesson?", options:["The headline unemployment rate can miss underemployment and discouraged workers, while elevated actual unemployment may signal cyclical weakness","The headline unemployment rate captures all labor pain perfectly","Actual unemployment above natural unemployment means no recessionary pressure","Discouraged workers raise the unemployment rate"], a:0, tag:"labor_market_synthesis", type:"integration", objective:"LO29.1_LO29.2_LO29.5", boss:"FinalBoss", feedback:"This pulls together underemployment, discouraged workers, and cyclical unemployment. Welcome to the final boss." },
 { id:4040, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"minimum_wage_surplus", secondarySkills:["unions_efficiency_wages"], repairSkill:"minimum_wage_surplus", commonError:"Forgetting that a binding wage floor creates a surplus when labor supplied exceeds labor demanded.", q:"Minimum wages, unions, and efficiency wages can all create unemployment through which shared mechanism?", options:["They can keep wages above the market-clearing level","They always lower wages below equilibrium","They remove workers from the labor force by definition","They reduce labor supply to zero"], a:0, tag:"labor_market_policy", type:"integration", objective:"LO29.4", boss:"FinalBoss", feedback:"All three can keep wages above equilibrium, creating a surplus of labor." },
 { id:4041, difficulty:"finalBoss", conceptCluster:"labor_market", primarySkill:"structural_unemployment", secondarySkills:["natural_rate"], repairSkill:"structural_unemployment", commonError:"Confusing permanent mismatch with short-run job search or weak demand.", q:"The final boss gives three facts: job openings exist, workers lack needed skills, and unemployment remains even after demand recovers. What is the best diagnosis?", options:["Structural unemployment is the main issue","Cyclical unemployment is the only issue","Frictional unemployment from normal search is the only issue","The workers are all employed"], a:0, tag:"unemployment_types", type:"integration", objective:"LO29.3", boss:"FinalBoss", feedback:"Persistent mismatch after recovery points to structural unemployment." }
 ],
@@ -5338,9 +5338,9 @@ function updateMazeTrack() {
             box.innerText = "🟨";
         } else {
             // Boss icons for future rooms
-            if (i === 10){box.innerHTML = '<img src="registrar.png" class="boss-icon">';box.classList.add("boss10");}
+            if (i === 10){box.innerHTML = '<img src="custodian.png" class="boss-icon">';box.classList.add("boss10");}
             else if (i === 20){box.innerHTML = '<img src="warden.png" class="boss-icon">';box.classList.add("boss20");}
-            else if (i === 30){box.innerHTML = '<img src="comptroller.png" class="boss-icon">';box.classList.add("boss30");}
+            else if (i === 30){box.innerHTML = '<img src="wraith.png" class="boss-icon">';box.classList.add("boss30");}
             else box.innerText = "⬛";
         }
         
@@ -5544,6 +5544,7 @@ if((gameMode === "timed" || gameMode === "exam") && room > 30){
     document.getElementById("srAnnouncements").innerText = `Entering ${getAreaName(room)}. Room ${room} of 30.`;
 
     // 3. Select the Question (CHANGE BOSS NAMES AND PNG)
+   if(isBoss){
    if (bossHealth === 3 || !bossPool || bossPool.length === 0) {
     const bank = [...questionBanks[diff]];
     let chosenTag = getWeakestTag();
@@ -5585,13 +5586,13 @@ if((gameMode === "timed" || gameMode === "exam") && room > 30){
 		}
 
        // 3. Boss Identity UI (Logic moved ABOVE the return)
-        let bTitle = room === 10 ? "THE REGISTRAR OF FALSE MEASURES "
-               : room === 20 ? "THE WARDEN OF GROWTH"
-               : "THE COMPTROLLER OF LABOR RECORDS";
+        let bTitle = room === 10 ? "THE RESERVE CUSTODIAN"
+               : room === 20 ? "THE VAULT WARDEN"
+               : "THE INFLATION WRAITH";
 
-       let bColor = room === 10 ? "#d6b15c"
-               : room === 20 ? "#c46a3a"
-               : "#f0c75e";
+       let bColor = room === 10 ? "#38bdf8"
+               : room === 20 ? "#60a5fa"
+               : "#f8d981";
        
         document.getElementById("srAnnouncements").innerText =`Boss encounter. ${bTitle}. Prepare yourself`;
         bossMsg.innerText = "⚠ BOSS ENCOUNTER ⚠";
@@ -5612,16 +5613,16 @@ if((gameMode === "timed" || gameMode === "exam") && room > 30){
 // =============================================
         
     if(room === 10){
-        bossImage = "registrar.png";
-        bossClass = "registrarGlow";
+        bossImage = "custodian.png";
+        bossClass = "custodianGlow";
     }
     else if(room === 20){
         bossImage = "warden.png";
         bossClass = "wardenGlow";
     }
     else{
-        bossImage = "comptroller.png";
-        bossClass = "comptrollerGlow";
+        bossImage = "wraith.png";
+        bossClass = "wraithGlow";
     }
 
         questionElement.innerHTML = `
@@ -5858,7 +5859,7 @@ if(rapidGuess.triggered && !rapidGuessLocked){
 
     sendGameData({
         runID: runID,
-        game: "The National Ledger",
+        game: "The Liquidity Grid",
         event: "rapid_guessing",
         user: username || "anonymous",
         email: studentEmail || "",
@@ -5913,7 +5914,7 @@ recordAdaptiveAttempt(currentQuestion, isCorrect, responseTime);
     // =============================================
     sendGameData({
         runID: runID,
-		game: "The National Ledger",
+		game: "The Liquidity Grid",
         event: "question",
         user: username || "anonymous",
 		email: studentEmail || "",
@@ -6037,7 +6038,7 @@ if(remediationState.active){
         if(isBossRoom){
         bossHealth--;
         
-        const bossLine = getNationalLedgerBossLine({
+        const bossLine = getLiquidityGridBossLine({
             isCorrect: true,
             tag: currentQuestion.tag || "",
             type: currentQuestion.type || "",
@@ -6059,7 +6060,7 @@ if(remediationState.active){
          // Boss defeated
          sendGameData({
             runID: runID,
-			game: "The National Ledger",
+			game: "The Liquidity Grid",
             event: "boss_defeated",
             user: username,
 			email: studentEmail,
@@ -6071,21 +6072,21 @@ if(remediationState.active){
         // Boss defeated (artifact unlocks)
         if(modeAllowsRealmProgress()){
     if(room === 10){
-        document.getElementById("vaultSeal").classList.add("unlocked");
-        localStorage.setItem("vaultSeal", "true");
-        showArtifact(artifacts.seal.img, artifacts.seal.title, artifacts.seal.text);
+        document.getElementById("vaultReserveKey").classList.add("unlocked");
+        localStorage.setItem("vaultReserveKey", "true");
+        showArtifact(artifacts.reserveKey.img, artifacts.reserveKey.title, artifacts.reserveKey.text);
     }
 
     if(room === 20){
-        document.getElementById("vaultPrism").classList.add("unlocked");
-        localStorage.setItem("vaultPrism", "true");
-        showArtifact(artifacts.prism.img, artifacts.prism.title, artifacts.prism.text);
+        document.getElementById("vaultValuePrism").classList.add("unlocked");
+        localStorage.setItem("vaultValuePrism", "true");
+        showArtifact(artifacts.valuePrism.img, artifacts.valuePrism.title, artifacts.valuePrism.text);
     }
 
     if(room === 30){
-        document.getElementById("vaultCrown").classList.add("unlocked");
-        localStorage.setItem("vaultCrown", "true");
-        showArtifact(artifacts.crown.img, artifacts.crown.title, artifacts.crown.text);
+        document.getElementById("vaultPolicyScepter").classList.add("unlocked");
+        localStorage.setItem("vaultPolicyScepter", "true");
+        showArtifact(artifacts.policyScepter.img, artifacts.policyScepter.title, artifacts.policyScepter.text);
     }
 }
 
@@ -6146,7 +6147,7 @@ if(remediationState.active){
     }
 
     if(isBossRoom){
-        const bossLine = getNationalLedgerBossLine({
+        const bossLine = getLiquidityGridBossLine({
             isCorrect: false,
             tag: currentQuestion.tag || "",
             type: currentQuestion.type || "",
@@ -6204,7 +6205,7 @@ if (!remediationState.active && currentQuestion.tag && shouldTriggerDetour(curre
         const remediationMessage = remediationState.careless
             ? "You rushed the entry. Slow down and audit the category."
             : remediationState.slowStruggle
-                ? "The Ledger resists. Rebuild the concept before advancing."
+                ? "The Grid resists. Rebuild the monetary concept before advancing."
                 : getRecoveryLine(remediationState.stage);
 
         msgElement.innerHTML =
@@ -6231,8 +6232,8 @@ if (!remediationState.active && currentQuestion.tag && shouldTriggerDetour(curre
     saveGameState();
 
     showGameModal({
-        title: "Ledger Entry Rejected",
-        text: `Incorrect. The ledger throws you back to Room ${room}.`,
+        title: "Grid Signal Rejected",
+        text: `Incorrect. The grid throws you back to Room ${room}.`,
         confirmText: "Continue",
         onConfirm: loadQuestion
     });
@@ -6286,19 +6287,19 @@ function unlockArtifact(key) {
 // =============================================
  function handleStreakVisuals() {
     let streakMsg = "";
-    let streakColor = "#fbbf24";
+    let streakColor = "#f8d981";
 
 if (streak === 5) {
-    streakMsg = `<span class="streak"><img src="streakmark.png" class="streak-icon">CALIBRATION MARKED</span>`;
-    streakColor = "#d6b15c";
+    streakMsg = `<span class="streak"><img src="streakspark.png" class="streak-icon">LIQUIDITY SPARK</span>`;
+    streakColor = "#38bdf8";
 }
 else if (streak === 10) {
-    streakMsg = `<span class="streak"><img src="streakspark.png" class="streak-icon">STABILITY SPARKED</span>`;
-    streakColor = "#c46a3a";
+    streakMsg = `<span class="streak"><img src="streakpulse.png" class="streak-icon">SIGNAL PULSE</span>`;
+    streakColor = "#60a5fa";
 }
 else if (streak === 20) {
-    streakMsg = `<span class="streak"><img src="streakstar.png" class="streak-icon">CONTINUITY STARRED</span>`;
-    streakColor = "#f0c75e";
+    streakMsg = `<span class="streak"><img src="streakbeacon.png" class="streak-icon">EQUILIBRIUM BEACON</span>`;
+    streakColor = "#f8d981";
 }
 
     if (streakMsg) {
@@ -6308,7 +6309,7 @@ else if (streak === 20) {
         document.getElementById("streakDisplay").style.color = streakColor;
     } else if (streak > 0) {
         document.getElementById("streakDisplay").innerText = `Streak: ${streak}`;
-        document.getElementById("streakDisplay").style.color = "#fbbf24";
+        document.getElementById("streakDisplay").style.color = "#f8d981";
     }
 }  
 
@@ -6341,7 +6342,7 @@ function showHallwayTransition(feedback){
     text.innerHTML = `
     <div style="font-size:22px;margin-bottom:15px;color:#4ade80;">${getWizardFeedback("correct")}</div>
     <div style="font-size:18px;opacity:.9;">${feedback}</div>
-    <div style="margin-top:25px;font-size:14px;opacity:.7;">You move deeper into the Ledger...</div>
+    <div style="margin-top:25px;font-size:14px;opacity:.7;">You move deeper into the Liquidity Grid...</div>
     `;
 
     overlay.classList.add("active");
@@ -6466,7 +6467,7 @@ function showKnowledgeRoom(bossRoom) {
 // =============================================    
 if (bossRoom === 10) {
     title = "THE REGISTRAR CONCEDES: THE MEASURES RECONCILE";
-    summary = "You have restored the first ledger. GDP, income, expenditure, prices, and purchasing power now separate cleanly. False measures no longer pass inspection.";
+    summary = "You have restored the first grid. GDP, income, expenditure, prices, and purchasing power now separate cleanly. False measures no longer pass inspection.";
 } 
 else if (bossRoom === 20) {
     title = "THE WARDEN SUBMITS: PRODUCTIVITY SOURCES IDENTIFIED";
@@ -6474,7 +6475,7 @@ else if (bossRoom === 20) {
 } 
 else if (bossRoom === 30) {
     title = "THE COMPTROLLER FALLS: THE LABOR RECORD IS BALANCED";
-    summary = "You have audited employment, unemployment, labor force participation, job search, mismatch, and the natural rate. The labor ledger no longer hides its weak entries.";
+    summary = "You have audited employment, unemployment, labor force participation, job search, mismatch, and the natural rate. The labor grid no longer hides its weak entries.";
 }
 
     // Update the UI
@@ -6524,8 +6525,8 @@ document.getElementById("continueBtn").onclick = () => {
 
 function handleLegendaryVictory(){
     stopTimedModeClock();
-    localStorage.setItem("economicRealm_nationalLedger_legendary_complete", "true");
-    localStorage.setItem("nationalLedgerLegendaryComplete", "true");
+    localStorage.setItem("economicRealm_liquidityGrid_legendary_complete", "true");
+    localStorage.setItem("liquidityGridLegendaryComplete", "true");
     clearSavedGame();
 
     bgMusic.pause();
@@ -6544,7 +6545,7 @@ function handleLegendaryVictory(){
 
     sendGameData({
         runID,
-        game: "The National Ledger",
+        game: "The Liquidity Grid",
         event: "legendary_complete",
         user: username,
         email: studentEmail,
@@ -6566,11 +6567,11 @@ function handleLegendaryVictory(){
         verificationCode
     });
 
-    let judgment = "Legendary Ledger run confirmed. You handled national output, prices, growth, productivity, and labor-market traps under pressure.";
+    let judgment = "Legendary Grid run confirmed. You handled money, banks, inflation, interest rates, and policy transmission under pressure.";
     if(accuracy >= 90){
         judgment = "Legendary mastery confirmed. You did not just recognize terms. You audited the whole national record.";
     } else if(accuracy < 75){
-        judgment = "You survived Legendary Mode, but the Ledger left marks. Completion counts. Mastery still needs another run.";
+        judgment = "You survived Legendary Mode, but the Grid left marks. Completion counts. Mastery still needs another run.";
     }
 
     document.getElementById("bossMessage").innerText = "";
@@ -6590,7 +6591,7 @@ function handleLegendaryVictory(){
     `;
 
     document.getElementById("answers").innerHTML = `
-        <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Ledger Run</button>
+        <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Grid Run</button>
     `;
 
     document.getElementById("message").innerText = "Legendary completion saved separately. Standard Realm progress was not changed.";
@@ -6605,7 +6606,7 @@ function handlePracticeModeComplete(){
 
     sendGameData({
         runID,
-        game: "The National Ledger",
+        game: "The Liquidity Grid",
         event: `${gameMode}_complete`,
         user: username,
         email: studentEmail,
@@ -6641,7 +6642,7 @@ function handlePracticeModeComplete(){
     `;
 
     document.getElementById("answers").innerHTML = `
-        <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Ledger Run</button>
+        <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Grid Run</button>
     `;
 
     document.getElementById("message").innerText = "Practice complete. The campaign record was not changed.";
@@ -6757,7 +6758,7 @@ function handleVictory() {
 
     sendGameData({
         runID,
-        game: "The National Ledger",
+        game: "The Liquidity Grid",
         event: "complete",
         user: username,
         email: studentEmail,
@@ -6793,13 +6794,13 @@ function handleVictory() {
 // =============================================
     let archivistLine = "";
     if(accuracy >= 90){
-        archivistLine = "You have mastered the Ledger. Few reach this level of clarity.";
+        archivistLine = "You have stabilized the Grid. Few reach this level of monetary clarity.";
     }
     else if(accuracy >= 75){
-        archivistLine = "You see much… but not all. The Ledger still holds power over you.";
+        archivistLine = "You see much… but not all. The Grid still holds power over you.";
     }
     else{
-        archivistLine = "You survived. Barely. The Ledger is not finished with you.";
+        archivistLine = "You survived. Barely. The Grid is not finished with you.";
     }
 
     let lineColor = "#5123db";
@@ -6830,7 +6831,7 @@ function handleVictory() {
             <h1 class="victory" style="color:gold; text-shadow: 0 0 20px gold;">LEDGER COMPLETE</h1>
 
             <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #374151;">
-                <p>Ledger File: <strong>${username}</strong></p>
+                <p>Grid File: <strong>${username}</strong></p>
                 <p>Accuracy: <strong>${accuracy}%</strong> | Best Streak: <strong>${maxStreak}</strong></p>
                 <p>Elapsed Time: <strong>${timeString}</strong> | Total Questions: <strong>${totalAttempts}</strong></p>
                 <p style="font-size: 0.8em; color: #9ca3af;">Verification Code: <span id="vCode">${verificationCode}</span></p>
@@ -6845,7 +6846,7 @@ function handleVictory() {
                     Copy Results
                 </button>
                 <button onclick="location.reload()" style="background:transparent; color:white; border:1px solid white; padding:12px 24px; border-radius:6px; cursor:pointer;">
-                    Run Ledger Again
+                    Run Grid Again
                 </button>
             </div>
         </div>
@@ -6967,7 +6968,7 @@ function copyResults() {
         Best Streak: ${maxStreak}
         Total Questions: ${totalAttempts}
         Code: ${code}
-        Verified by The Auditor`;
+        Verified by The Reserve Banker`;
 
     navigator.clipboard.writeText(shareText).then(() => {
         const btn = document.getElementById("shareBtn");
@@ -6989,9 +6990,9 @@ function sendGameData(data) {
     timestamp: new Date().toISOString(),
     runID: data.runID || localStorage.getItem("gauntletRunID") || "",
     token: data.token || "",
-    version: "NationalLedger-ms-telemetry-v3.5",
+    version: "LiquidityGrid-ms-telemetry-v3.5",
     userAgent: navigator.userAgent || "",
-    game: data.game || "The National Ledger",
+    game: data.game || "The Liquidity Grid",
     event: data.event || "",
     user: data.user || username || "anonymous",
 	email: studentEmail || "",  
@@ -7038,7 +7039,6 @@ function sendGameData(data) {
 </script>
 </body>
 </html>
-
 
 
 
