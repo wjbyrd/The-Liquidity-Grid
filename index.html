@@ -237,21 +237,21 @@ body {
     pointer-events: none;
 }
 
-/* Tier 1 — Reserve Custodian */
+/* Tier 1 — Deposit Warden */
 .boss10 .boss-icon{
     filter:
         drop-shadow(0 0 6px rgba(56,189,248,0.85))
         drop-shadow(0 0 12px rgba(37,99,235,0.55));
 }
 
-/* Tier 2 — Vault Warden */
+/* Tier 2 — Vault Wraith */
 .boss20 .boss-icon{
     filter:
         drop-shadow(0 0 8px rgba(96,165,250,0.9))
         drop-shadow(0 0 16px rgba(99,35,24,0.65));
 }
 
-/* Tier 3 — Inflation Wraith */
+/* Tier 3 — Central Banker */
 .boss30 .boss-icon{
     filter:
         drop-shadow(0 0 10px rgba(248,217,129,1))
@@ -380,7 +380,7 @@ h2 {
         0 2px 5px rgba(0,0,0,0.85);
 }
 
-/* Add styling to Reserve Banker text */
+/* Add styling to Custodian text */
 #message {
     margin-top: 10px;
     font-style: italic;
@@ -886,21 +886,21 @@ button:active {
 }
 
 /* Boss-specific glow effects */
-.custodianGlow {
+.wardenGlow {
     filter:
         drop-shadow(0 0 12px rgba(56,189,248,0.82))
         drop-shadow(0 0 24px rgba(37,99,235,0.50))
         drop-shadow(0 0 34px rgba(0,0,0,0.75));
 }
 
-.wardenGlow {
+.wraithGlow {
     filter:
         drop-shadow(0 0 14px rgba(96,165,250,0.88))
         drop-shadow(0 0 28px rgba(14,165,233,0.58))
         drop-shadow(0 0 38px rgba(0,0,0,0.78));
 }
 
-.wraithGlow {
+.bankerGlow {
     filter:
         drop-shadow(0 0 16px rgba(248,217,129,0.96))
         drop-shadow(0 0 34px rgba(14,165,233,0.74))
@@ -1298,7 +1298,7 @@ button:active {
 }
    
 /* Wizard Box */
-/* Reserve Banker display panel — fixed width, do not remove flex settings */
+/* Custodian display panel — fixed width, do not remove flex settings */
 #wizardBox{
     width:160px;
     min-width:160px;
@@ -1347,7 +1347,7 @@ button:active {
 }
 
 /* Wizard Image */
-/* Reserve Banker visual + floating animation */
+/* Custodian visual + floating animation */
 #wizardImage{
     width:100%;
     max-width:180px;
@@ -1887,10 +1887,10 @@ Respect structure strictly.
 <!-- Start screen / player entry (safe to redesign completely) -->
 <div id="startScreen">
   <div class="start-content">
-    <h1 class="title">THE NATIONAL LEDGER</h1>
-    <h2 class="subtitle">Measure. Trace. Balance.</h2>
+    <h1 class="title">THE LIQUIDITY GRID</h1>
+    <h2 class="subtitle">Deposit. Inflate. Transmit.</h2>
     <input id="emailInput" type="email" placeholder="Enter your school email" class="name-input">
-    <button class="start-btn" onclick="showModeSelect()">ENTER THE LEDGER</button>
+    <button class="start-btn" onclick="showModeSelect()">ENTER THE GRID</button>
     <button id="continueRunBtn" class="start-btn secondary-start-btn" onclick="continueSavedRun()" style="display:none;">
         CONTINUE STANDARD RUN
     </button>
@@ -1899,7 +1899,7 @@ Respect structure strictly.
 
 <div id="modeSelectScreen" class="mode-select-screen" style="display:none;">
   <div class="mode-select-panel">
-    <h1 class="mode-title">CHOOSE YOUR LEDGER RUN</h1>
+    <h1 class="mode-title">CHOOSE YOUR GRID RUN</h1>
     <p class="mode-subtitle">Select how you want to enter The Liquidity Grid.</p>
     <div class="mode-grid">
       <button class="mode-card" onclick="startSelectedMode('standard')"><img src="mode_standard.png" alt="" aria-hidden="true"><span class="mode-card-title">Standard Campaign</span><span class="mode-card-text">Full 30-room run with bosses, artifacts, setbacks, save status, and Realm progress.</span></button>
@@ -1971,8 +1971,8 @@ or simplify this section.
     <div class="main-panel">
         <div id="gameShell">
             <div id="wizardBox">
-                <div id="wizardName">The Reserve Banker</div>
-                <img src="banker.png" id="wizardImage">
+                <div id="wizardName">The Custodian</div>
+                <img src="custodian.png" id="wizardImage">
             </div>
 
             <!-- GAME -->
@@ -2464,189 +2464,157 @@ function inferObjective(question){
     const type = (question.type || "default").toLowerCase();
 
     // =============================================
-    // NATIONAL LEDGER OBJECTIVE INFERENCE
-    // Chapters 24, 25, 26, 29
-    // GDP, CPI, growth/productivity, unemployment
+    // LIQUIDITY GRID OBJECTIVE INFERENCE
+    // Chapters 30, 31, 35
+    // Money/banking, money growth/inflation, monetary/fiscal policy and AD
     // =============================================
 
     // -----------------------------
-    // CHAPTER 24 — Measuring a Nation's Income
+    // CHAPTER 30 — Money, the Banking System, and the Federal Reserve
     // -----------------------------
 
-    if(tag === "gdp_income_expenditure"){
-        return "LO24.1";
+    if(tag === "money_functions" || tag === "forms_of_money" || tag === "money_definition" || tag === "m1_m2"){
+        return "LO30.1";
     }
 
-    if(tag === "gdp_definition"){
-        return "LO24.2";
+    if(tag === "federal_reserve" || tag === "fed_structure" || tag === "fomc" || tag === "central_bank"){
+        return "LO30.2";
     }
 
-    if(tag === "gdp_components"){
-        return "LO24.3";
+    if(tag === "banking_system" || tag === "fractional_reserve" || tag === "money_creation" || tag === "reserves_deposits" || tag === "money_multiplier"){
+        return "LO30.3";
     }
 
-    if(tag === "real_nominal_gdp"){
-        return "LO24.4";
+    if(tag === "fed_tools" || tag === "open_market_operations" || tag === "discount_rate" || tag === "reserve_requirements" || tag === "interest_on_reserves" || tag === "monetary_control"){
+        return "LO30.4";
     }
 
-    if(tag === "gdp_wellbeing"){
-        return "LO24.5";
+    if(tag === "limits_monetary_control" || tag === "bank_capital" || tag === "leverage" || tag === "financial_risk" || tag === "monetary_control_limits"){
+        return "LO30.5";
     }
 
-    // Question-text backup for Chapter 24
-    if(q.includes("income equals expenditure") || q.includes("total income") || q.includes("total expenditure") || q.includes("income-expenditure") || q.includes("income and expenditure")){
-        return "LO24.1";
+    // Question-text backup for Chapter 30
+    if(q.includes("medium of exchange") || q.includes("unit of account") || q.includes("store of value") || q.includes("commodity money") || q.includes("fiat money")){
+        return "LO30.1";
     }
 
-    if(q.includes("gdp") || q.includes("gross domestic product") || q.includes("final good") || q.includes("intermediate good") || q.includes("value added") || q.includes("current production") || q.includes("used good")){
-        if(q.includes("nominal gdp") || q.includes("real gdp") || q.includes("gdp deflator") || q.includes("base-year") || q.includes("current-year prices")){
-            return "LO24.4";
-        }
-
-        if(q.includes("consumption") || q.includes("investment") || q.includes("government purchases") || q.includes("net exports") || q.includes("exports") || q.includes("imports") || q.includes("inventory")){
-            return "LO24.3";
-        }
-
-        if(q.includes("well-being") || q.includes("well being") || q.includes("leisure") || q.includes("pollution") || q.includes("environment") || q.includes("quality of life") || q.includes("inequality")){
-            return "LO24.5";
-        }
-
-        return "LO24.2";
+    if(q.includes("m1") || q.includes("m2") || q.includes("currency") || q.includes("checkable deposits") || q.includes("traveler") || q.includes("savings deposits") || q.includes("money market mutual funds") || q.includes("small time deposits")){
+        return "LO30.1";
     }
 
-    // -----------------------------
-    // CHAPTER 25 — Measuring the Cost of Living
-    // -----------------------------
-
-    if(tag === "cpi_inflation"){
-        return "LO25.1";
+    if(q.includes("federal reserve") || q.includes("the fed") || q.includes("board of governors") || q.includes("fomc") || q.includes("central bank") || q.includes("federal funds rate")){
+        return "LO30.2";
     }
 
-    if(tag === "cpi_bias"){
-        return "LO25.2";
+    if(q.includes("fractional reserve") || q.includes("required reserves") || q.includes("excess reserves") || q.includes("reserve ratio") || q.includes("reserve requirement") || q.includes("money multiplier") || q.includes("banks create money") || q.includes("new deposits") || q.includes("loans")){
+        return "LO30.3";
     }
 
-    if(tag === "cpi_vs_deflator"){
-        return "LO25.3";
+    if(q.includes("open market operation") || q.includes("buying bonds") || q.includes("selling bonds") || q.includes("purchases bonds") || q.includes("sells bonds") || q.includes("discount rate") || q.includes("interest on reserves") || q.includes("change the money supply")){
+        return "LO30.4";
     }
 
-    if(tag === "inflation_adjustment"){
-        return "LO25.4";
-    }
-
-    if(tag === "interest_inflation"){
-        return "LO25.5";
-    }
-
-    // Question-text backup for Chapter 25
-    if(q.includes("consumer price index") || q.includes("cpi") || q.includes("inflation rate") || q.includes("basket cost") || q.includes("fixed basket")){
-        if(q.includes("substitution") || q.includes("quality") || q.includes("new goods") || q.includes("cost of living") || q.includes("overstate")){
-            return "LO25.2";
-        }
-
-        if(q.includes("gdp deflator") || q.includes("imported") || q.includes("domestic production") || q.includes("current domestic production")){
-            return "LO25.3";
-        }
-
-        return "LO25.1";
-    }
-
-    if(q.includes("today's dollars") || q.includes("today’s dollars") || q.includes("purchasing power") || q.includes("adjusted for inflation") || q.includes("price level today") || q.includes("price index ratio")){
-        return "LO25.4";
-    }
-
-    if(q.includes("nominal interest") || q.includes("real interest") || q.includes("real return") || q.includes("borrower") || q.includes("lender")){
-        return "LO25.5";
+    if(q.includes("bank capital") || q.includes("leverage") || q.includes("capital requirement") || q.includes("bank run") || q.includes("control over the money supply is not perfect") || q.includes("currency holdings") || q.includes("reserve holdings")){
+        return "LO30.5";
     }
 
     // -----------------------------
-    // CHAPTER 26 — Production and Growth
+    // CHAPTER 31 — Money Growth and Inflation
     // -----------------------------
 
-    if(tag === "growth_differences"){
-        return "LO26.1";
+    if(tag === "quantity_theory" || tag === "money_growth_inflation" || tag === "money_market_long_run" || tag === "value_of_money"){
+        return "LO31.1";
     }
 
-    if(tag === "productivity"){
-        return "LO26.2";
+    if(tag === "real_nominal_variables" || tag === "classical_dichotomy" || tag === "monetary_neutrality"){
+        return "LO31.2";
     }
 
-    if(tag === "productivity_factors" || tag === "diminishing_returns" || tag === "catch_up_growth"){
-        return "LO26.3";
+    if(tag === "fisher_effect" || tag === "nominal_real_interest" || tag === "expected_inflation"){
+        return "LO31.3";
     }
 
-    if(tag === "growth_policy"){
-        return "LO26.4";
+    if(tag === "inflation_costs" || tag === "shoeleather_costs" || tag === "menu_costs" || tag === "inflation_redistribution"){
+        return "LO31.4";
     }
 
-    // Question-text backup for Chapter 26
-    if(q.includes("rule of 70") || q.includes("double") || q.includes("growth rate") || q.includes("real gdp per person") || q.includes("living standards across countries")){
-        return "LO26.1";
+    if(tag === "inflation_policy" || tag === "inflation_tax" || tag === "hyperinflation" || tag === "deflation" || tag === "inflation_implications"){
+        return "LO31.5";
     }
 
-    if(q.includes("productivity") || q.includes("output per worker") || q.includes("output per hour") || q.includes("output divided by labor")){
-        return "LO26.2";
+    // Question-text backup for Chapter 31
+    if(q.includes("quantity theory") || q.includes("quantity equation") || q.includes("mv = py") || q.includes("velocity") || q.includes("money growth") || q.includes("monetary injection") || q.includes("value of money") || q.includes("1/p") || q.includes("price level adjusts")){
+        return "LO31.1";
     }
 
-    if(q.includes("physical capital") || q.includes("human capital") || q.includes("natural resources") || q.includes("technological knowledge") || q.includes("diminishing returns") || q.includes("catch-up") || q.includes("catch up") || q.includes("capital per worker")){
-        return "LO26.3";
+    if(q.includes("nominal variable") || q.includes("real variable") || q.includes("classical dichotomy") || q.includes("monetary neutrality") || q.includes("relative price") || q.includes("real wage") || q.includes("nominal wage")){
+        return "LO31.2";
     }
 
-    if(q.includes("property rights") || q.includes("political stability") || q.includes("saving and investment") || q.includes("foreign investment") || q.includes("education") || q.includes("research and development") || q.includes("free trade") || q.includes("growth policy")){
-        return "LO26.4";
+    if(q.includes("fisher effect") || q.includes("nominal interest rate") || q.includes("real interest rate") || q.includes("expected inflation") || q.includes("actual inflation") || q.includes("inflation expectations")){
+        return "LO31.3";
+    }
+
+    if(q.includes("shoeleather") || q.includes("menu cost") || q.includes("relative-price variability") || q.includes("tax distortions") || q.includes("confusion") || q.includes("creditors") || q.includes("debtors") || q.includes("redistribution")){
+        return "LO31.4";
+    }
+
+    if(q.includes("inflation tax") || q.includes("printing money") || q.includes("hyperinflation") || q.includes("deflation") || q.includes("government finances spending by printing") || q.includes("policy implication")){
+        return "LO31.5";
     }
 
     // -----------------------------
-    // CHAPTER 29 — Unemployment
+    // CHAPTER 35 — Monetary/Fiscal Policy and Aggregate Demand
     // -----------------------------
 
-    if(tag === "labor_force_stats"){
-        return "LO29.1";
+    if(tag === "liquidity_preference" || tag === "money_market_ad" || tag === "ad_as_policy" || tag === "policy_shocks"){
+        return "LO35.1";
     }
 
-    if(tag === "employment_categories"){
-        return "LO29.2";
+    if(tag === "monetary_policy" || tag === "money_supply_interest_rate" || tag === "fed_policy_ad" || tag === "policy_transmission"){
+        return "LO35.2";
     }
 
-    if(tag === "unemployment_types"){
-        return "LO29.3";
+    if(tag === "fiscal_policy" || tag === "government_spending" || tag === "tax_policy" || tag === "fiscal_ad"){
+        return "LO35.3";
     }
 
-    if(tag === "labor_market_policy"){
-        return "LO29.4";
+    if(tag === "multiplier_effect" || tag === "crowding_out" || tag === "fiscal_side_effects" || tag === "fiscal_magnitude"){
+        return "LO35.4";
     }
 
-    if(tag === "natural_unemployment"){
-        return "LO29.5";
+    if(tag === "stabilization_policy" || tag === "policy_lags" || tag === "active_policy_debate" || tag === "automatic_stabilizers"){
+        return "LO35.5";
     }
 
-    if(tag === "labor_market_synthesis"){
-        return "LO29.1_LO29.2_LO29.5";
+    // Question-text backup for Chapter 35
+    if(q.includes("liquidity preference") || q.includes("money demand") || q.includes("money supply") || q.includes("interest rate adjusts") || q.includes("balance money supply and money demand") || q.includes("ad-as") || q.includes("aggregate demand and aggregate supply")){
+        return "LO35.1";
     }
 
-    if(tag === "macro_integration"){
-        return "integrated_macro_review";
+    if(q.includes("monetary policy") || q.includes("increase the money supply") || q.includes("decrease the money supply") || q.includes("lowers interest rates") || q.includes("raises interest rates") || q.includes("investment spending") || q.includes("shifts aggregate demand") || q.includes("open-market purchase") || q.includes("open-market sale")){
+        return "LO35.2";
     }
 
-    // Question-text backup for Chapter 29
-    if(q.includes("labor force participation") || q.includes("unemployment rate") || q.includes("labor force equals") || q.includes("employed plus unemployed")){
-        return "LO29.1";
+    if(q.includes("fiscal policy") || q.includes("government spending") || q.includes("tax cut") || q.includes("tax increase") || q.includes("lower taxes") || q.includes("higher taxes") || q.includes("infrastructure spending")){
+        return "LO35.3";
     }
 
-    if(q.includes("employed") || q.includes("unemployed") || q.includes("not in the labor force") || q.includes("discouraged worker") || q.includes("part-time") || q.includes("underemployment")){
-        return "LO29.2";
+    if(q.includes("multiplier") || q.includes("mpc") || q.includes("crowding out") || q.includes("government purchases multiplier") || q.includes("raises interest rates and reduces investment") || q.includes("offsets")){
+        return "LO35.4";
     }
 
-    if(q.includes("frictional") || q.includes("structural") || q.includes("cyclical") || q.includes("job search") || q.includes("skill mismatch") || q.includes("recession")){
-        return "LO29.3";
+    if(q.includes("stabilization policy") || q.includes("policy lag") || q.includes("inside lag") || q.includes("outside lag") || q.includes("automatic stabilizer") || q.includes("active stabilization") || q.includes("destabilizing")){
+        return "LO35.5";
     }
 
-    if(q.includes("minimum wage") || q.includes("unemployment insurance") || q.includes("union") || q.includes("efficiency wage") || q.includes("labor surplus") || q.includes("wage floor")){
-        return "LO29.4";
+    // Integrated review backups
+    if(tag === "liquidity_grid_synthesis"){
+        return "integrated_liquidity_grid_review";
     }
 
-    if(q.includes("natural rate") || q.includes("actual unemployment") || q.includes("cyclical unemployment") || q.includes("normal unemployment")){
-        return "LO29.5";
+    if(tag === "macro_policy_integration"){
+        return "LO30_LO31_LO35_integration";
     }
 
     return `${tag}_${type}`;
@@ -2664,202 +2632,296 @@ function inferSkill(question){
     const objective = (question.objective || "").toLowerCase();
 
     // =============================================
-    // CHAPTER 24 — GDP skills
+    // CHAPTER 30 — Money, Banking, and the Fed skills
     // =============================================
 
-    if(tag === "gdp_income_expenditure" || objective === "lo24.1" || q.includes("income equals expenditure") || q.includes("total income") || q.includes("total expenditure") || q.includes("income-expenditure")){
-        return "income_expenditure_identity";
+    if(tag === "money_functions" || tag === "forms_of_money" || tag === "money_definition" || objective === "lo30.1"){
+        if(q.includes("medium of exchange")) return "medium_of_exchange";
+        if(q.includes("unit of account")) return "unit_of_account";
+        if(q.includes("store of value")) return "store_of_value";
+        if(q.includes("commodity money") || q.includes("fiat money")) return "commodity_vs_fiat_money";
+        return "functions_of_money";
     }
 
-    if(tag === "gdp_definition" || objective === "lo24.2"){
-        if(q.includes("intermediate good") || q.includes("final good") || q.includes("double count") || q.includes("value added") || q.includes("flour") || q.includes("bakery")){
-            return "intermediate_vs_final_goods";
+    if(tag === "m1_m2" || q.includes("m1") || q.includes("m2") || q.includes("currency") || q.includes("checkable deposits") || q.includes("savings deposits") || q.includes("small time deposits") || q.includes("money market mutual funds")){
+        if(q.includes("m2") || q.includes("near monies") || q.includes("savings") || q.includes("small time") || q.includes("money market mutual funds")){
+            return "m2_money_supply";
+        }
+        return "m1_money_supply";
+    }
+
+    if(tag === "federal_reserve" || tag === "fed_structure" || tag === "fomc" || tag === "central_bank" || objective === "lo30.2"){
+        if(q.includes("fomc") || q.includes("open market committee")) return "fomc_role";
+        if(q.includes("board of governors")) return "fed_board_structure";
+        if(q.includes("central bank")) return "central_bank_role";
+        return "federal_reserve_structure";
+    }
+
+    if(tag === "banking_system" || tag === "fractional_reserve" || tag === "money_creation" || tag === "reserves_deposits" || tag === "money_multiplier" || objective === "lo30.3"){
+        if(q.includes("required reserves") || q.includes("reserve requirement")){
+            return "required_reserves";
         }
 
-        return "gdp_counting_rules";
-    }
-
-    if(tag === "gdp_components" || objective === "lo24.3"){
-        if(q.includes("exports") || q.includes("imports") || q.includes("net exports") || q.includes("imported")){
-            return "imports_exports_nx";
+        if(q.includes("excess reserves")){
+            return "excess_reserves";
         }
 
-        if(q.includes("inventory") || q.includes("unsold") || q.includes("produces") && q.includes("sells only")){
-            return "inventory_investment";
+        if(q.includes("reserve ratio")){
+            return "reserve_ratio";
         }
 
-        return "gdp_components_identity";
-    }
-
-    if(tag === "real_nominal_gdp" || objective === "lo24.4"){
-        if(q.includes("gdp deflator") || q.includes("deflator") || q.includes("nominal gdp") && q.includes("real gdp")){
-            return "gdp_deflator";
+        if(q.includes("money multiplier") || q.includes("multiplier")){
+            return "money_multiplier";
         }
 
-        return "nominal_vs_real_gdp";
-    }
-
-    if(tag === "gdp_wellbeing" || objective === "lo24.5" || q.includes("well-being") || q.includes("well being") || q.includes("leisure") || q.includes("pollution") || q.includes("quality of life") || q.includes("environment")){
-        return "gdp_wellbeing_limits";
-    }
-
-    // =============================================
-    // CHAPTER 25 — CPI, inflation, real interest skills
-    // =============================================
-
-    if(tag === "cpi_inflation" || objective === "lo25.1"){
-        if(q.includes("inflation rate") || q.includes("rises from") || q.includes("falls from") || q.includes("percentage change")){
-            return "inflation_rate";
+        if(q.includes("loans") || q.includes("lend") || q.includes("new deposits") || q.includes("banks create money")){
+            return "deposit_creation";
         }
 
-        return "cpi_calculation";
+        return "fractional_reserve_banking";
     }
 
-    if(tag === "cpi_bias" || objective === "lo25.2"){
-        if(q.includes("substitution") || q.includes("cheaper") || q.includes("switch") || q.includes("beef") || q.includes("chicken")){
-            return "substitution_bias";
+    if(tag === "fed_tools" || tag === "open_market_operations" || tag === "discount_rate" || tag === "reserve_requirements" || tag === "interest_on_reserves" || tag === "monetary_control" || objective === "lo30.4"){
+        if(q.includes("buy") && q.includes("bonds") || q.includes("purchase") && q.includes("bonds")){
+            return "open_market_purchase";
         }
 
-        return "quality_new_goods_bias";
-    }
-
-    if(tag === "cpi_vs_deflator" || objective === "lo25.3" || q.includes("gdp deflator") || q.includes("imported consumer") || q.includes("domestic production")){
-        return "cpi_vs_gdp_deflator";
-    }
-
-    if(tag === "inflation_adjustment" || objective === "lo25.4" || q.includes("today's dollars") || q.includes("today’s dollars") || q.includes("same purchasing power") || q.includes("adjusted for inflation")){
-        return "inflation_adjustment";
-    }
-
-    if(tag === "interest_inflation" || objective === "lo25.5" || q.includes("nominal interest") || q.includes("real interest") || q.includes("real return") || q.includes("borrower") || q.includes("lender")){
-        return "real_interest_rate";
-    }
-
-    // =============================================
-    // CHAPTER 26 — Growth and productivity skills
-    // =============================================
-
-    if(tag === "growth_differences" || objective === "lo26.1"){
-        if(q.includes("rule of 70") || q.includes("double") || q.includes("doubling")){
-            return "rule_of_70";
+        if(q.includes("sell") && q.includes("bonds") || q.includes("selling bonds")){
+            return "open_market_sale";
         }
 
-        return "real_gdp_per_person";
-    }
-
-    if(tag === "productivity" || objective === "lo26.2" || q.includes("productivity") || q.includes("output per worker") || q.includes("output per hour")){
-        return "productivity_calculation";
-    }
-
-    if(tag === "productivity_factors" || objective === "lo26.3"){
-        if(q.includes("physical capital") || q.includes("machines") || q.includes("tools") || q.includes("equipment") || q.includes("infrastructure")){
-            return "physical_capital";
+        if(q.includes("discount rate")){
+            return "discount_rate_policy";
         }
 
-        if(q.includes("human capital") || q.includes("education") || q.includes("training") || q.includes("skills") || q.includes("apprenticeship")){
-            return "human_capital";
+        if(q.includes("reserve requirement") || q.includes("reserve requirements")){
+            return "reserve_requirement_policy";
         }
 
-        if(q.includes("natural resources") || q.includes("oil") || q.includes("minerals") || q.includes("land") || q.includes("water") || q.includes("copper")){
-            return "natural_resources";
+        if(q.includes("interest on reserves")){
+            return "interest_on_reserves_policy";
         }
 
-        if(q.includes("technological knowledge") || q.includes("technology") || q.includes("production method") || q.includes("new method") || q.includes("algorithm")){
-            return "technological_knowledge";
+        return "fed_tools_money_supply";
+    }
+
+    if(tag === "limits_monetary_control" || tag === "bank_capital" || tag === "leverage" || tag === "financial_risk" || tag === "monetary_control_limits" || objective === "lo30.5"){
+        if(q.includes("bank capital") || q.includes("owners") || q.includes("equity")){
+            return "bank_capital";
         }
 
-        return "productivity_calculation";
-    }
+        if(q.includes("leverage") || q.includes("assets fall") || q.includes("capital falls")){
+            return "bank_leverage_risk";
+        }
 
-    if(tag === "diminishing_returns" || q.includes("diminishing returns") || q.includes("less extra output") || q.includes("less additional output")){
-        return "diminishing_returns";
-    }
+        if(q.includes("currency holdings") || q.includes("reserve holdings") || q.includes("not perfect")){
+            return "limits_of_monetary_control";
+        }
 
-    if(tag === "catch_up_growth" || q.includes("catch-up") || q.includes("catch up") || q.includes("capital is scarce") || q.includes("scarce capital")){
-        return "catch_up_effect";
-    }
-
-    if(tag === "growth_policy" || objective === "lo26.4" || q.includes("property rights") || q.includes("saving") || q.includes("investment") || q.includes("foreign investment") || q.includes("political stability") || q.includes("free trade") || q.includes("research and development") || q.includes("r&d")){
-        return "growth_policy";
+        return "banking_risk_and_control_limits";
     }
 
     // =============================================
-    // CHAPTER 29 — Unemployment skills
+    // CHAPTER 31 — Money Growth and Inflation skills
     // =============================================
 
-    if(tag === "labor_force_stats" || objective === "lo29.1"){
-        if(q.includes("labor force participation") || q.includes("participation rate")){
-            return "labor_force_participation";
+    if(tag === "quantity_theory" || tag === "money_growth_inflation" || tag === "money_market_long_run" || tag === "value_of_money" || objective === "lo31.1"){
+        if(q.includes("quantity equation") || q.includes("mv = py") || q.includes("velocity")){
+            return "quantity_equation";
         }
 
-        if(q.includes("unemployment rate") || q.includes("what is the unemployment") || q.includes("unemployed divided")){
-            return "unemployment_rate";
+        if(q.includes("value of money") || q.includes("1/p") || q.includes("price level")){
+            return "value_of_money";
         }
 
-        return "labor_force_calculation";
+        if(q.includes("monetary injection") || q.includes("increase in money supply") || q.includes("money growth")){
+            return "money_growth_to_inflation";
+        }
+
+        return "quantity_theory_of_money";
     }
 
-    if(tag === "employment_categories" || objective === "lo29.2"){
-        if(q.includes("discouraged") || q.includes("stopped searching") || q.includes("stop searching") || q.includes("not actively searching")){
-            return "discouraged_workers";
+    if(tag === "real_nominal_variables" || tag === "classical_dichotomy" || tag === "monetary_neutrality" || objective === "lo31.2"){
+        if(q.includes("nominal") && q.includes("real")){
+            return "nominal_vs_real_variables";
         }
 
-        return "employment_classification";
+        if(q.includes("relative price")){
+            return "relative_prices";
+        }
+
+        if(q.includes("monetary neutrality") || q.includes("neutrality of money")){
+            return "monetary_neutrality";
+        }
+
+        if(q.includes("classical dichotomy")){
+            return "classical_dichotomy";
+        }
+
+        return "real_nominal_distinction";
     }
 
-    if(tag === "unemployment_types" || objective === "lo29.3"){
-        if(q.includes("frictional") || q.includes("job search") || q.includes("searching for a better") || q.includes("between jobs")){
-            return "frictional_unemployment";
+    if(tag === "fisher_effect" || tag === "nominal_real_interest" || tag === "expected_inflation" || objective === "lo31.3"){
+        if(q.includes("fisher effect")){
+            return "fisher_effect";
         }
 
-        if(q.includes("structural") || q.includes("skill mismatch") || q.includes("mismatch") || q.includes("automation") || q.includes("obsolete") || q.includes("permanently")){
-            return "structural_unemployment";
+        if(q.includes("nominal interest") || q.includes("real interest")){
+            return "nominal_real_interest_rate";
         }
 
-        if(q.includes("cyclical") || q.includes("recession") || q.includes("downturn") || q.includes("weak demand") || q.includes("business cycle")){
-            return "cyclical_unemployment";
+        if(q.includes("expected inflation") || q.includes("inflation expectations")){
+            return "expected_inflation";
         }
 
-        return "structural_unemployment";
+        return "fisher_equation";
     }
 
-    if(tag === "labor_market_policy" || objective === "lo29.4"){
-        if(q.includes("minimum wage") || q.includes("wage floor") || q.includes("labor surplus") || q.includes("quantity supplied") || q.includes("quantity demanded")){
-            return "minimum_wage_surplus";
+    if(tag === "inflation_costs" || tag === "shoeleather_costs" || tag === "menu_costs" || tag === "inflation_redistribution" || objective === "lo31.4"){
+        if(q.includes("shoeleather")){
+            return "shoeleather_costs";
         }
 
-        if(q.includes("union") || q.includes("efficiency wage") || q.includes("above-equilibrium wages") || q.includes("above equilibrium wages") || q.includes("turnover") || q.includes("worker effort")){
-            return "unions_efficiency_wages";
+        if(q.includes("menu cost") || q.includes("change prices")){
+            return "menu_costs";
         }
 
-        if(q.includes("unemployment insurance") || q.includes("job-search assistance") || q.includes("job search assistance") || q.includes("benefits")){
-            return "frictional_unemployment";
+        if(q.includes("relative-price variability") || q.includes("relative price variability")){
+            return "relative_price_variability";
         }
 
-        return "unions_efficiency_wages";
+        if(q.includes("tax distortions") || q.includes("tax burden")){
+            return "inflation_tax_distortions";
+        }
+
+        if(q.includes("creditors") || q.includes("debtors") || q.includes("redistribution") || q.includes("unexpected inflation")){
+            return "inflation_redistribution";
+        }
+
+        return "costs_of_inflation";
     }
 
-    if(tag === "natural_unemployment" || objective === "lo29.5" || q.includes("natural rate") || q.includes("actual unemployment") || q.includes("cyclical unemployment") || q.includes("normal unemployment")){
-        return "natural_rate";
+    if(tag === "inflation_policy" || tag === "inflation_tax" || tag === "hyperinflation" || tag === "deflation" || tag === "inflation_implications" || objective === "lo31.5"){
+        if(q.includes("inflation tax") || q.includes("printing money")){
+            return "inflation_tax";
+        }
+
+        if(q.includes("hyperinflation")){
+            return "hyperinflation";
+        }
+
+        if(q.includes("deflation")){
+            return "deflation";
+        }
+
+        return "inflation_policy_implications";
     }
 
-    if(tag === "labor_market_synthesis"){
-        if(q.includes("discouraged")) return "discouraged_workers";
-        if(q.includes("part-time") || q.includes("underemployment")) return "employment_classification";
-        if(q.includes("natural rate")) return "natural_rate";
-        return "labor_force_calculation";
+    // =============================================
+    // CHAPTER 35 — Monetary/Fiscal Policy and AD skills
+    // =============================================
+
+    if(tag === "liquidity_preference" || tag === "money_market_ad" || tag === "ad_as_policy" || tag === "policy_shocks" || objective === "lo35.1"){
+        if(q.includes("liquidity preference")){
+            return "liquidity_preference_theory";
+        }
+
+        if(q.includes("money demand")){
+            return "money_demand_interest_rate";
+        }
+
+        if(q.includes("money supply")){
+            return "money_supply_interest_rate";
+        }
+
+        if(q.includes("ad-as") || q.includes("aggregate demand and aggregate supply")){
+            return "ad_as_policy_shocks";
+        }
+
+        return "liquidity_preference_model";
     }
 
-    if(tag === "macro_integration"){
-        if(q.includes("real wages") || q.includes("nominal wages") || q.includes("cpi")) return "inflation_adjustment";
-        if(q.includes("unemployment")) return "labor_force_calculation";
-        if(q.includes("nominal gdp") || q.includes("real gdp")) return "nominal_vs_real_gdp";
-        return "integrated_macro_review";
+    if(tag === "monetary_policy" || tag === "money_supply_interest_rate" || tag === "fed_policy_ad" || tag === "policy_transmission" || objective === "lo35.2"){
+        if(q.includes("increase the money supply") || q.includes("open-market purchase") || q.includes("purchases bonds")){
+            return "expansionary_monetary_policy";
+        }
+
+        if(q.includes("decrease the money supply") || q.includes("open-market sale") || q.includes("sells bonds")){
+            return "contractionary_monetary_policy";
+        }
+
+        if(q.includes("interest rate") && q.includes("investment")){
+            return "interest_rate_investment_channel";
+        }
+
+        if(q.includes("aggregate demand") || q.includes("ad curve") || q.includes("shifts ad")){
+            return "monetary_policy_ad_shift";
+        }
+
+        return "monetary_policy_transmission";
+    }
+
+    if(tag === "fiscal_policy" || tag === "government_spending" || tag === "tax_policy" || tag === "fiscal_ad" || objective === "lo35.3"){
+        if(q.includes("government spending") || q.includes("government purchases") || q.includes("infrastructure")){
+            return "government_spending_ad";
+        }
+
+        if(q.includes("tax cut") || q.includes("lower taxes")){
+            return "tax_cut_ad";
+        }
+
+        if(q.includes("tax increase") || q.includes("higher taxes")){
+            return "tax_increase_ad";
+        }
+
+        return "fiscal_policy_ad_shift";
+    }
+
+    if(tag === "multiplier_effect" || tag === "crowding_out" || tag === "fiscal_side_effects" || tag === "fiscal_magnitude" || objective === "lo35.4"){
+        if(q.includes("mpc") || q.includes("multiplier")){
+            return "multiplier_effect";
+        }
+
+        if(q.includes("crowding out") || q.includes("reduces investment") || q.includes("raises interest rates")){
+            return "crowding_out_effect";
+        }
+
+        return "fiscal_policy_magnitude";
+    }
+
+    if(tag === "stabilization_policy" || tag === "policy_lags" || tag === "active_policy_debate" || tag === "automatic_stabilizers" || objective === "lo35.5"){
+        if(q.includes("inside lag") || q.includes("outside lag") || q.includes("policy lag")){
+            return "policy_lags";
+        }
+
+        if(q.includes("automatic stabilizer")){
+            return "automatic_stabilizers";
+        }
+
+        if(q.includes("active stabilization") || q.includes("destabilizing") || q.includes("stabilization debate")){
+            return "stabilization_policy_debate";
+        }
+
+        return "stabilization_policy";
+    }
+
+    // Integrated review tags
+    if(tag === "liquidity_grid_synthesis"){
+        if(q.includes("reserves") || q.includes("deposits") || q.includes("money multiplier")) return "fractional_reserve_banking";
+        if(q.includes("inflation") || q.includes("value of money") || q.includes("real") || q.includes("nominal")) return "real_nominal_distinction";
+        if(q.includes("aggregate demand") || q.includes("interest rate") || q.includes("fiscal") || q.includes("monetary")) return "monetary_policy_transmission";
+        return "integrated_liquidity_grid_review";
+    }
+
+    if(tag === "macro_policy_integration"){
+        if(q.includes("money supply") || q.includes("reserves")) return "fed_tools_money_supply";
+        if(q.includes("inflation")) return "money_growth_to_inflation";
+        if(q.includes("interest rate") || q.includes("aggregate demand")) return "interest_rate_investment_channel";
+        return "LO30_LO31_LO35_integration";
     }
 
     return null;
 }
-
 function getObjectiveBucket(question){
     const objectiveKey = inferObjective(question);
     if(!masteryState.byObjective[objectiveKey]){
@@ -3442,7 +3504,7 @@ policyScepter:{
 
 function getRecoveryLine(stage){
   if(stage === "repair"){
-    return "Liquidity repair opened. The Reserve Banker is isolating the broken signal.";
+    return "Liquidity repair opened. The Custodian is isolating the broken signal.";
   }
 
   if(stage === "bridge"){
@@ -3461,9 +3523,9 @@ function getRecoveryLine(stage){
 }
 
 function getLiquidityGridBossName(){
-  if(room === 10) return "Reserve Custodian";
-  if(room === 20) return "Vault Warden";
-  if(room === 30) return "Inflation Wraith";
+  if(room === 10) return "Deposit Warden";
+  if(room === 20) return "Vault Wraith";
+  if(room === 30) return "Central Banker";
   return "The Liquidity Grid";
 }
 
@@ -3471,49 +3533,104 @@ function getLiquidityGridBossLine({ isCorrect, tag, type, objective, streak, bos
   const bossName = getLiquidityGridBossName();
 
   if(isCorrect && streak >= 5){
-    return `${bossName}: The signal is holding. Now prove it was not luck.`;
+    return `${bossName}: The channel is holding. Now prove the signal can survive pressure.`;
   }
 
   if(isCorrect && bossHealth <= 2){
-    return `${bossName}: Clean signal. The node is cracking.`;
+    return `${bossName}: Clean transmission. The node is cracking.`;
   }
 
   if(!isCorrect && responseTime < 5000){
-    return `${bossName}: Fast click. Bad signal. Classic disaster.`;
+    return `${bossName}: Fast click. Bad signal. That is how liquidity traps eat people alive.`;
   }
 
-if(!isCorrect && [
-  "gdp_income_expenditure",
-  "gdp_definition",
-  "gdp_components",
-  "real_nominal_gdp",
-  "gdp_wellbeing",
-  "cpi_inflation",
-  "cpi_bias",
-  "cpi_vs_deflator",
-  "inflation_adjustment",
-  "interest_inflation",
-  "growth_differences",
-  "productivity",
-  "productivity_factors",
-  "diminishing_returns",
-  "catch_up_growth",
-  "growth_policy",
-  "labor_force_stats",
-  "employment_categories",
-  "unemployment_types",
-  "labor_market_policy",
-  "natural_unemployment"
-].includes(tag)){
-    return `${bossName}: The monetary channel matters. Read it wrong and the whole grid lies.`;
-}
+  if(!isCorrect && [
+    // Chapter 30 — Money, Banking, and the Fed
+    "money_functions",
+    "forms_of_money",
+    "money_definition",
+    "m1_m2",
+    "federal_reserve",
+    "fed_structure",
+    "fomc",
+    "central_bank",
+    "banking_system",
+    "fractional_reserve",
+    "money_creation",
+    "reserves_deposits",
+    "money_multiplier",
+    "fed_tools",
+    "open_market_operations",
+    "discount_rate",
+    "reserve_requirements",
+    "interest_on_reserves",
+    "monetary_control",
+    "limits_monetary_control",
+    "bank_capital",
+    "leverage",
+    "financial_risk",
+    "monetary_control_limits",
+
+    // Chapter 31 — Money Growth and Inflation
+    "quantity_theory",
+    "money_growth_inflation",
+    "money_market_long_run",
+    "value_of_money",
+    "real_nominal_variables",
+    "classical_dichotomy",
+    "monetary_neutrality",
+    "fisher_effect",
+    "nominal_real_interest",
+    "expected_inflation",
+    "inflation_costs",
+    "shoeleather_costs",
+    "menu_costs",
+    "inflation_redistribution",
+    "inflation_policy",
+    "inflation_tax",
+    "hyperinflation",
+    "deflation",
+    "inflation_implications",
+
+    // Chapter 35 — Monetary/Fiscal Policy and AD
+    "liquidity_preference",
+    "money_market_ad",
+    "ad_as_policy",
+    "policy_shocks",
+    "monetary_policy",
+    "money_supply_interest_rate",
+    "fed_policy_ad",
+    "policy_transmission",
+    "fiscal_policy",
+    "government_spending",
+    "tax_policy",
+    "fiscal_ad",
+    "multiplier_effect",
+    "crowding_out",
+    "fiscal_side_effects",
+    "fiscal_magnitude",
+    "stabilization_policy",
+    "policy_lags",
+    "active_policy_debate",
+    "automatic_stabilizers",
+
+    // Integrated review
+    "liquidity_grid_synthesis",
+    "macro_policy_integration"
+  ].includes(tag)){
+    return `${bossName}: The liquidity channel matters. Read it wrong and the whole Grid lies.`;
+  }
+
+  if(!isCorrect && objective){
+    return `${bossName}: Weak objective logged: ${objective}. The Grid will route you back through it.`;
+  }
 
   if(!isCorrect && tag){
     return `${bossName}: Weak signal logged: ${tag}. The Grid will circle back.`;
   }
 
   if(isCorrect){
-    return `${bossName}: Correct. One clean signal does not stabilize the Grid.`;
+    return `${bossName}: Correct. One clean channel does not stabilize the Grid.`;
   }
 
   return `${bossName}: The checkpoint holds. Hit it again.`;
@@ -3887,12 +4004,12 @@ document.getElementById("emailInput").addEventListener("keypress", function(even
 // =============================================
 function getAreaName(r) {
     if (r <= 9) return "Reserve Vault Approach";
-    if (r === 10) return "The Reserve Custodian’s Gate";
+    if (r === 10) return "The Deposit Warden’s Gate";
     if (r <= 19) return "Money Creation Grid";
-    if (r === 20) return "The Vault Warden’s Station";
+    if (r === 20) return "The Vault Wraith’s Station";
     if (r <= 25) return "Inflation Signal Corridor";
     if (r <= 29) return "Policy Transmission Floor";
-    return "The Inflation Wraith’s Tribunal";
+    return "The Central Banker's Tribunal";
 }
 
 // =============================================
@@ -5586,9 +5703,9 @@ if((gameMode === "timed" || gameMode === "exam") && room > 30){
 		}
 
        // 3. Boss Identity UI (Logic moved ABOVE the return)
-        let bTitle = room === 10 ? "THE RESERVE CUSTODIAN"
-               : room === 20 ? "THE VAULT WARDEN"
-               : "THE INFLATION WRAITH";
+        let bTitle = room === 10 ? "THE DEPOSIT WARDEN"
+               : room === 20 ? "THE VAULT WRAITH"
+               : "THE CENTRAL BANKER";
 
        let bColor = room === 10 ? "#38bdf8"
                : room === 20 ? "#60a5fa"
@@ -5613,16 +5730,16 @@ if((gameMode === "timed" || gameMode === "exam") && room > 30){
 // =============================================
         
     if(room === 10){
-        bossImage = "custodian.png";
-        bossClass = "custodianGlow";
-    }
-    else if(room === 20){
         bossImage = "warden.png";
         bossClass = "wardenGlow";
     }
-    else{
+    else if(room === 20){
         bossImage = "wraith.png";
-        bossClass = "wraithGlow";
+        bossClass = "wraithrGlow";
+    }
+    else{
+        bossImage = "banker.png";
+        bossClass = "bankerGlow";
     }
 
         questionElement.innerHTML = `
@@ -6466,16 +6583,16 @@ function showKnowledgeRoom(bossRoom) {
 // - actual boss encounters
 // =============================================    
 if (bossRoom === 10) {
-    title = "THE REGISTRAR CONCEDES: THE MEASURES RECONCILE";
-    summary = "You have restored the first grid. GDP, income, expenditure, prices, and purchasing power now separate cleanly. False measures no longer pass inspection.";
+    title = "THE DEPOSIT WARDEN YIELDS: THE RESERVE CHANNELS REOPEN";
+    summary = "You have restored the first grid. Money, deposits, reserves, bank balance sheets, and lending channels now connect cleanly. The banking system no longer hides its weak links.";
 } 
 else if (bossRoom === 20) {
-    title = "THE WARDEN SUBMITS: PRODUCTIVITY SOURCES IDENTIFIED";
-    summary = "You have traced growth to its source. Capital, labor skills, natural resources, technology, and policy now sit in their proper accounts.";
+    title = "THE VAULT WRAITH FADES: THE VALUE SIGNAL IS RESTORED";
+    summary = "You have forced nominal money and real purchasing power apart. Inflation, the price level, the value of money, real variables, and nominal variables now bend through the prism without distortion.";
 } 
 else if (bossRoom === 30) {
-    title = "THE COMPTROLLER FALLS: THE LABOR RECORD IS BALANCED";
-    summary = "You have audited employment, unemployment, labor force participation, job search, mismatch, and the natural rate. The labor grid no longer hides its weak entries.";
+    title = "THE CENTRAL BANKER STANDS DOWN: POLICY TRANSMISSION IS STABILIZED";
+    summary = "You have traced policy through the grid. Money supply, money demand, interest rates, investment, aggregate demand, fiscal pressure, crowding out, and stabilization policy now move through one coherent channel.";
 }
 
     // Update the UI
@@ -6486,7 +6603,7 @@ else if (bossRoom === 30) {
     
     // logic to ensure Room 30 triggers the end game, while 10 and 20 trigger the next level
     let nextAction = bossRoom === 30 ? "handleVictory()" : "room++; saveGameState(); loadQuestion();";
-    let buttonLabel = bossRoom === 30 ? "FINALIZE THE LEDGER CONQUEST →" : `CONTINUE TO ROOM ${bossRoom + 1} →`;
+    let buttonLabel = bossRoom === 30 ? "FINALIZE THE GRID CONQUEST →" : `CONTINUE TO ROOM ${bossRoom + 1} →`;
 
 aContainer.innerHTML = `
 <button id="continueBtn" class="continue-btn">
@@ -6828,7 +6945,7 @@ function handleVictory() {
 // =============================================
     gameBox.innerHTML = `
         <div style="text-align:center; padding:30px;">
-            <h1 class="victory" style="color:gold; text-shadow: 0 0 20px gold;">LEDGER COMPLETE</h1>
+            <h1 class="victory" style="color:gold; text-shadow: 0 0 20px gold;">GRID COMPLETE</h1>
 
             <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #374151;">
                 <p>Grid File: <strong>${username}</strong></p>
@@ -6968,7 +7085,7 @@ function copyResults() {
         Best Streak: ${maxStreak}
         Total Questions: ${totalAttempts}
         Code: ${code}
-        Verified by The Reserve Banker`;
+        Verified by The Custodian`;
 
     navigator.clipboard.writeText(shareText).then(() => {
         const btn = document.getElementById("shareBtn");
