@@ -2219,6 +2219,100 @@ let timedModeTimerInterval = null;
 let timedHighestRoom = 1;
 let timedSetbacks = 0;
 
+const REALM_TOTAL_CORRECT_KEY = "economicRealm_totalCorrectAnswers";
+const REALM_BEST_STREAK_KEY = "economicRealm_bestStreak";
+const REALM_EXAM_COMPLETE_KEY = "economicRealm_examDrillCompleted";
+const REALM_TRIAL_BY_CLOCK_KEY = "economicRealm_trialByClock";
+const REALM_PERFECT_CALIBRATION_KEY = "economicRealm_perfectCalibration";
+const REALM_RETURN_AND_REBUILD_KEY = "economicRealm_returnAndRebuild";
+
+let resumedSavedRunThisSession = false;
+let bossMistakeCountThisRun = 0;
+let bossesDefeatedThisRun = 0;
+
+function addRealmStat(key, amount = 1){
+    const current = parseInt(localStorage.getItem(key) || "0", 10);
+    localStorage.setItem(key, String(current + amount));
+}
+
+function setRealmFlag(key){
+    localStorage.setItem(key, "true");
+}
+
+function updateRealmMaxStat(key, value){
+    const current = parseInt(localStorage.getItem(key) || "0", 10);
+    if(Number(value) > current){
+        localStorage.setItem(key, String(value));
+    }
+}
+
+function getMissionAchievementPrefix(){
+    return `economicRealm_${REALM_MISSION_KEY}`;
+}
+
+function markMissionLegendaryComplete(){
+    localStorage.setItem(`${getMissionAchievementPrefix()}_legendaryComplete`, "true");
+}
+
+function setMissionArtifactCount(count){
+    localStorage.setItem(`${getMissionAchievementPrefix()}_artifactsCollected`, String(count));
+}
+
+function updateMissionArtifactCountFromVault(){
+    const artifactCount = ["vaultReserveKey", "vaultValuePrism", "vaultPolicyScepter"]
+        .filter(key => localStorage.getItem(key) === "true").length;
+    setMissionArtifactCount(artifactCount);
+}
+
+function recordRealmCorrectAnswer(){
+    addRealmStat(REALM_TOTAL_CORRECT_KEY, 1);
+}
+
+function recordRealmStreak(value){
+    updateRealmMaxStat(REALM_BEST_STREAK_KEY, value);
+    updateRealmMaxStat(`${getMissionAchievementPrefix()}_bestStreak`, value);
+}
+
+function recordTimedAchievementProgress(finalRoom, accuracy){
+    updateRealmMaxStat("economicRealm_timedBestRoom", Number(finalRoom) || 0);
+    updateRealmMaxStat("economicRealm_timedBestAccuracy", Number(accuracy) || 0);
+    updateRealmMaxStat(`${getMissionAchievementPrefix()}_timedBestRoom`, Number(finalRoom) || 0);
+    updateRealmMaxStat(`${getMissionAchievementPrefix()}_timedBestAccuracy`, Number(accuracy) || 0);
+
+    if(Number(finalRoom) >= 30 && Number(accuracy) >= 80){
+        setRealmFlag(REALM_TRIAL_BY_CLOCK_KEY);
+    }
+}
+
+function markExamDrillCompleted(){
+    setRealmFlag(REALM_EXAM_COMPLETE_KEY);
+    localStorage.setItem(`${getMissionAchievementPrefix()}_examDrillCompleted`, "true");
+}
+
+function recordBossMistakeForAchievements(){
+    if(gameMode === "standard" && isBossRoomForMode(room)){
+        bossMistakeCountThisRun++;
+    }
+}
+
+function recordBossDefeatForAchievements(){
+    if(gameMode === "standard"){
+        bossesDefeatedThisRun++;
+    }
+}
+
+function checkPerfectCalibrationAchievement(){
+    if(gameMode === "standard" && bossesDefeatedThisRun >= 3 && bossMistakeCountThisRun === 0){
+        setRealmFlag(REALM_PERFECT_CALIBRATION_KEY);
+    }
+}
+
+function checkReturnAndRebuildAchievement(){
+    if(gameMode === "standard" && resumedSavedRunThisSession){
+        setRealmFlag(REALM_RETURN_AND_REBUILD_KEY);
+    }
+}
+
 function modeAllowsSave(){ return gameMode === "standard" || gameMode === "legendary"; }
 function modeAllowsRealmProgress(){ return gameMode === "standard"; }
 function getSaveKey(){ return `${SAVE_KEY}_${gameMode || "standard"}`; }
@@ -2251,6 +2345,9 @@ function saveGameState(){
         rapidGuessHistory,
         rapidGuessWarnings,
         rapidGuessLocked,
+        resumedSavedRunThisSession,
+        bossMistakeCountThisRun,
+        bossesDefeatedThisRun,
         savedAt: Date.now(),
 
         artifacts: {
@@ -2306,6 +2403,9 @@ function loadSavedGame(){
         rapidGuessHistory = saveData.rapidGuessHistory || [];
         rapidGuessWarnings = Number(saveData.rapidGuessWarnings || 0);
         rapidGuessLocked = !!saveData.rapidGuessLocked;
+        resumedSavedRunThisSession = !!saveData.resumedSavedRunThisSession;
+        bossMistakeCountThisRun = Number(saveData.bossMistakeCountThisRun || 0);
+        bossesDefeatedThisRun = Number(saveData.bossesDefeatedThisRun || 0);
 
         if(saveData.artifacts?.vaultReserveKey) localStorage.setItem("vaultReserveKey", "true");
         if(saveData.artifacts?.vaultValuePrism) localStorage.setItem("vaultValuePrism", "true");
@@ -3675,7 +3775,25 @@ function confirmReturnToModeMenu(){ showGameModal({ title:"Return to Battle Menu
 let activeModalConfirmAction = null; let activeModalCancelAction = null;
 function showGameModal({title="Grid Warning",text="",confirmText="Continue",cancelText="",onConfirm=null,onCancel=null}={}){ const modal=document.getElementById("gameModal"),titleEl=document.getElementById("gameModalTitle"),textEl=document.getElementById("gameModalText"),confirmBtn=document.getElementById("gameModalConfirm"),cancelBtn=document.getElementById("gameModalCancel"); if(!modal||!titleEl||!textEl||!confirmBtn||!cancelBtn) return; activeModalConfirmAction=onConfirm; activeModalCancelAction=onCancel; titleEl.innerText=title; textEl.innerText=text; confirmBtn.innerText=confirmText; if(cancelText){cancelBtn.innerText=cancelText; cancelBtn.style.display="inline-block";} else cancelBtn.style.display="none"; modal.style.display="flex"; confirmBtn.onclick=function(){const action=activeModalConfirmAction; closeGameModal(); if(typeof action==="function") action();}; cancelBtn.onclick=function(){const action=activeModalCancelAction; closeGameModal(); if(typeof action==="function") action();}; }
 function closeGameModal(){ const modal=document.getElementById("gameModal"); if(modal) modal.style.display="none"; activeModalConfirmAction=null; activeModalCancelAction=null; }
-function endTimedAttemptEarly(){ stopTimedModeClock(); const accuracy=totalAttempts>0?Math.round((correctAnswers/totalAttempts)*100):0; localStorage.setItem("liquidityGridTimedLastRoom",String(room)); localStorage.setItem("liquidityGridTimedLastAccuracy",String(accuracy)); localStorage.setItem("liquidityGridTimedLastAttempts",String(totalAttempts)); localStorage.setItem("liquidityGridTimedLastStreak",String(maxStreak)); const bestRoom=Number(localStorage.getItem("liquidityGridTimedBestRoom")||0); if(room>bestRoom) localStorage.setItem("liquidityGridTimedBestRoom",String(room)); returnToModeSelectFromRun(); }
+function endTimedAttemptEarly(){
+    stopTimedModeClock();
+    const accuracy = totalAttempts > 0 ? Math.round((correctAnswers / totalAttempts) * 100) : 0;
+    const finalRoom = timedHighestRoom || room;
+
+    localStorage.setItem("liquidityGridTimedLastRoom", String(room));
+    localStorage.setItem("liquidityGridTimedLastHighestRoom", String(finalRoom));
+    localStorage.setItem("liquidityGridTimedLastAccuracy", String(accuracy));
+    localStorage.setItem("liquidityGridTimedLastAttempts", String(totalAttempts));
+    localStorage.setItem("liquidityGridTimedLastStreak", String(maxStreak));
+
+    const bestRoom = Number(localStorage.getItem("liquidityGridTimedBestRoom") || 0);
+    if(finalRoom > bestRoom){
+        localStorage.setItem("liquidityGridTimedBestRoom", String(finalRoom));
+    }
+
+    recordTimedAchievementProgress(finalRoom, accuracy);
+    returnToModeSelectFromRun();
+}
 function showContinueButtonIfSaved(){ const btn=document.getElementById("continueRunBtn"); if(!btn) return; btn.style.display=hasSavedGame("standard")?"block":"none"; }
 function startNewRun(){ gameMode="standard"; clearSavedGame(); startGame(false); }
 function continueSavedRun(){ gameMode="standard"; startGame(true); }
@@ -3728,6 +3846,10 @@ function startGame(shouldResume = false) {
 
     const hasSavedRun = shouldResume && modeAllowsSave() ? loadSavedGame() : false;
 
+    if(hasSavedRun && gameMode === "standard"){
+        resumedSavedRunThisSession = true;
+    }
+
     if(!hasSavedRun){
         bossCheckpoint = 1;
         runID = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -3774,6 +3896,9 @@ function startGame(shouldResume = false) {
         rapidGuessHistory = [];
         rapidGuessWarnings = 0;
         rapidGuessLocked = false;
+        resumedSavedRunThisSession = false;
+        bossMistakeCountThisRun = 0;
+        bossesDefeatedThisRun = 0;
 
         localStorage.removeItem("gauntletRoom");
 
@@ -3836,7 +3961,7 @@ function startGame(shouldResume = false) {
 	 
 
 function resetRunStateForNewMode(){
-    room=1; bossHealth=3; bossPool=[]; bossCheckpoint=1; correctAnswers=0; totalAttempts=0; maxStreak=0; streak=0; conceptMemory={}; masteryState={byTag:{},byObjective:{},bySkill:{},recent:[]}; adaptiveMode="support"; tagHistory=[]; lastTypes=[]; rapidGuessHistory=[]; rapidGuessWarnings=0; rapidGuessLocked=false; timedHighestRoom=1; timedSetbacks=0; resetRemediationState();
+    room=1; bossHealth=3; bossPool=[]; bossCheckpoint=1; correctAnswers=0; totalAttempts=0; maxStreak=0; streak=0; conceptMemory={}; masteryState={byTag:{},byObjective:{},bySkill:{},recent:[]}; adaptiveMode="support"; tagHistory=[]; lastTypes=[]; rapidGuessHistory=[]; rapidGuessWarnings=0; rapidGuessLocked=false; resumedSavedRunThisSession=false; bossMistakeCountThisRun=0; bossesDefeatedThisRun=0; timedHighestRoom=1; timedSetbacks=0; resetRemediationState();
     questionHistory={easy:[],medium:[],hard:[],elite:[],legendary:[],calculation:[],easyBoss:[],mediumBoss:[],finalBoss:[],legendaryBoss:[]};
     usedQuestions={easy:[],medium:[],hard:[],elite:[],legendary:[],easyBoss:[],mediumBoss:[],finalBoss:[],legendaryBoss:[]};
     if(gameMode!=="standard"){localStorage.removeItem("gauntletRoom");localStorage.removeItem("vaultReserveKey");localStorage.removeItem("vaultValuePrism");localStorage.removeItem("vaultPolicyScepter");}
@@ -5693,8 +5818,11 @@ recordAdaptiveAttempt(currentQuestion, isCorrect, responseTime);
     if (isCorrect) {
         streak++;
         if (streak > maxStreak) maxStreak = streak;
+        recordRealmCorrectAnswer();
+        recordRealmStreak(streak);
     } else {
         streak = 0;
+        recordBossMistakeForAchievements();
     }
    
     // =============================================
@@ -5846,6 +5974,7 @@ if(remediationState.active){
            return;
         }
          // Boss defeated
+         recordBossDefeatForAchievements();
          sendGameData({
             runID: runID,
 			game: "The Liquidity Grid",
@@ -6313,6 +6442,7 @@ document.getElementById("continueBtn").onclick = () => {
 
 function handleLegendaryVictory(){
     stopTimedModeClock();
+    markMissionLegendaryComplete();
     localStorage.setItem("economicRealm_liquidityGrid_legendary_complete", "true");
     localStorage.setItem("liquidityGridLegendaryComplete", "true");
     clearSavedGame();
@@ -6391,6 +6521,10 @@ function handlePracticeModeComplete(){
     const accuracy = totalAttempts > 0
         ? Math.round((correctAnswers / totalAttempts) * 100)
         : 0;
+
+    if(gameMode === "exam"){
+        markExamDrillCompleted();
+    }
 
     sendGameData({
         runID,
@@ -6527,6 +6661,9 @@ function handleVictory() {
     localStorage.setItem(REALM_COMPLETE_KEY, "true");
     localStorage.setItem(REALM_STATUS_KEY, "restored");
     localStorage.setItem(REALM_ROOM_KEY, "30");
+    setMissionArtifactCount(3);
+    checkPerfectCalibrationAchievement();
+    checkReturnAndRebuildAchievement();
 
     clearSavedGame();
 
@@ -6828,6 +6965,7 @@ function sendGameData(data) {
 </script>
 </body>
 </html>
+
 
 
 
