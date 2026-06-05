@@ -6106,6 +6106,8 @@ recordAdaptiveAttempt(currentQuestion, isCorrect, responseTime);
         },200);
 
 		correctAnswers++;
+		recordRealmCorrectAnswer();
+		recordRealmStreak(streak);
         handleStreakVisuals();
        
         // --- STAGED REMEDIATION SUCCESS PATH ---
