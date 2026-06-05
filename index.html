@@ -9,23 +9,7 @@ This file is divided into TWO zones:
    - Question banks
    - Boss names/images
    - Text (wizard, areas, artifacts)
-   - Visual themesfunction endTimedAttemptEarly(){
-    stopTimedModeClock();
-
-    const accuracy = totalAttempts > 0
-        ? Math.round((correctAnswers / totalAttempts) * 100)
-        : 0;
-
-    localStorage.setItem("liquidityGridTimedLastRoom", String(room));
-    localStorage.setItem("liquidityGridTimedLastAccuracy", String(accuracy));
-    localStorage.setItem("liquidityGridTimedLastAttempts", String(totalAttempts));
-    localStorage.setItem("liquidityGridTimedLastStreak", String(maxStreak));
-
-    const reachedRoom = Math.max(timedHighestRoom || 1, room || 1);
-    recordTimedTrialAchievementStats(accuracy, reachedRoom);
-
-    returnToModeSelectFromRun();
-}
+   - Visual themes
 
 2. DO NOT TOUCH (Core Engine)
    - Adaptive logic
@@ -2312,6 +2296,12 @@ const REALM_STARTED_KEY = "economicRealm_liquidityGrid_started";
 const REALM_COMPLETE_KEY = "economicRealm_liquidityGrid_complete";
 const REALM_STATUS_KEY = "economicRealm_liquidityGrid_status";
 const REALM_ROOM_KEY = "economicRealm_liquidityGrid_room";
+const REALM_TOTAL_CORRECT_KEY = "economicRealm_totalCorrectAnswers";
+const REALM_BEST_STREAK_KEY = "economicRealm_bestStreak";
+const REALM_EXAM_COMPLETE_KEY = "economicRealm_examDrillCompleted";
+const REALM_TRIAL_BY_CLOCK_KEY = "economicRealm_trialByClock";
+const REALM_PERFECT_CALIBRATION_KEY = "economicRealm_perfectCalibration";
+const REALM_RETURN_AND_REBUILD_KEY = "economicRealm_returnAndRebuild";
 
 let gameMode = "standard";
 let timedModeDurationMs = 10 * 60 * 1000;
@@ -2319,13 +2309,6 @@ let timedModeEndTime = null;
 let timedModeTimerInterval = null;
 let timedHighestRoom = 1;
 let timedSetbacks = 0;
-
-const REALM_TOTAL_CORRECT_KEY = "economicRealm_totalCorrectAnswers";
-const REALM_BEST_STREAK_KEY = "economicRealm_bestStreak";
-const REALM_EXAM_COMPLETE_KEY = "economicRealm_examDrillCompleted";
-const REALM_TRIAL_BY_CLOCK_KEY = "economicRealm_trialByClock";
-const REALM_PERFECT_CALIBRATION_KEY = "economicRealm_perfectCalibration";
-const REALM_RETURN_AND_REBUILD_KEY = "economicRealm_returnAndRebuild";
 
 let resumedSavedRunThisSession = false;
 let bossMistakeCountThisRun = 0;
@@ -6208,6 +6191,7 @@ if(remediationState.active){
            setTimeout(loadQuestion, TIMING.boss);
            return;
         }
+			
          // Boss defeated
          recordBossDefeatForAchievements();
          sendGameData({
