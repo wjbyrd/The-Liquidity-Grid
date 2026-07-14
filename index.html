@@ -3312,7 +3312,7 @@ function loadSavedGame(){
 
 function clearSavedGame(){
     localStorage.removeItem(getSaveKey());
-    if(modeAllowsSave()){
+    if(gameMode === "standard"){
         localStorage.removeItem("gauntletRoom");
         localStorage.removeItem("vaultReserveKey");
         localStorage.removeItem("vaultValuePrism");
@@ -4580,7 +4580,7 @@ policyScepter:{
 
 function getRecoveryLine(stage){
   if(stage === "repair"){
-    return "Liquidity repair opened. The Chancellor is isolating the broken signal.";
+    return "Liquidity repair opened. The Custodian is isolating the broken signal.";
   }
 
   if(stage === "bridge"){
@@ -4800,7 +4800,7 @@ function endTimedAttemptEarly(){
         localStorage.setItem("liquidityGridTimedBestRoom", String(finalRoom));
     }
 
-    recordTimedAchievementProgress(finalRoom, accuracy);
+    recordTimedTrialAchievementStats(accuracy, finalRoom);
     returnToModeSelectFromRun();
 }
 function showContinueButtonIfSaved(){ const btn=document.getElementById("continueRunBtn"); if(!btn) return; btn.style.display=hasSavedGame("standard")?"block":"none"; }
@@ -4913,15 +4913,18 @@ function startGame(shouldResume = false) {
         // Every new run starts with a clean score, while best score stays in localStorage.
         resetScoreAttackState();
 
-        localStorage.removeItem("gauntletRoom");
+        if(modeAllowsRealmProgress()){
+            localStorage.removeItem("gauntletRoom");
 
-        // Liquidity Grid artifact keys — keep these matched to your actual Liquidity Grid IDs.
-        localStorage.removeItem("vaultReserveKey");
-        localStorage.removeItem("vaultValuePrism");
-        localStorage.removeItem("vaultPolicyScepter");
-        localStorage.removeItem(REALM_COMPLETE_KEY);
-        localStorage.setItem(REALM_STATUS_KEY, "contested");
-        localStorage.setItem(REALM_ROOM_KEY, "1");
+            // A new Standard Campaign resets its own artifact route and Realm status.
+            // Practice, Legendary, and Score Attack must not erase Standard progress.
+            localStorage.removeItem("vaultReserveKey");
+            localStorage.removeItem("vaultValuePrism");
+            localStorage.removeItem("vaultPolicyScepter");
+            localStorage.removeItem(REALM_COMPLETE_KEY);
+            localStorage.setItem(REALM_STATUS_KEY, "contested");
+            localStorage.setItem(REALM_ROOM_KEY, "1");
+        }
 
         questionHistory = {
             easy: [], medium: [], hard: [], elite: [], legendary: [], calculation: [],
@@ -4945,9 +4948,7 @@ function startGame(shouldResume = false) {
     document.querySelector(".top-panel").style.display = "flex";
     document.getElementById("gameShell").style.display = "flex";
     document.getElementById("gameBox").style.display = "block";
-    document.getElementById("artifactVault").style.display = "block";
     document.querySelectorAll(".torch").forEach(t => t.style.display = "block");
-	initializeRunForMode(gameMode);
 
    // =============================================
    // VAULT RESTORE SYSTEM — SAFE WITH MATCHING IDS
@@ -4955,17 +4956,7 @@ function startGame(shouldResume = false) {
    // IMPORTANT:
    // localStorage keys must match the HTML element ids.
    // =============================================    
-    if(localStorage.getItem("vaultReserveKey")){
-        document.getElementById("vaultReserveKey").classList.add("unlocked");
-    }
-
-    if(localStorage.getItem("vaultValuePrism")){
-        document.getElementById("vaultValuePrism").classList.add("unlocked");
-    }    
-
-    if(localStorage.getItem("vaultPolicyScepter")){
-        document.getElementById("vaultPolicyScepter").classList.add("unlocked");
-    }
+    syncArtifactVaultVisuals();
   
 // Start game loop: music + timer + first question
     initializeRunForMode(gameMode);
@@ -4981,11 +4972,32 @@ function resetRunStateForNewMode(){
     resetScoreAttackState();
     questionHistory={easy:[],medium:[],hard:[],elite:[],legendary:[],calculation:[],easyBoss:[],mediumBoss:[],finalBoss:[],legendaryBoss:[]};
     usedQuestions={easy:[],medium:[],hard:[],elite:[],legendary:[],easyBoss:[],mediumBoss:[],finalBoss:[],legendaryBoss:[]};
-    if(gameMode!=="standard"){localStorage.removeItem("gauntletRoom");localStorage.removeItem("vaultReserveKey");localStorage.removeItem("vaultValuePrism");localStorage.removeItem("vaultPolicyScepter");}
+    // Nonstandard modes use fresh in-memory state but preserve the saved Standard Campaign.
+}
+
+function updateArtifactVaultForMode(){
+    const vault = document.getElementById("artifactVault");
+    if(!vault) return;
+
+    // Artifacts belong to Standard Campaign Realm progress.
+    // Other modes keep the vault out of sight instead of showing three dead slots.
+    vault.style.display = modeAllowsRealmProgress() ? "block" : "none";
+}
+
+function syncArtifactVaultVisuals(){
+    ["vaultReserveKey", "vaultValuePrism", "vaultPolicyScepter"].forEach(id => {
+        const slot = document.getElementById(id);
+        if(!slot) return;
+
+        const unlocked = modeAllowsRealmProgress() && localStorage.getItem(id) === "true";
+        slot.classList.toggle("unlocked", unlocked);
+    });
 }
 
 function initializeRunForMode(mode){
     gameMode = mode || "standard";
+    updateArtifactVaultForMode();
+    syncArtifactVaultVisuals();
 
     const autosave = document.getElementById("autosave");
     if(autosave){
@@ -5083,6 +5095,8 @@ function endTimedModeRun(){
     localStorage.setItem("liquidityGridTimedLastStreak", String(maxStreak));
     localStorage.setItem("liquidityGridTimedLastSetbacks", String(timedSetbacks));
 
+    recordTimedTrialAchievementStats(accuracy, timedHighestRoom);
+
     sendGameData({
         runID: runID,
         game: "The Liquidity Grid",
@@ -5125,6 +5139,7 @@ function endTimedModeRun(){
     `;
 
     document.getElementById("answers").innerHTML = `
+        <button class="continue-btn" onclick="showMasteryReportScreen()">View Mastery Report</button>
         <button class="continue-btn" onclick="restartTimedMode()">Retry Timed Trial</button>
         <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Grid Run</button>
     `;
@@ -6877,7 +6892,7 @@ async function answer(choice) {
    
     totalAttempts++;
    
-    const isBossRoom = (room === 10 || room === 20 || room === 30);
+    const isBossRoom = isBossRoomForMode(room);
     const msgElement = document.getElementById("message");
     const wizard = document.getElementById("wizardImage");
 const isCorrect = (choice === currentQuestion.a);
@@ -7026,8 +7041,6 @@ recordAdaptiveAttempt(currentQuestion, isCorrect, responseTime);
         },200);
 
 		correctAnswers++;
-		recordRealmCorrectAnswer();
-		recordRealmStreak(streak);
         handleStreakVisuals();
        
         // --- STAGED REMEDIATION SUCCESS PATH ---
@@ -7687,6 +7700,19 @@ function handlePracticeModeComplete(){
         markExamDrillCompleted();
     }
 
+    if(gameMode === "timed"){
+        const finalRoom = timedHighestRoom || Math.min(room, 30);
+
+        localStorage.setItem("liquidityGridTimedLastRoom", String(Math.min(room, 30)));
+        localStorage.setItem("liquidityGridTimedLastHighestRoom", String(finalRoom));
+        localStorage.setItem("liquidityGridTimedLastAccuracy", String(accuracy));
+        localStorage.setItem("liquidityGridTimedLastAttempts", String(totalAttempts));
+        localStorage.setItem("liquidityGridTimedLastStreak", String(maxStreak));
+        localStorage.setItem("liquidityGridTimedLastSetbacks", String(timedSetbacks));
+
+        recordTimedTrialAchievementStats(accuracy, finalRoom);
+    }
+
     sendGameData({
         runID,
         game: "The Liquidity Grid",
@@ -7725,6 +7751,7 @@ function handlePracticeModeComplete(){
     `;
 
     document.getElementById("answers").innerHTML = `
+        <button class="continue-btn" onclick="showMasteryReportScreen()">View Mastery Report</button>
         <button class="continue-btn" onclick="returnToModeSelectFromRun()">Choose Another Grid Run</button>
     `;
 
@@ -7852,7 +7879,7 @@ function handleScoreAttackVictory(){
     });
 
     let scoreLine = "Respectable. The Grid recorded the run.";
-    if(scoreAttackScore >= 9250){
+    if(scoreAttackScore >= 11590){
         scoreLine = "Maximum score. Clean run. No wasted motion. The Grid has nothing left to audit.";
     } else if(scoreAttackScore >= 8000){
         scoreLine = "Elite scoring run. Fast, accurate, and mean.";
@@ -8018,6 +8045,9 @@ function handleVictory() {
             <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
                 <button id="shareBtn" onclick="copyResults()" style="background:#4ade80; color:black; font-weight:bold; padding:12px 24px; border:none; border-radius:6px; cursor:pointer;">
                     Copy Results
+                </button>
+                <button onclick="showMasteryReportScreen()" style="background:#12304f; color:white; border:1px solid #f8d981; padding:12px 24px; border-radius:6px; cursor:pointer;">
+                    View Mastery Report
                 </button>
                 <button onclick="location.reload()" style="background:transparent; color:white; border:1px solid white; padding:12px 24px; border-radius:6px; cursor:pointer;">
                     Run Grid Again
@@ -8647,7 +8677,7 @@ function copyResults() {
         Best Streak: ${maxStreak}
         Total Questions: ${totalAttempts}
         Code: ${code}
-        Verified by The Chancellor`;
+        Verified by The Custodian`;
 
     navigator.clipboard.writeText(shareText).then(() => {
         const btn = document.getElementById("shareBtn");
