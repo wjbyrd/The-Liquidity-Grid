@@ -4325,8 +4325,8 @@ function getRemediationQuestion(state){
     const excludeIds = [state.originQuestionId].filter(Boolean);
 
     if(state.stage === "repair"){
-        if(state.skill && microSkillRepairPools[state.skill]){
-            const skillRepairPool = microSkillRepairPools[state.skill] || [];
+      const skillRepairPool = directSkillRepairRoutes[state.skill] || microSkillRepairPools[state.skill] || [];
+      if(state.skill && skillRepairPool.length){
             const skillRepairCandidates = getQuestionsMatchingNeed(
                 skillRepairPool,
                 state.objective,
@@ -6018,6 +6018,35 @@ const microSkillRepairPools = {
 { id:5059, difficulty:"repair", conceptCluster:"stabilization_policy", primarySkill:"stabilization_response_overheating", secondarySkills:["monetary_policy","fiscal_policy"], repairSkill:"stabilization_response_overheating", commonError:"Choosing expansionary policy during overheating.", q:"Repair: During an inflationary boom caused by excessive AD, policymakers may use:", options:["Contractionary monetary or fiscal policy","Expansionary policy only","Tax cuts and bond purchases","Higher government spending"], a:0, tag:"stabilization_policy", type:"repair", objective:"35.5", feedback:"Contractionary policy shifts AD left and reduces inflation pressure." }
   ]
 };
+
+function buildDirectSkillRepairRoutes(){
+  const sourcePools = Object.entries(microSkillRepairPools)
+    .filter(([, pool]) => Array.isArray(pool) && pool.length > 0);
+  const routes = new Map();
+
+  Object.values(questionBanks).flat().forEach(question => {
+    if(!question?.primarySkill) return;
+
+    const directMatch = sourcePools.find(([, pool]) => pool.some(repair =>
+      repair.objective === question.objective && repair.tag === question.tag
+    )) || sourcePools.find(([, pool]) => pool.some(repair =>
+      repair.objective === question.objective
+    )) || sourcePools.find(([, pool]) => pool.some(repair =>
+      repair.tag === question.tag
+    ));
+
+    if(directMatch){
+      const route = routes.get(question.primarySkill) || [];
+      directMatch[1].forEach(repair => {
+        if(!route.some(existing => existing.id === repair.id)) route.push(repair);
+      });
+      routes.set(question.primarySkill, route);
+    }
+  });
+
+  return Object.fromEntries(routes);
+}
+const directSkillRepairRoutes = buildDirectSkillRepairRoutes();
 
 const microSkillBridgePools = {
   functions_of_money: [
@@ -8776,9 +8805,5 @@ function sendGameData(data) {
 </script>
 </body>
 </html>
-
-
-
-
 
 
