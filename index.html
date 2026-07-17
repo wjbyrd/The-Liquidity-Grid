@@ -54,6 +54,7 @@ If you break something:
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     
 <!-- Title can be changed to whatever the game needs -->
@@ -2488,7 +2489,7 @@ Respect structure strictly.
 <div id="startScreen">
   <div class="start-content">
     <h1 class="title">THE LIQUIDITY GRID</h1>
-    <input id="emailInput" type="email" placeholder="Enter your school email" class="name-input">
+    <input id="emailInput" type="email" placeholder="Enter your school email" class="name-input" aria-label="School email">
     <button class="start-btn" onclick="showModeSelect()">ENTER THE GRID</button>
     <button id="continueRunBtn" class="start-btn secondary-start-btn" onclick="continueSavedRun()" style="display:none;">
         CONTINUE STANDARD RUN
@@ -2575,7 +2576,7 @@ or simplify this section.
         <div id="gameShell">
             <div id="wizardBox">
                 <div id="wizardName">The Custodian</div>
-                <img src="../chancellor.webp" id="wizardImage">
+            <img src="../chancellor.webp" id="wizardImage" alt="The Custodian">
             </div>
 
             <!-- GAME -->
@@ -2807,7 +2808,7 @@ let runID = "";
 let questionStartTime = 0;
 let streak = 0; 
 let startTime; // Will be set in startGame()
-let room = localStorage.getItem("gauntletRoom") ? parseInt(localStorage.getItem("gauntletRoom")) : 1;
+let room = localStorage.getItem("liquidityGridRoom") ? parseInt(localStorage.getItem("liquidityGridRoom")) : 1;
 let currentQuestion = null;
 let detourActive = false;
 let detourReturnRoom = null;
@@ -3249,7 +3250,7 @@ function saveGameState(){
     };
 
     localStorage.setItem(getSaveKey(), JSON.stringify(saveData));
-    localStorage.setItem("gauntletRoom", String(room));
+        localStorage.setItem("liquidityGridRoom", String(room));
     if(modeAllowsRealmProgress()){
         localStorage.setItem(REALM_STARTED_KEY, "true");
         localStorage.setItem(REALM_STATUS_KEY, "contested");
@@ -3313,7 +3314,7 @@ function loadSavedGame(){
 function clearSavedGame(){
     localStorage.removeItem(getSaveKey());
     if(gameMode === "standard"){
-        localStorage.removeItem("gauntletRoom");
+        localStorage.removeItem("liquidityGridRoom");
         localStorage.removeItem("vaultReserveKey");
         localStorage.removeItem("vaultValuePrism");
         localStorage.removeItem("vaultPolicyScepter");
@@ -4943,7 +4944,7 @@ function startGame(shouldResume = false) {
         resetScoreAttackState();
 
         if(modeAllowsRealmProgress()){
-            localStorage.removeItem("gauntletRoom");
+            localStorage.removeItem("liquidityGridRoom");
 
             // A new Standard Campaign resets its own artifact route and Realm status.
             // Practice, Legendary, and Score Attack must not erase Standard progress.
@@ -6327,9 +6328,9 @@ function updateMazeTrack() {
             box.innerText = "🟨";
         } else {
             // Boss icons for future rooms
-            if (i === 10){box.innerHTML = '<img src="warden.webp" class="boss-icon">';box.classList.add("boss10");}
-            else if (i === 20){box.innerHTML = '<img src="wraith.webp" class="boss-icon">';box.classList.add("boss20");}
-            else if (i === 30){box.innerHTML = '<img src="banker.webp" class="boss-icon">';box.classList.add("boss30");}
+            if (i === 10){box.innerHTML = '<img src="warden.webp" class="boss-icon" alt="" aria-hidden="true">';box.classList.add("boss10");}
+            else if (i === 20){box.innerHTML = '<img src="wraith.webp" class="boss-icon" alt="" aria-hidden="true">';box.classList.add("boss20");}
+            else if (i === 30){box.innerHTML = '<img src="banker.webp" class="boss-icon" alt="" aria-hidden="true">';box.classList.add("boss30");}
             else box.innerText = "⬛";
         }
         
@@ -6497,6 +6498,15 @@ document.addEventListener("click", function(event){
 });
 
 document.addEventListener("keydown", function(event){
+    const target = event.target;
+    const graphImg = target && target.matches ? target.matches("#questionImageBox img") : false;
+
+    if(graphImg && (event.key === "Enter" || event.key === " ")){
+        event.preventDefault();
+        openGraphLightbox(target.src, target.alt);
+        return;
+    }
+
     if(event.key === "Escape"){
         closeGraphLightbox();
     }
@@ -6637,7 +6647,7 @@ if (isBoss) {
     currentQuestion = shuffleOptions(bossPool[3 - bossHealth]);
 
     if (currentQuestion.image) {
-        imageBox.innerHTML = `<img src="${currentQuestion.image}" alt="Question graph" title="Click to enlarge"><div class="graph-zoom-note">Click graph to enlarge</div>`;
+        imageBox.innerHTML = `<img src="${currentQuestion.image}" alt="Question graph" title="Click to enlarge" role="button" tabindex="0" aria-label="Open expanded question graph"><div class="graph-zoom-note">Click graph to enlarge</div>`;
         imageBox.style.display = "block";
     } else {
         imageBox.innerHTML = "";
@@ -6687,7 +6697,7 @@ if (isBoss) {
     }
 
     questionElement.innerHTML = `
-        <img src="${bossImage}" class="bossIcon ${bossClass}">
+        <img src="${bossImage}" class="bossIcon ${bossClass}" alt="${bTitle}">
         <span class="boss-title" style="color:${bColor}">${bTitle}</span>
         <div class="boss-q" style="--bossColor:${bColor}">
             ${currentQuestion.q}
@@ -6719,7 +6729,7 @@ if (isBoss) {
     );
 
     if(currentQuestion.image){
-        imageBox.innerHTML = `<img src="${currentQuestion.image}" alt="Question graph" title="Click to enlarge"><div class="graph-zoom-note">Click graph to enlarge</div>`;
+        imageBox.innerHTML = `<img src="${currentQuestion.image}" alt="Question graph" title="Click to enlarge" role="button" tabindex="0" aria-label="Open expanded question graph"><div class="graph-zoom-note">Click graph to enlarge</div>`;
         imageBox.style.display = "block";
     } else {
         imageBox.innerHTML = "";
@@ -6795,7 +6805,7 @@ else{
 }
 		
 if(currentQuestion.image){
-    imageBox.innerHTML = `<img src="${currentQuestion.image}" alt="Question graph" title="Click to enlarge"><div class="graph-zoom-note">Click graph to enlarge</div>`;
+    imageBox.innerHTML = `<img src="${currentQuestion.image}" alt="Question graph" title="Click to enlarge" role="button" tabindex="0" aria-label="Open expanded question graph"><div class="graph-zoom-note">Click graph to enlarge</div>`;
     imageBox.style.display = "block";
 }
 
@@ -7239,7 +7249,7 @@ if(remediationState.active){
    room++;
    timedHighestRoom = Math.max(timedHighestRoom, Math.min(room, 30));
    saveGameState();
-   localStorage.setItem("gauntletRoom", room);
+       localStorage.setItem("liquidityGridRoom", room);
 
    if(gameMode === "timed" && timedModeEndTime && Date.now() >= timedModeEndTime){
        endTimedModeRun();
@@ -7430,15 +7440,15 @@ function unlockArtifact(key) {
     let streakColor = "#f8d981";
 
 if (streak === 5) {
-    streakMsg = `<span class="streak"><img src="streakspark.webp" class="streak-icon">LIQUIDITY SPARK</span>`;
+        streakMsg = `<span class="streak"><img src="streakspark.webp" class="streak-icon" alt="" aria-hidden="true">LIQUIDITY SPARK</span>`;
     streakColor = "#38bdf8";
 }
 else if (streak === 10) {
-    streakMsg = `<span class="streak"><img src="streakpulse.webp" class="streak-icon">SIGNAL PULSE</span>`;
+        streakMsg = `<span class="streak"><img src="streakpulse.webp" class="streak-icon" alt="" aria-hidden="true">SIGNAL PULSE</span>`;
     streakColor = "#60a5fa";
 }
 else if (streak === 20) {
-    streakMsg = `<span class="streak"><img src="streakbeacon.webp" class="streak-icon">EQUILIBRIUM BEACON</span>`;
+        streakMsg = `<span class="streak"><img src="streakbeacon.webp" class="streak-icon" alt="" aria-hidden="true">EQUILIBRIUM BEACON</span>`;
     streakColor = "#f8d981";
 }
 
@@ -7506,6 +7516,7 @@ function showArtifact(img,title,text){
     let p = document.getElementById("artifactText");
 
     image.src = img;
+    image.alt = title;
     t.innerText = title;
     p.innerText = text;
 
@@ -8663,14 +8674,14 @@ function shuffleArray(arr){
 // Clearing browser data will erase scores.
 // =============================================
 function updateHighScores(newTimeMs) {
-    let scores = JSON.parse(localStorage.getItem("gauntletHighScores")) || [];
+    let scores = JSON.parse(localStorage.getItem("liquidityGridHighScores")) || [];
     scores.push({ name: username, time: newTimeMs, date: new Date().toLocaleDateString() });
     
     // Sort by time (lowest/fastest first) and keep top 5
     scores.sort((a, b) => a.time - b.time);
     scores = scores.slice(0, 5);
     
-    localStorage.setItem("gauntletHighScores", JSON.stringify(scores));
+    localStorage.setItem("liquidityGridHighScores", JSON.stringify(scores));
     return scores;
 }
 
@@ -8805,5 +8816,4 @@ function sendGameData(data) {
 </script>
 </body>
 </html>
-
 
