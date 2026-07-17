@@ -4153,6 +4153,60 @@ function getBossQuestionFingerprint(question){
         .trim();
 }
 
+
+function getBossNarrativeStage(question){
+    const stage = String(question?.bossStage || "").toLowerCase();
+    return stage === "opening" || stage === "final" ? stage : null;
+}
+
+function orderBossQuestionSet(selected, available){
+    const ordered = [...(selected || [])];
+
+    const replaceDuplicateStage = stage => {
+        const stageIndexes = ordered
+            .map((question, index) => ({ question, index }))
+            .filter(item => getBossNarrativeStage(item.question) === stage)
+            .map(item => item.index);
+
+        stageIndexes.slice(1).forEach(index => {
+            const selectedIds = new Set(
+                ordered.map(question => question?.id).filter(id => id !== undefined)
+            );
+            const candidates = shuffle(
+                (available || []).filter(question =>
+                    question &&
+                    !selectedIds.has(question.id) &&
+                    getBossNarrativeStage(question) !== stage
+                )
+            );
+            const replacement = candidates.find(question =>
+                getBossNarrativeStage(question) === null
+            ) || candidates[0];
+
+            if(replacement){
+                ordered[index] = replacement;
+            }
+        });
+    };
+
+    replaceDuplicateStage("final");
+    replaceDuplicateStage("opening");
+
+    const stageRank = stage =>
+        stage === "opening" ? 0 : stage === "final" ? 2 : 1;
+
+    return ordered
+        .map((question, index) => ({
+            question,
+            index,
+            stage: getBossNarrativeStage(question)
+        }))
+        .sort((a, b) =>
+            stageRank(a.stage) - stageRank(b.stage) || a.index - b.index
+        )
+        .map(item => item.question);
+}
+
 function getRecentQuestionFingerprints(limitPerPool = 15){
     const recentIds = new Set();
 
@@ -4257,7 +4311,7 @@ function buildBossQuestionSet(bank, poolName, chosenObjective){
         remaining.splice(remaining.findIndex(item => item.id === picked.id), 1);
     }
 
-    return selected;
+    return orderBossQuestionSet(selected, available);
 }
 
 function getSelectionProfile(){
@@ -7279,6 +7333,8 @@ if(remediationState.active){
         localStorage.setItem("vaultPolicyScepter", "true");
         showArtifact(artifacts.policyScepter.img, artifacts.policyScepter.title, artifacts.policyScepter.text);
     }
+
+    updateMissionArtifactCountFromVault();
 }
 
 	// ... (Inside the Boss Victory check)
