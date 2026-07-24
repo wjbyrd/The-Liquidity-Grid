@@ -5222,6 +5222,10 @@ function endTimedModeRun(){
     const accuracy = totalAttempts > 0
         ? Math.round((correctAnswers / totalAttempts) * 100)
         : 0;
+    const totalTimeMs = freezeCompletionTime(timedModeDurationMs);
+    const timeString = formatTime(totalTimeMs);
+    const verificationCode = generateCode(username + "|TIMED", accuracy, maxStreak, totalTimeMs);
+
 
     const bestRoom = Number(localStorage.getItem("liquidityGridTimedBestRoom") || 0);
     if(timedHighestRoom > bestRoom){
@@ -5256,7 +5260,8 @@ function endTimedModeRun(){
         totalTime: timedModeDurationMs,
         accuracy: accuracy / 100,
         maxStreak: maxStreak,
-        totalAttempts: totalAttempts
+        totalAttempts: totalAttempts,
+    verificationCode
     });
 
     document.getElementById("bossMessage").innerText = "";
@@ -5273,7 +5278,12 @@ function endTimedModeRun(){
             Accuracy: ${accuracy}%<br>
             Total Attempts: ${totalAttempts}<br>
             Best Streak: ${maxStreak}<br>
-            Setbacks Taken: ${timedSetbacks}
+            Setbacks Taken: ${timedSetbacks}<br>
+            Total Time: ${timeString}<br>
+            Run ID: <strong>${runID}</strong><br>
+            Verification Code: <strong>${verificationCode}</strong><br>
+            Run ID: <strong>${runID}</strong><br>
+            Verification Code: <strong>${verificationCode}</strong>
         </div>
     `;
 
@@ -7040,7 +7050,7 @@ if(rapidGuess.triggered && !rapidGuessLocked){
     sendGameData({
         runID: runID,
         game: "The Liquidity Grid",
-        event: "rapid_guessing",
+        event: "question",
         user: username || "anonymous",
         room: room,
         questionId: currentQuestion.id || 0,
@@ -7808,6 +7818,8 @@ function handleLegendaryVictory(){
             Total Attempts: ${totalAttempts}<br>
             Best Streak: ${maxStreak}<br>
             Total Time: ${timeString}<br>
+            Run ID: <strong>${runID}</strong><br>
+            Verification Code: <strong>${verificationCode}</strong><br>
             Verification Code: <strong>${verificationCode}</strong>
         </div>
     `;
@@ -7827,6 +7839,10 @@ function handlePracticeModeComplete(){
     const accuracy = totalAttempts > 0
         ? Math.round((correctAnswers / totalAttempts) * 100)
         : 0;
+    const totalTimeMs = freezeCompletionTime();
+    const timeString = formatTime(totalTimeMs);
+    const verificationCode = generateCode(username + "|" + String(gameMode).toUpperCase(), accuracy, maxStreak, totalTimeMs);
+
 
     if(gameMode === "exam"){
         markExamDrillCompleted();
@@ -7864,7 +7880,8 @@ function handlePracticeModeComplete(){
         totalTime: startTime ? (Date.now() - startTime) : 0,
         accuracy: accuracy / 100,
         maxStreak,
-        totalAttempts
+        totalAttempts,
+    verificationCode
     });
 
     document.getElementById("bossMessage").innerText = "";
@@ -7877,7 +7894,10 @@ function handlePracticeModeComplete(){
             You reached the end of this practice path.<br><br>
             Accuracy: ${accuracy}%<br>
             Total Attempts: ${totalAttempts}<br>
-            Best Streak: ${maxStreak}
+            Best Streak: ${maxStreak}<br>
+            Total Time: ${timeString}<br>
+            Run ID: <strong>${runID}</strong><br>
+            Verification Code: <strong>${verificationCode}</strong>
         </div>
     `;
 
@@ -7982,6 +8002,7 @@ function handleScoreAttackVictory(){
         ? Math.round((correctAnswers / totalAttempts) * 100)
         : 0;
 
+    const verificationCode = generateCode(username + "|SCORE", accuracy, maxStreak, totalTimeMs);
     storeScoreAttackFinalStats(accuracy, totalTimeMs);
 
     sendGameData({
@@ -8006,7 +8027,8 @@ function handleScoreAttackVictory(){
         totalAttempts: totalAttempts,
         score: scoreAttackScore,
         bestScore: scoreAttackBestScore,
-        scoreEvents: JSON.stringify(scoreAttackEvents)
+        scoreEvents: JSON.stringify(scoreAttackEvents),
+    verificationCode
     });
 
     let scoreLine = "Respectable. The Grid recorded the run.";
@@ -8033,7 +8055,9 @@ function handleScoreAttackVictory(){
             Accuracy: ${accuracy}%<br>
             Total Attempts: ${totalAttempts}<br>
             Best Streak: ${maxStreak}<br>
-            Total Time: ${timeString}
+            Total Time: ${timeString}<br>
+            Run ID: <strong>${runID}</strong><br>
+            Verification Code: <strong>${verificationCode}</strong>
         </div>
     `;
 
