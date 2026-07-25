@@ -2418,7 +2418,7 @@ body.game-active #soundToggle {
 
 
 /* 16. INSTRUCTIONAL RESOURCE RECOMMENDATIONS */
-.resource-recommendation-section{margin-top:14px}.resource-recommendation-intro{color:#c9f0ed;line-height:1.55;margin:0 0 14px}.resource-recommendation-list{display:grid;gap:12px}.resource-card{min-width:0;padding:16px;border:1px solid rgba(71,214,189,.48);border-radius:11px;background:linear-gradient(135deg,rgba(8,65,78,.92),rgba(4,15,25,.97));box-shadow:0 0 16px rgba(0,0,0,.4)}.resource-card-header{display:flex;justify-content:space-between;gap:12px}.resource-card-title{margin:0;min-width:0;color:#f3d97b;font-size:17px;line-height:1.32;overflow-wrap:anywhere}.resource-card-type{padding:4px 8px;border:1px solid rgba(71,214,189,.65);border-radius:999px;color:#c9faff;font-size:10px;font-weight:800;text-transform:uppercase;overflow-wrap:anywhere}.resource-card-description{margin:10px 0 14px;color:#e4f5f6;line-height:1.55}.resource-card-link{display:inline-flex;min-height:40px;align-items:center;justify-content:center;padding:9px 14px;border:1px solid rgba(243,217,123,.8);border-radius:8px;background:#146779;color:#fff8d8;font-weight:800;text-decoration:none}.resource-card-link:hover{background:#21869a}.resource-card-link:focus-visible{outline:3px solid #f3d97b;outline-offset:3px}.review-materials-screen .mastery-section h2{color:#f3d97b}.review-objective-list{padding-left:22px;color:#e4f5f6}.review-objective-list li{margin:7px 0;line-height:1.48}@media(max-width:420px){.resource-card-header{flex-direction:column}.resource-card-link{display:flex;width:100%;box-sizing:border-box}}
+.resource-recommendation-section{margin-top:14px}.resource-recommendation-intro{color:#c9f0ed;line-height:1.55;margin:0 0 14px}.resource-recommendation-list{display:grid;gap:12px}.resource-card{min-width:0;padding:16px;border:1px solid rgba(71,214,189,.48);border-radius:11px;background:linear-gradient(135deg,rgba(8,65,78,.92),rgba(4,15,25,.97));box-shadow:0 0 16px rgba(0,0,0,.4)}.resource-card-header{display:flex;justify-content:space-between;gap:12px}.resource-card-title{margin:0;min-width:0;color:#f3d97b;font-size:17px;line-height:1.32;overflow-wrap:anywhere}.resource-card-type{flex:0 0 auto;padding:4px 8px;border:1px solid rgba(71,214,189,.65);border-radius:999px;color:#c9faff;font-size:10px;font-weight:800;text-transform:uppercase; white-space:nowrap; overflow-wrap:normal;}.resource-card-description{margin:10px 0 14px;color:#e4f5f6;line-height:1.55}.resource-card-link{display:inline-flex;min-height:40px;align-items:center;justify-content:center;padding:9px 14px;border:1px solid rgba(243,217,123,.8);border-radius:8px;background:#146779;color:#fff8d8;font-weight:800;text-decoration:none}.resource-card-link:hover{background:#21869a}.resource-card-link:focus-visible{outline:3px solid #f3d97b;outline-offset:3px}.review-materials-screen .mastery-section h2{color:#f3d97b}.review-objective-list{padding-left:22px;color:#e4f5f6}.review-objective-list li{margin:7px 0;line-height:1.48}@media(max-width:420px){.resource-card-header{flex-direction:column}.resource-card-link{display:flex;width:100%;box-sizing:border-box}}
 </style>
 <script src="instructional_resources.js"></script>
 <script src="liquidity_grid_questions_student.js"></script>
@@ -2846,6 +2846,10 @@ const RAPID_GUESS_CONFIG = {
     minAttempts: 5,         // don't trigger until at least 5 recent attempts exist
     avgTimeMs: 3000,        // average under 3 seconds = suspicious
     maxAccuracy: 0.50,      // under 50% accuracy = not engaged
+    burstWindowSize: 4,     // also inspect the most recent local burst
+    burstFastMs: 2500,      // a response under 2.5 seconds counts as fast
+    burstMinFast: 3,        // three fast answers in the burst is suspicious
+    burstMaxAccuracy: 0.25, // no more than one correct answer in four
     lockMs: 4500            // pause length
 };
 let tagHistory = [];
@@ -6213,6 +6217,7 @@ if(currentQuestion.image){
 // =============================================     
 function displayQuestion() {
     answerSubmissionPending = false;
+    questionStartTime = Date.now();
     const optionsElement = document.getElementById("answers");
     optionsElement.innerHTML = "";
 
@@ -6264,9 +6269,21 @@ function checkRapidGuessing(isCorrect, responseTime){
 
     const avgTime = recent.reduce((sum, item) => sum + item.responseTime, 0) / recent.length;
     const accuracy = recent.reduce((sum, item) => sum + item.correct, 0) / recent.length;
+    const burst = recent.slice(-RAPID_GUESS_CONFIG.burstWindowSize);
+    const burstFastCount = burst.filter(item =>
+        item.responseTime < RAPID_GUESS_CONFIG.burstFastMs
+    ).length;
+    const burstAccuracy = burst.length
+        ? burst.reduce((sum, item) => sum + item.correct, 0) / burst.length
+        : 1;
+    const rollingPattern = avgTime < RAPID_GUESS_CONFIG.avgTimeMs
+        && accuracy < RAPID_GUESS_CONFIG.maxAccuracy;
+    const burstPattern = burst.length === RAPID_GUESS_CONFIG.burstWindowSize
+        && burstFastCount >= RAPID_GUESS_CONFIG.burstMinFast
+        && burstAccuracy <= RAPID_GUESS_CONFIG.burstMaxAccuracy;
 
     return {
-        triggered: avgTime < RAPID_GUESS_CONFIG.avgTimeMs && accuracy < RAPID_GUESS_CONFIG.maxAccuracy,
+        triggered: rollingPattern || burstPattern,
         avgTime,
         accuracy
     };
@@ -7750,7 +7767,11 @@ function getMasteryReportData(){
     const typeEntries = getTypeMasteryEntries();
     const behavior = getRecentBehaviorSignals();
 
-    const strongest = sortStrongest([...objectiveEntries, ...tagEntries]).slice(0, 4);
+    const strongest = sortStrongest(
+        [...objectiveEntries, ...tagEntries].filter(entry =>
+            entry.attempts >= 2 && entry.accuracy >= 0.70
+        )
+    ).slice(0, 4);
     const weakestObjectives = getMeaningfulWeakEntries(objectiveEntries, 0.85).slice(0, 4);
     const weakestTypes = getMeaningfulWeakEntries(typeEntries, 0.85).slice(0, 3);
     const weakestSkills = getMeaningfulWeakEntries(skillEntries, 0.85).slice(0, 3);
